@@ -152,9 +152,6 @@ window.cancelIdleCallback = window.cancelIdleCallback || function(id) {
         // 图片
         const imageboxs = document.getElementsByClassName("kratos-entry-thumb-new-img");
         let prefix = kr.site_root;
-        if (kr.picCDN || (kr.pic && kr.pic.CDN)) {
-            prefix = "//cdn.jsdelivr.net/gh/Candinya/Kratos-Rebirth@latest/source/";
-        }
         let randomAmount = 20;
         if (kr.pic && parseInt(kr.pic.random_amount)) {
             randomAmount = parseInt(kr.pic.random_amount);

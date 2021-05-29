@@ -1311,7 +1311,7 @@ ul.kratos-post-meta:not(:last-child) {
   margin-bottom: 25px;
   background-color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 0;
+  border-radius: 15px;
   -webkit-transition: all .6s ease;
   transition: all .6s ease;
 }
@@ -1521,16 +1521,17 @@ ul.kratos-post-meta:not(:last-child) {
   position: relative;
   float: left;
   width: 240px;
-  height: 145px;
+  height: 144px;
   overflow: hidden;
   margin: 20px;
+  border-radius: 10px;
 }
 
 .kratos-entry-thumb-new img {
   padding: 2px;
-  border: 1px solid #f3f3f3;
-  height: 145px;
+  height: 144px;
   width: 240px;
+  border-radius: 10px;
 }
 
 .kratos-entry-border-new {
@@ -1539,6 +1540,7 @@ ul.kratos-post-meta:not(:last-child) {
 
 .kratos-entry-border-new .kratos-post-meta-new {
   padding: 3px 20px;
+  border-radius: 0 0 15px 15px;
   border-top: 1px solid #f3f3f3;
   line-height: 27px;
   overflow: hidden;
@@ -1569,20 +1571,12 @@ ul.kratos-post-meta:not(:last-child) {
   color: #333;
 }
 
-.kratos-entry-border-new .pin-top.wrapper {
+.kratos-entry-border-new .pin-top {
+  color: crimson;;
   position: absolute;
-  right: -10px;
+  right: 5px;
   top: -10px;
   z-index: 1;
-  border-radius: 50%;
-  animation: top-pulse 3s infinite;
-}
-
-.kratos-entry-border-new .pin-top.inner {
-  width: 20px;
-  height: 20px;
-  background-color: #51aded;
-  border-radius: 50%;
 }
 
 .kratos-entry-header {
