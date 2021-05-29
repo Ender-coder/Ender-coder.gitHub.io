@@ -15,12 +15,12 @@
   
     <meta name="keywords" content="C++, 滑动窗口" />
   
-  <meta name="description" content="题目描述 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。  示例 1: 123输入: s &#x3D; &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。  示例 2: 123输入: s &#x3D; &quot;bbbbb&quot;输出: 1解释: 因为无重复字符的最长子串是 &quot;b&quot;，所">
+  <meta name="description" content="题目描述给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。 示例 1:123输入: s &#x3D; &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。 示例 2:123输入: s &#x3D; &quot;bbbbb&quot;输出: 1解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 3.无重复字符的最长子串">
 <meta property="og:url" content="http://ender-coder.github.io/2021/05/24/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。  示例 1: 123输入: s &#x3D; &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。  示例 2: 123输入: s &#x3D; &quot;bbbbb&quot;输出: 1解释: 因为无重复字符的最长子串是 &quot;b&quot;，所">
+<meta property="og:description" content="题目描述给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。 示例 1:123输入: s &#x3D; &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。 示例 2:123输入: s &#x3D; &quot;bbbbb&quot;输出: 1解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta property="article:published_time" content="2021-05-24T14:36:08.446Z">
@@ -85,7 +85,7 @@
                                     
                                 
                                     
-                                        <li><a href="/about/"><i class="fas fa-paper-plane fa-fw"></i>关于</a></li>
+                                        <li><a href="/about"><i class="fas fa-paper-plane fa-fw"></i>关于</a></li>
                                     
                                 
                             </ul>
@@ -136,7 +136,7 @@
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1454
+                            1401
                         
                         字
                     </li>
@@ -155,29 +155,20 @@
                 </div>
                 
                 <hr />
-                <h3 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h3>
-<p>给定一个字符串，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
-<h3 id="示例-1"><a class="markdownIt-Anchor" href="#示例-1"></a> 示例 1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2"><a class="markdownIt-Anchor" href="#示例-2"></a> 示例 2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-3"><a class="markdownIt-Anchor" href="#示例-3"></a> 示例 3:</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;pwwkew&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span><br><span class="line">     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-4"><a class="markdownIt-Anchor" href="#示例-4"></a> 示例 4:</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;&quot;</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure>
-<h3 id="提示"><a class="markdownIt-Anchor" href="#提示"></a> 提示：</h3>
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>&lt;</mo><mo>=</mo><mi>s</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&lt;</mo><mo>=</mo><mn>5</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">0 &lt;= s.length &lt;= 5 * 10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span> 由英文字母、数字、符号和空格组成</li>
+                <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个字符串，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例 3:"></a>示例 3:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;pwwkew&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span><br><span class="line">     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
+<h3 id="示例-4"><a href="#示例-4" class="headerlink" title="示例 4:"></a>示例 4:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;&quot;</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
+<li>$0 &lt;= s.length &lt;= 5 * 10^4$</li>
+<li>$s$ 由英文字母、数字、符号和空格组成</li>
 </ul>
-<h3 id="链接"><a class="markdownIt-Anchor" href="#链接"></a> 链接：</h3>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters">https://leetcode-cn.com/problems/longest-substring-without-repeating-characters</a></p>
-<hr />
-<h3 id="题目分析"><a class="markdownIt-Anchor" href="#题目分析"></a> 题目分析</h3>
-<p>  由于题目要求寻找的子串是连续的，则我们可以使用滑动窗口的思想。也就是说，<code>right</code> 向右遍历添加字符进入窗口，而当添加的字符与窗口中已有字符重复时，我们将左边的字符移出窗口，直到字符不再重复。而我们维护这样一个窗口，若窗口是目前最大长度时，对这个长度进行记录即可。查找字符是否存在使用一个哈希表解决。注意字符串为空的情况直接返回 0。</p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters">https://leetcode-cn.com/problems/longest-substring-without-repeating-characters</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;由于题目要求寻找的子串是连续的，则我们可以使用滑动窗口的思想。也就是说，<code>right</code> 向右遍历添加字符进入窗口，而当添加的字符与窗口中已有字符重复时，我们将左边的字符移出窗口，直到字符不再重复。而我们维护这样一个窗口，若窗口是目前最大长度时，对这个长度进行记录即可。查找字符是否存在使用一个哈希表解决。注意字符串为空的情况直接返回 0。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        unordered_set&lt;<span class="keyword">char</span>&gt; alpha;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> right = <span class="number">0</span>; right &lt; s.<span class="built_in">size</span>(); right++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(alpha.<span class="built_in">find</span>(s[right]) != alpha.<span class="built_in">end</span>())&#123;</span><br><span class="line">                alpha.<span class="built_in">erase</span>(s[left]);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            alpha.<span class="built_in">insert</span>(s[right]);</span><br><span class="line">            res = <span class="built_in">max</span>(res, right-left+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 是字符串的长度。滑动窗口的两头指针分别遍历了一次字符串。<br />
-  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi mathvariant="normal">∣</mi><mi mathvariant="normal">Σ</mi><mi mathvariant="normal">∣</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(|\Sigma|)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">∣</span><span class="mord">Σ</span><span class="mord">∣</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Σ</mi></mrow><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Σ</span></span></span></span> 是字符串中出现过的字符集，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi mathvariant="normal">Σ</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|\Sigma|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord">Σ</span><span class="mord">∣</span></span></span></span> 表示字符集的大小。因为我们需要维护字符串出现过的字符构成的哈希表。</p>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，$n$ 是字符串的长度。滑动窗口的两头指针分别遍历了一次字符串。<br>&emsp;&emsp;空间复杂度：$O(|\Sigma|)$，$\Sigma$ 是字符串中出现过的字符集，$|\Sigma|$ 表示字符集的大小。因为我们需要维护字符串出现过的字符构成的哈希表。</p>
 
             </div>
             
@@ -247,10 +238,8 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://ender-coder.github.io/2021/05/24/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/";
             const title         = "「Leetcode 3.无重复字符的最长子串」";
-            const excerpt       = ` 题目描述
-给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
- 示例 1:
-123输入: s = &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，...`;
+            const excerpt       = `题目描述给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+示例 1:123输入: s = &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
