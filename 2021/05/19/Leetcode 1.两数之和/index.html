@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 2.两数相加 | 心之所向便是光</title>
+  <title>Leetcode 1.两数之和 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++" />
+    <meta name="keywords" content="C++, 哈希" />
   
-  <meta name="description" content="题目描述给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。请你将两个数相加，并以相同形式返回一个表示和的链表。你可以假设除了数字 0 之外，这两个数都不会以 0 开头。 示例1：123输入：l1 &#x3D; [2,4,3], l2 &#x3D; [5,6,4]输出：[7,0,8]解释：342 + 465 &#x3D; 807.  示例2：12输入：l1 &#x3D;">
+  <meta name="description" content="题目描述给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。你可以按任意顺序返回答案。 示例 1：123输入：nums &#x3D; [2,7,11,15], target &#x3D; 9输出：[0,1]解释：因为 nums[0] + nums[1] &#x3D;&#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 2.两数相加">
-<meta property="og:url" content="http://ender-coder.github.io/2021/05/24/Leetcode%202.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/index.html">
+<meta property="og:title" content="Leetcode 1.两数之和">
+<meta property="og:url" content="http://ender-coder.github.io/2021/05/19/Leetcode%201.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。请你将两个数相加，并以相同形式返回一个表示和的链表。你可以假设除了数字 0 之外，这两个数都不会以 0 开头。 示例1：123输入：l1 &#x3D; [2,4,3], l2 &#x3D; [5,6,4]输出：[7,0,8]解释：342 + 465 &#x3D; 807.  示例2：12输入：l1 &#x3D;">
+<meta property="og:description" content="题目描述给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。你可以按任意顺序返回答案。 示例 1：123输入：nums &#x3D; [2,7,11,15], target &#x3D; 9输出：[0,1]解释：因为 nums[0] + nums[1] &#x3D;&#x3D;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-05-24T14:36:08.435Z">
-<meta property="article:modified_time" content="2021-05-30T08:41:07.625Z">
+<meta property="article:published_time" content="2021-05-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-30T09:25:26.819Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="哈希">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -125,22 +126,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 2.两数相加</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 1.两数之和</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2021-05-24</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-05-19</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1.83K
+                            2.22K
                         
                         字
                     </li>
                     
-                        <li id="/2021/05/24/Leetcode%202.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" class="leancloud_visitors" data-flag-title="Leetcode 2.两数相加">
+                        <li id="/2021/05/19/Leetcode%201.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="leancloud_visitors" data-flag-title="Leetcode 1.两数之和">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -150,25 +151,28 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622364067625"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1622366726819"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。<br>请你将两个数相加，并以相同形式返回一个表示和的链表。<br>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<h3 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [2,4,3], l2 = [5,6,4]</span><br><span class="line">输出：[7,0,8]</span><br><span class="line">解释：342 + 465 = 807.</span><br></pre></td></tr></table></figure>
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg" alt=""></p>
-<h3 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [0], l2 = [0]</span><br><span class="line">输出：[0]</span><br></pre></td></tr></table></figure>
-<h3 id="示例3："><a href="#示例3：" class="headerlink" title="示例3："></a>示例3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]</span><br><span class="line">输出：[8,9,9,9,0,0,0,1]</span><br></pre></td></tr></table></figure>
+                <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值</strong> 的那 <strong>两个</strong> 整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。<br>你可以按任意顺序返回答案。</p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,7,11,15], target = 9</span><br><span class="line">输出：[0,1]</span><br><span class="line">解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,2,4], target = 6</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,3], target = 6</span><br><span class="line">输出：[0,1]</span><br></pre></td></tr></table></figure>
 <h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
-<li>每个链表中的节点数在范围 [1, 100] 内</li>
-<li>0 &lt;= Node.val &lt;= 9</li>
-<li>题目数据保证列表表示的数字不含前导零</li>
+<li>$2 &lt;= nums.length &lt;= 10^3$</li>
+<li>$-10^9 &lt;= nums[i] &lt;= 10^9$</li>
+<li>$-10^9 &lt;= target &lt;= 10^9$</li>
+<li>只会存在一个有效答案</li>
 </ul>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/add-two-numbers">https://leetcode-cn.com/problems/add-two-numbers</a></p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum">https://leetcode-cn.com/problems/two-sum</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;类似于大数加法，链表中的数字是逆序存储的，刚好就像我们列竖式计算的过程，直接将每一位相加，并将进位 <code>carry</code> 存储即可。结果中的某一位为 <code>res[i] = (l1[i] + l2[i] + carry) % 10</code> 而 <code>carry = (l1[i] + l2[i] + carry) / 10</code>。而对于不一样长的链表，我们只需认为短链表的结点值为 <code>0</code>。迭代遍历整个链表并将结果不断增加到结果链表中得到答案。需要注意的点是，若两个链表的所有结点都已经遍历完毕而仍然有进位，需要将进位也添加到结果链表中；对于链表的迭代，一定要先判断指针是否已经为空。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 初始化头结点</span></span><br><span class="line">        ListNode *head = <span class="keyword">new</span> <span class="built_in">ListNode</span>((l1-&gt;val + l2-&gt;val)%<span class="number">10</span>, <span class="literal">nullptr</span>);</span><br><span class="line">        <span class="comment">// 初始化当前结点（尾结点）</span></span><br><span class="line">        ListNode *tail = head;</span><br><span class="line">        <span class="comment">// 初始化进位值</span></span><br><span class="line">        <span class="keyword">int</span> carry = (l1-&gt;val + l2-&gt;val)/<span class="number">10</span>;</span><br><span class="line">        <span class="comment">// 指针下移一位</span></span><br><span class="line">        l1 = l1-&gt;next;</span><br><span class="line">        l2 = l2-&gt;next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(l1 || l2)&#123;</span><br><span class="line">            <span class="comment">// 链表已空则用0代替结点值</span></span><br><span class="line">            <span class="keyword">int</span> v1 = l1? l1-&gt;val:<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> v2 = l2? l2-&gt;val:<span class="number">0</span>;</span><br><span class="line">            <span class="comment">// 将结果添加到链表中</span></span><br><span class="line">            tail-&gt;next = <span class="keyword">new</span> <span class="built_in">ListNode</span>((v1+v2+carry)%<span class="number">10</span>, <span class="literal">nullptr</span>);</span><br><span class="line">            tail = tail-&gt;next;</span><br><span class="line">            <span class="comment">// 更新进位值</span></span><br><span class="line">            carry = (v1+v2+carry)/<span class="number">10</span>;</span><br><span class="line">            <span class="comment">// 若链表未空则指针下移一位</span></span><br><span class="line">            <span class="keyword">if</span>(l1) l1 = l1-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(l2) l2 = l2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 添加进位</span></span><br><span class="line">        <span class="keyword">if</span>(carry) tail-&gt;next = <span class="keyword">new</span> <span class="built_in">ListNode</span>(carry, <span class="literal">nullptr</span>);</span><br><span class="line">        <span class="comment">// 返回头结点</span></span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(max(m,n))$，其中 $m、n$ 分别是两个链表的长度。因为只需遍历一次链表，而对于每个结点处理的时间开销为 $O(1)$。<br>&emsp;&emsp;空间复杂度：$O(1)$。返回值不计入空间开销，而我们只需要一个变量存储进位值，无需其他额外开销。</p>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h4 id="1-暴力解法"><a href="#1-暴力解法" class="headerlink" title="1.暴力解法"></a>1.暴力解法</h4><p>&emsp;&emsp;我们可以直接对数组进行双层遍历，对于整数 <code>nums[i]</code>，寻找数组中是否存在另外一个整数 <code>nums[j]</code> 使得他们的和为 <code>target</code>，如果存在则返回答案。当然，由于我们在寻找 <code>nums[j]</code> 时，位于 <code>nums[i]</code> 前面的元素已经和 <code>nums[i]</code> 匹配过，而且每个元素不能使用两次，因此向后寻找元素进行匹配即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>()<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] + nums[j] == target)&#123;</span><br><span class="line">                    <span class="keyword">return</span> &#123;i, j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n^2)$，$n$ 是数组元素数目。最坏情况下对任意两个元素都需进行比较。<br>&emsp;&emsp;空间复杂度：$O(1)$。只需进行求和比较，无需额外的空间。</p>
+<h4 id="2-哈希表解法"><a href="#2-哈希表解法" class="headerlink" title="2.哈希表解法"></a>2.哈希表解法</h4><p>&emsp;&emsp;从暴力解法我们可以注意到，我们对查找的要求较高。如果能够快速找到 <code>target-nums[i]</code> 的数组下标，则可以较快完成目标。我们考虑使用 <code>unordered_map</code> 存放元素及其下标。依然是遍历整个数组，对于每个元素 <code>nums[i]</code>，查找 <code>target-nums[i]</code> 是否存在于哈希表中，如果有，则返回 <code>target-nums[i]</code> 的下标以及 <code>i</code>；如果没有，则将 <code>nums[i]</code> 的值和下标添加到哈希表中。<br>&emsp;&emsp;对于重复元素，case1：有三个或以上，则说明这些重复元素并不构成解（因为只会存在一个有效答案），没有影响；case2：有两个，且为解，则只能两个重复元素的和刚好为 <code>target</code>（因为只会存在一个有效答案），对于这种情况，第二个重复元素并未进入哈希表就已经作为答案进行返回；case3：有两个，且不为解，没有影响。因此对于重复元素直接进行插入覆盖不会产生问题。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; hashmap;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">auto</span> it = hashmap.<span class="built_in">find</span>(target-nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(it != hashmap.<span class="built_in">end</span>())&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;it-&gt;second, i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            hashmap.<span class="built_in">insert</span>(pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;(nums[i], i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，$n$ 是数组元素数目。只进行一次遍历，哈希表每次查找的时间复杂度为$O(1)$。<br>&emsp;&emsp;空间复杂度：$O(n)$，$n$ 是数组元素数目。主要为建立哈希表的开销。</p>
 
             </div>
             
@@ -224,7 +228,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/05/24/Leetcode%202.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/",
+                text: "http://ender-coder.github.io/2021/05/19/Leetcode%201.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -236,9 +240,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/05/24/Leetcode%202.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/";
-            const title         = "「Leetcode 2.两数相加」";
-            const excerpt       = `题目描述给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。请你将两个数相加，并以相同形式返回一个表示和的链表。你可以假设除了数字 0 之外，这两个数都不会以 0 开...`;
+            const hostUrl       = "http://ender-coder.github.io/2021/05/19/Leetcode%201.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/";
+            const title         = "「Leetcode 1.两数之和」";
+            const excerpt       = `题目描述给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。你可以按任意顺...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -257,7 +261,7 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%93%88%E5%B8%8C/" rel="tag">哈希</a>
                     </div>
                     <div class="pull-date">
                     <span>最后编辑：2021-05-30</span>
@@ -269,12 +273,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" Leetcode 1.两数之和" href="/2021/05/24/Leetcode 1.两数之和/">&lt; 上一篇</a>
+                    <a title=" Leetcode 2.两数相加" href="/2021/05/19/Leetcode 2.两数相加/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" Leetcode 3.无重复字符的最长子串" href="/2021/05/24/Leetcode 3.无重复字符的最长子串/">下一篇 &gt;</a>
+                    <a title=" Leetcode 4.寻找两个正序数组的中位数" href="/2021/05/20/Leetcode 4.寻找两个正序数组的中位数/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -290,7 +294,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/05/24/Leetcode%202.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/'
+                path: '/2021/05/19/Leetcode%201.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/'
             });
         }
         if (typeof Valine == 'undefined') {
@@ -354,7 +358,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fas fa-tags"></i>标签云</h4>
       <div class="tag-clouds">
-        <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.6em;">二分查找</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.7em;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.7em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.6em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.7em;">回溯</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.6em;">快慢指针</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.6em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.6em;">滑动窗口</a>
+        <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.6em;">二分查找</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.7em;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.7em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.6em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.7em;">回溯</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.6em;">快慢指针</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.6em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.6em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a>
       </div>
   </aside>
 
@@ -374,13 +378,7 @@
         
           
           
-            <a class="list-group-item" href="/2021/05/24/Leetcode%2022.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/"><i class="fas fa-file-alt"></i> Leetcode 22.括号生成</a>
-            
-          
-        
-          
-          
-            <a class="list-group-item" href="/2021/05/24/Leetcode%2021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/"><i class="fas fa-file-alt"></i> Leetcode 21.合并两个有序链表</a>
+            <a class="list-group-item" href="/2021/05/24/Leetcode%2019.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fas fa-file-alt"></i> Leetcode 19.删除链表的倒数第N个结点</a>
             
           
         
@@ -392,10 +390,18 @@
         
           
           
-            <a class="list-group-item" href="/2021/05/24/Leetcode%2019.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fas fa-file-alt"></i> Leetcode 19.删除链表的倒数第N个结点</a>
+            <a class="list-group-item" href="/2021/05/24/Leetcode%2022.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/"><i class="fas fa-file-alt"></i> Leetcode 22.括号生成</a>
             
           
         
+          
+          
+            <a class="list-group-item" href="/2021/05/24/Leetcode%2021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/"><i class="fas fa-file-alt"></i> Leetcode 21.合并两个有序链表</a>
+            
+          
+        
+          
+            
           
             
           
