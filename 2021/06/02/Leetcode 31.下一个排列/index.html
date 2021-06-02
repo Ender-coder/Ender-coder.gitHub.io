@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 3.无重复字符的最长子串 | 心之所向便是光</title>
+  <title>Leetcode 31.下一个排列 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,21 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++, 滑动窗口" />
+    <meta name="keywords" content="C++, 字典序" />
   
-  <meta name="description" content="题目描述：给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
+  <meta name="description" content="题目描述：实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。 如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 3.无重复字符的最长子串">
-<meta property="og:url" content="http://ender-coder.github.io/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/index.html">
+<meta property="og:title" content="Leetcode 31.下一个排列">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/02/Leetcode%2031.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述：给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
+<meta property="og:description" content="题目描述：实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。 如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-05-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-02T09:59:09.749Z">
+<meta property="article:published_time" content="2021-06-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-02T16:33:54.060Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="滑动窗口">
+<meta property="article:tag" content="字典序">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -125,22 +125,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 3.无重复字符的最长子串</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 31.下一个排列</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2021-05-19</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-06-02</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1402
+                            2.14K
                         
                         字
                     </li>
                     
-                        <li id="/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" class="leancloud_visitors" data-flag-title="Leetcode 3.无重复字符的最长子串">
+                        <li id="/2021/06/02/Leetcode%2031.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/" class="leancloud_visitors" data-flag-title="Leetcode 31.下一个排列">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -150,24 +150,27 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622627949749"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1622651634060"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个字符串，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。<br><span id="more"></span></p>
-<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例 3:"></a>示例 3:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;pwwkew&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span><br><span class="line">     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-4"><a href="#示例-4" class="headerlink" title="示例 4:"></a>示例 4:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;&quot;</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>实现获取 <strong>下一个排列</strong> 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。</p>
+<p>如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。<br><span id="more"></span></p>
+<p>必须 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95"><strong>原地</strong></a> 修改，只允许使用额外常数空间。</p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,2,3]</span><br><span class="line">输出：[1,3,2]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,2,1]</span><br><span class="line">输出：[1,2,3]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,1,5]</span><br><span class="line">输出：[1,5,1]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-4："><a href="#示例-4：" class="headerlink" title="示例 4："></a>示例 4：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1]</span><br><span class="line">输出：[1]</span><br></pre></td></tr></table></figure>
 <h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
-<li>$0 &lt;= s.length &lt;= 5 * 10^4$</li>
-<li>$s$ 由英文字母、数字、符号和空格组成</li>
+<li>1 &lt;= nums.length &lt;= 100</li>
+<li>0 &lt;= nums[i] &lt;= 100</li>
 </ul>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters">https://leetcode-cn.com/problems/longest-substring-without-repeating-characters</a></p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/next-permutation">https://leetcode-cn.com/problems/next-permutation</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;由于题目要求寻找的子串是连续的，则我们可以使用滑动窗口的思想。也就是说，<code>right</code> 向右遍历添加字符进入窗口，而当添加的字符与窗口中已有字符重复时，我们将左边的字符移出窗口，直到字符不再重复。而我们维护这样一个窗口，若窗口是目前最大长度时，对这个长度进行记录即可。查找字符是否存在使用一个哈希表解决。注意字符串为空的情况直接返回 0。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        unordered_set&lt;<span class="keyword">char</span>&gt; alpha;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> right = <span class="number">0</span>; right &lt; s.<span class="built_in">size</span>(); right++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(alpha.<span class="built_in">find</span>(s[right]) != alpha.<span class="built_in">end</span>())&#123;</span><br><span class="line">                alpha.<span class="built_in">erase</span>(s[left]);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            alpha.<span class="built_in">insert</span>(s[right]);</span><br><span class="line">            res = <span class="built_in">max</span>(res, right-left+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(n)$，$n$ 是字符串的长度。滑动窗口的两头指针分别遍历了一次字符串。<br>&emsp;&emsp;空间复杂度：$O(|\Sigma|)$，$\Sigma$ 是字符串中出现过的字符集，$|\Sigma|$ 表示字符集的大小。因为我们需要维护字符串出现过的字符构成的哈希表。</p>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;首先我们要分析 “字典序” 中下一个排列是什么，下一个排列是比当前排列大的最小的排列。<br>&emsp;&emsp;为了获取到比当前排列 “大” 的排列，则表明在从左往右数的某一位中，新排列的数字比原排列的大，而在此之前所有的数字均与原排列一样。由于越往右表示的权重越小，则为了使新排列尽可能的 “小”，我们应该令改变的数字尽可能地靠右。另一方面，改变的数字必须从原数字的右边选取，并且必须比原数字大。那么靠右的极限是什么？应该是后面的每个数的右边均不存在比自己小的数了，也即意味着，右边的数是降序排列（包含相同）的。我们只需要从数组最后往前找，找到第一个降序的数（不包含相同），这样就找到了需要换数字的某一位数（最右的降序排列反着找就是升序排列，而我们要找到第一个不符合的数），我们把这个下标记为 <code>left</code>。<br>&emsp;&emsp;为了使新排列尽可能的小，我们需要换的数字也必须尽可能的小，因此我们需要在右边的降序排列中找到比 <code>nums[left]</code> 大，但是又尽可能地小的数。也即从数组最后往前找，找到第一个比 <code>nums[left]</code> 大的数（此时相当于是升序查找的，因此可以保证尽可能地小），我们把这个数记为 <code>nums[right]</code>。<br>&emsp;&emsp;将 <code>nums[right]</code> 与 <code>nums[left]</code> 交换后，已经可以保证新排列比原排列大，为了使新排列尽可能地小，我们需要另 <code>nums[left]</code> 之后的序列变为升序序列，这样是最小的情况。而我们进行交换的时候，有 <code>nums[right-1] &gt;= nums[right] &gt; nums[left] &gt;= nums[right+1]</code>，则可以保证将 <code>nums[left]</code> 交换到 <code>nums[right]</code> 原本的位置后，右边的降序序列仍然是降序序列，则使用一个 <code>reverse</code> 函数将这部分反转为升序序列即可。同时的，这个函数是由双指针实现的，可以保证题目要求的原地修改。</p>
+<p>&emsp;&emsp;对于题目中的边界情况有 ①原数组是降序排列（最大排列），这个时候寻找不到 <code>nums[left]</code>，也即寻找到的 <code>left</code> 值为 -1。而我们需要反转的区间原本应该是 <code>left+1 ~ end</code>，刚好 <code>left</code> 为 -1 时，反转区间从 0 开始，也即将整个数组进行反转，成为升序排列（最小排列），符合题意。②原数组只有一个数，这种情况其实等同于上一种情况，只是最大排列和最小排列是相同的，将其进行反转也不会改变什么，因此不需要进行单独处理。因此最后的代码如下。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = nums.<span class="built_in">size</span>()<span class="number">-2</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &gt;= <span class="number">0</span> &amp;&amp; nums[left] &gt;= nums[left + <span class="number">1</span>])&#123;</span><br><span class="line">            left--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(left &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> right = nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(right &gt; left &amp;&amp; nums[right] &lt;= nums[left])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">swap</span>(nums[left], nums[right]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>()+left+<span class="number">1</span>, nums.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为数组的长度。因为我们只进行了两次扫描，一次反转操作，这些操作的时间复杂度均为 $O(n)$。<br>&emsp;&emsp;空间复杂度：$O(1)$。我们只需要两个变量存放交换的数字位置，一个变量用于数组反转。</p>
 
             </div>
             
@@ -223,7 +226,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/",
+                text: "http://ender-coder.github.io/2021/06/02/Leetcode%2031.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -235,9 +238,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/";
-            const title         = "「Leetcode 3.无重复字符的最长子串」";
-            const excerpt       = `题目描述：给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/02/Leetcode%2031.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/";
+            const title         = "「Leetcode 31.下一个排列」";
+            const excerpt       = `题目描述：实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
+如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -256,10 +260,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">滑动窗口</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" rel="tag">字典序</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-06-02</span>
+                    <span>最后编辑：2021-06-03</span>
                     </div>
                 </div>
             </footer>
@@ -268,12 +272,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" C++华容道" href="/2019/07/26/C++华容道/">&lt; 上一篇</a>
+                    <a title=" Leetcode 19.删除链表的倒数第N个结点" href="/2021/05/24/Leetcode 19.删除链表的倒数第N个结点/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" Leetcode 2.两数相加" href="/2021/05/19/Leetcode 2.两数相加/">下一篇 &gt;</a>
+                    <a title=" Leetcode 23.合并K个升序链表" href="/2021/06/02/Leetcode 23.合并K个升序链表/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -289,7 +293,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/'
+                path: '/2021/06/02/Leetcode%2031.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/'
             });
         }
         if (typeof Valine == 'undefined') {
