@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="C++, 栈" />
   
-  <meta name="description" content="题目描述给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;&amp;#123;&#39;，&#39;&amp;#125;&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。 有效字符串需满足：  左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。  示例 1：12输入：s &#x3D; &quot;()&quot;输出：true 示例 2：1">
+  <meta name="description" content="题目描述：给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;&amp;#123;&#39;，&#39;&amp;#125;&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 20.有效的括号">
 <meta property="og:url" content="http://ender-coder.github.io/2021/05/24/Leetcode%2020.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;&amp;#123;&#39;，&#39;&amp;#125;&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。 有效字符串需满足：  左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。  示例 1：12输入：s &#x3D; &quot;()&quot;输出：true 示例 2：1">
+<meta property="og:description" content="题目描述：给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;&amp;#123;&#39;，&#39;&amp;#125;&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta property="article:published_time" content="2021-05-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-30T09:26:35.041Z">
+<meta property="article:modified_time" content="2021-06-02T09:59:36.746Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="栈">
@@ -46,7 +46,6 @@
   
   <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css" type="text/css" media="all">
   <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
-  
   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
@@ -151,12 +150,11 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622366795041"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1622627976746"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;&#123;&#39;</code>，<code>&#39;&#125;&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串 <code>s</code> ，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;&#123;&#39;</code>，<code>&#39;&#125;&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39;</code> 的字符串 <code>s</code> ，判断字符串是否有效。<br><span id="more"></span><br>有效字符串需满足：</p>
 <ol>
 <li>左括号必须用相同类型的右括号闭合。</li>
 <li>左括号必须以正确的顺序闭合。</li>
@@ -245,8 +243,7 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://ender-coder.github.io/2021/05/24/Leetcode%2020.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/";
             const title         = "「Leetcode 20.有效的括号」";
-            const excerpt       = `题目描述给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;&#123;&#39;，&#39;&#125;&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。
-有效字符...`;
+            const excerpt       = `题目描述：给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;&#123;&#39;，&#39;&#125;&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -268,7 +265,7 @@
                         <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E6%A0%88/" rel="tag">栈</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-05-30</span>
+                    <span>最后编辑：2021-06-02</span>
                     </div>
                 </div>
             </footer>
@@ -344,7 +341,7 @@
         
           <a class="list-group-item" href="/categories/Leetcode/">
             <i class="fas fa-folder"></i> Leetcode
-            <span>13</span>
+            <span>14</span>
           </a>
         
           <a class="list-group-item" href="/categories/Project/">
@@ -381,7 +378,7 @@
         
           
           
-            <a class="list-group-item" href="/2021/05/26/helloworld/"><i class="fas fa-file-alt"></i> Hello World</a>
+            <a class="list-group-item" href="/2021/06/02/Leetcode%2023.%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/"><i class="fas fa-file-alt"></i> Leetcode 23.合并K个升序链表</a>
             
           
         
@@ -429,6 +426,8 @@
             
           
             
+          
+            
       </ul>
     </div>
   </aside>
@@ -441,7 +440,7 @@
     </div>
 </div>
 <footer>
-    <div id="footer"  >
+    <div id="footer">
         <div class="kr-tool text-center">
             <div class="tool">
                 
@@ -508,7 +507,6 @@
     </div>
 
 <script async src="/js/candy.js"></script>
-
 
 
     <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

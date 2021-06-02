@@ -307,10 +307,6 @@ span.blur:hover {
     background-color:var(--info-background)
 }
 
-#aplayer * {
-    color:unset
-}
-
 span.mjx-chtml.MJXc-display {
     color:var(--text)
 }

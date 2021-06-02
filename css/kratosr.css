@@ -1938,7 +1938,8 @@ ul.kratos-post-meta:not(:last-child) {
   font-size: 16px;
 }
 
-#kratos-widget-area .widget > .widget-title:not(.no-after)::after, #kratos-widget-area .widget > .widget-title > .toc-progress-bar {
+#kratos-widget-area .widget > .widget-title:not(.no-after)::after,
+#kratos-widget-area .widget > .widget-title > .toc-progress-bar {
   position: absolute;
   left: 0;
   bottom: 0;
