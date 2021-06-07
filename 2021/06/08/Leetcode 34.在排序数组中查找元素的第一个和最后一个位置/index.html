@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Hello World | 心之所向便是光</title>
+  <title>Leetcode 34.在排序数组中查找元素的第一个和最后一个位置 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="test" />
+    <meta name="keywords" content="C++, 二分查找" />
   
-  <meta name="description" content="第一篇博客，作为测试。">
+  <meta name="description" content="题目描述：给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。 如果数组中不存在目标值 target，返回 [-1, -1]。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://ender-coder.github.io/2019/07/24/helloworld/index.html">
+<meta property="og:title" content="Leetcode 34.在排序数组中查找元素的第一个和最后一个位置">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/08/Leetcode%2034.%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="第一篇博客，作为测试。">
+<meta property="og:description" content="题目描述：给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。 如果数组中不存在目标值 target，返回 [-1, -1]。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2019-07-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-07T17:13:11.178Z">
+<meta property="article:published_time" content="2021-06-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-07T17:29:40.379Z">
 <meta property="article:author" content="Ender">
-<meta property="article:tag" content="test">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="二分查找">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -124,22 +125,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Hello World</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 34.在排序数组中查找元素的第一个和最后一个位置</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2019-07-24</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-06-08</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            329
+                            2.19K
                         
                         字
                     </li>
                     
-                        <li id="/2019/07/24/helloworld/" class="leancloud_visitors" data-flag-title="Hello World">
+                        <li id="/2021/06/08/Leetcode%2034.%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/" class="leancloud_visitors" data-flag-title="Leetcode 34.在排序数组中查找元素的第一个和最后一个位置">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -149,17 +150,27 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1623085991178"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1623086980379"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h4 id="第一篇博客，作为测试。"><a href="#第一篇博客，作为测试。" class="headerlink" title="第一篇博客，作为测试。"></a>第一篇博客，作为测试。<span id="more"></span></h4><ul>
-<li>那就按照惯例编写一个hello world吧。</li>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个按照升序排列的整数数组 <code>nums</code>，和一个目标值 <code>target</code>。找出给定目标值在数组中的开始位置和结束位置。</p>
+<p>如果数组中不存在目标值 <code>target</code>，返回 <code>[-1, -1]</code>。<br><span id="more"></span></p>
+<p><strong>进阶</strong>：你可以设计并实现时间复杂度为 <code>O(log n)</code> 的算法解决此问题吗？</p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [5,7,7,8,8,10], target = 8</span><br><span class="line">输出：[3,4]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [5,7,7,8,8,10], target = 6</span><br><span class="line">输出：[-1,-1]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [], target = 0</span><br><span class="line">输出：[-1,-1]</span><br></pre></td></tr></table></figure>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
+<li>$0 &lt;= nums.length &lt;= 10^5$ </li>
+<li>$-10^9 &lt;= nums[i] &lt;= 10^9$ </li>
+<li><code>nums</code> 是一个非递减数组</li>
+<li>$-10^9 &lt;= target &lt;= 10^9$ </li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Hello world!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>试一试 $\LaTeX$ 公式能不能正常显示<br>  斐波那契数列通项公式：$a_n=\frac{1}{\sqrt{5}}\left[\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n\right]$ </li>
-</ul>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array">https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;这个题目仍然可以使用二分查找的思路，但是由于我们要找到的是 <code>target</code> 值在数组中的开始位置和结束位置，则我们可以转变一下思路，变成寻找到小于 <code>target</code> 的最大数和大于 <code>target</code> 的最小数，则若还有数存在它们中间，那就是 <code>target</code> 了。下面给出的代码中，<code>ansleft</code> 表示小于 <code>target</code> 的最大数下标，<code>ansright</code> 表示大于 <code>target</code> 的最小数下标，这两个数允许超出数组的界限，也即可以为 <code>-1</code> 或者 <code>nums.size()</code>，这样可以应对 <code>target</code> 在数组边界的情况。我们先寻找 <code>ansleft</code>，再从 <code>ansleft</code> 的右边寻找 <code>ansright</code>，这样既缩小了搜索范围，又可以保证 <code>ansright</code> 大于 <code>ansleft</code>。注意最后返回结果之前检查一下夹在中间的值是不是 <code>target</code> 就可以了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> ansleft = <span class="number">-1</span>, ansright = nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (left + right) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= target)&#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">                ansleft = right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        left = ansleft + <span class="number">1</span>;</span><br><span class="line">        right = nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (left + right) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; target)&#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">                ansright = left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(nums[ansleft+<span class="number">1</span>] == target &amp;&amp; nums[ansright<span class="number">-1</span>] == target)&#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;ansleft+<span class="number">1</span>, ansright<span class="number">-1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(\log n)$，其中 $n$ 是数组的大小。因为我们是采用二分查找的方法得到结果的。<br>&emsp;&emsp;空间复杂度：$O(1)$。我们只需要常数个变量的空间。</p>
 
             </div>
             
@@ -215,7 +226,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2019/07/24/helloworld/",
+                text: "http://ender-coder.github.io/2021/06/08/Leetcode%2034.%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -227,9 +238,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2019/07/24/helloworld/";
-            const title         = "「Hello World」";
-            const excerpt       = `第一篇博客，作为测试。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/08/Leetcode%2034.%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/";
+            const title         = "「Leetcode 34.在排序数组中查找元素的第一个和最后一个位置」";
+            const excerpt       = `题目描述：给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
+如果数组中不存在目标值 target，返回 [-1, -1]。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -248,7 +260,7 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/test/" rel="tag">test</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a>
                     </div>
                     <div class="pull-date">
                     <span>最后编辑：2021-06-08</span>
@@ -259,9 +271,13 @@
         
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
+                <div class="nav-previous clearfix">
+                    <a title=" Leetcode 39.组合总数" href="/2021/06/08/Leetcode 39.组合总数/">&lt; 上一篇</a>
+                </div>
+                
                 
                 <div class="nav-next clearfix">
-                    <a title=" C++华容道" href="/2019/07/26/C++华容道/">下一篇 &gt;</a>
+                    <a title=" Leetcode 33.搜索旋转排序数组" href="/2021/06/08/Leetcode 33.搜索旋转排序数组/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -277,7 +293,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2019/07/24/helloworld/'
+                path: '/2021/06/08/Leetcode%2034.%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/'
             });
         }
         if (typeof Valine == 'undefined') {
