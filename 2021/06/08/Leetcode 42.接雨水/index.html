@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 21.合并两个有序链表 | 心之所向便是光</title>
+  <title>Leetcode 42.接雨水 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++" />
+    <meta name="keywords" content="C++, 双指针" />
   
-  <meta name="description" content="题目描述：将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。">
+  <meta name="description" content="题目描述：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 21.合并两个有序链表">
-<meta property="og:url" content="http://ender-coder.github.io/2021/05/24/Leetcode%2021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:title" content="Leetcode 42.接雨水">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述：将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。">
+<meta property="og:description" content="题目描述：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-05-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-02T09:59:35.226Z">
+<meta property="article:published_time" content="2021-06-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-08T07:50:27.337Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="双指针">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -124,22 +125,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 21.合并两个有序链表</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 42.接雨水</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2021-05-24</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-06-08</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            2.59K
+                            2.83K
                         
                         字
                     </li>
                     
-                        <li id="/2021/05/24/Leetcode%2021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" class="leancloud_visitors" data-flag-title="Leetcode 21.合并两个有序链表">
+                        <li id="/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/" class="leancloud_visitors" data-flag-title="Leetcode 42.接雨水">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -149,27 +150,21 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622627975226"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1623138627337"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>将两个升序链表合并为一个新的 <strong>升序</strong> 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。<br><span id="more"></span></p>
-<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [1,2,4], l2 = [1,3,4]</span><br><span class="line">输出：[1,1,2,3,4,4]</span><br></pre></td></tr></table></figure>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg" alt=""></p>
-<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [], l2 = []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
-<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [], l2 = [0]</span><br><span class="line">输出：[0]</span><br></pre></td></tr></table></figure>
-<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
-<li>两个链表的节点数目范围是 <code>[0, 50]</code></li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-<li><code>l1</code> 和 <code>l2</code> 均按 <strong>非递减顺序</strong> 排列</li>
-</ul>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-two-sorted-lists">https://leetcode-cn.com/problems/merge-two-sorted-lists</a></p>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定 <code>n</code> 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。<br><span id="more"></span></p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rainwatertrap.png" alt=""><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]</span><br><span class="line">输出：6</span><br><span class="line">解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 </span><br></pre></td></tr></table></figure></p>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [4,2,0,3,2,5]</span><br><span class="line">输出：9</span><br></pre></td></tr></table></figure>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n == height.length</span><br><span class="line">0 &lt;= n &lt;= 3 * 104</span><br><span class="line">0 &lt;= height[i] &lt;= 105</span><br></pre></td></tr></table></figure>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/trapping-rain-water">https://leetcode-cn.com/problems/trapping-rain-water</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;合并两个升序链表，只需要用两个指针分别遍历两个链表，每次将值小的那个结点添加到合并链表中即可。如果一个链表为空，则直接返回另一个链表（当两个都为空时返回的也是空）。当迭代到某一个链表为空之后，只需将另外一个链表剩下的部分接到最后即可。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1 == <span class="literal">nullptr</span>) <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">if</span>(l2 == <span class="literal">nullptr</span>) <span class="keyword">return</span> l1;</span><br><span class="line"></span><br><span class="line">        ListNode *head, *tail;</span><br><span class="line">        <span class="keyword">if</span>(l1-&gt;val &lt;= l2-&gt;val)&#123;</span><br><span class="line">            head = l1;</span><br><span class="line">            l1 = l1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            head = l2;</span><br><span class="line">            l2 = l2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        tail = head;</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="literal">nullptr</span> &amp;&amp; l2 != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1-&gt;val &lt;= l2-&gt;val)&#123;</span><br><span class="line">                tail-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                tail-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            tail = tail-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        tail-&gt;next = l1?l1:l2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(m+n)$，其中 $m、n$ 分别为两个链表的大小。因为我们最多只对两个链表进行了一次遍历便可以完成合并的操作。<br>&emsp;&emsp;空间复杂度：$O(1)$。只需要常数个指针进行遍历即可。</p>
-<h4 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h4><p>&emsp;&emsp;思路与上面相同，但是我们可以使用一个哨兵结点 <code>prehead</code> 作为开头，这样就可以不用额外判断合并后的链表是以哪个链表作为头结点，从而代码可以合并到后面迭代的循环中，更为简洁。这里的 <code>prev</code> 相当于上面的 <code>tail</code>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode* preHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">        ListNode* prev = preHead;</span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="literal">nullptr</span> &amp;&amp; l2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">                prev-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                prev-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            prev = prev-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可</span></span><br><span class="line">        prev-&gt;next = l1 == <span class="literal">nullptr</span> ? l2 : l1;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> preHead-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;这道题有点像 <a href="https://ender-coder.github.io/2021/05/22/Leetcode%2011.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">Leetcode 11.盛最多水的容器</a>，因此也是考虑用双指针的做法。与那道题不同的是，这里的每个柱子并不是没有厚度的“壁”，而且对于所有的“坑”都会盛上水，而不是只选取其中两个壁之间盛水。但是思路应该是一致的，我们可以从两边往中间搜索。这是因为观察可以发现，每个较低的柱子，只要两边有高于它的柱子，则可以填上水直到和较低的一边柱子平齐。而我们在利用双指针搜索的时候，优先扩展较低的那边，则可以保证未搜索的区域不会影响已搜索区域填水的高度。<br>&emsp;&emsp;具体的算法是，维护两个变量记录左边已搜索区域的最大高度 <code>maxleft</code> 和右边已搜索区域的最大高度 <code>maxright</code>，而 <code>left</code> 和 <code>right</code> 分别记录当前搜索的左右指针（下标）。如果当前是左边的最大高度 <code>maxleft</code> 较小，则扩展左边，若出现了更高的柱子则更新 <code>maxleft</code>，较低的柱子则填上雨水直到和 <code>maxleft</code> 平齐，也即更新 <code>water</code> 值；同样的，如果是 <code>maxright</code> 较小，则扩展右边，相应地更新 <code>maxright</code> 或者 <code>water</code> 值。最后两个指针相遇的时候搜索结束，得到结果。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trap</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(height.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> water = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxleft = <span class="number">0</span>, maxright = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = height.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(maxleft &lt;= maxright)&#123;</span><br><span class="line">                <span class="keyword">if</span>(height[left] &gt; maxleft)&#123;</span><br><span class="line">                    maxleft = height[left];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    water += maxleft - height[left];</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(height[right] &gt; maxright)&#123;</span><br><span class="line">                    maxright = height[right];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    water += maxright - height[right];</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> water;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 是数组大小。两个指针从左右两端开始遍历直到相遇，总共只对数组进行了一层遍历。<br>&emsp;&emsp;空间复杂度：$O(1)$。我们只需要常数个变量进行记录。</p>
+<h4 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h4><p>&emsp;&emsp;下面的代码是官方题解中双指针的代码，减少了一次判断，将更新 max 值和 water 值（这里是变量 <code>ans</code>)整合到了一起。相应的指针相遇条件有所不同（因为我们上面的代码更新完 max 值也对指针进行了移动，因此指向的永远是未搜索的区域，必须两个指针已经重合后错开才算搜索完毕）。<br>&emsp;&emsp;官方题解中还有动态规划和栈等其他解法，也可以提供一定的解决思路，时间复杂度都是一样的 $O(n)$，但是动态规划和栈解法均需要 $O(n)$ 的空间。感兴趣的可以阅读 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/trapping-rain-water/solution/jie-yu-shui-by-leetcode-solution-tuvc/">接雨水-官方题解</a>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trap</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = height.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> leftMax = <span class="number">0</span>, rightMax = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            leftMax = <span class="built_in">max</span>(leftMax, height[left]);</span><br><span class="line">            rightMax = <span class="built_in">max</span>(rightMax, height[right]);</span><br><span class="line">            <span class="keyword">if</span> (height[left] &lt; height[right]) &#123;</span><br><span class="line">                ans += leftMax - height[left];</span><br><span class="line">                ++left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans += rightMax - height[right];</span><br><span class="line">                --right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
             </div>
             
                 <div class="kratos-copyright text-center clearfix">
@@ -224,7 +219,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/05/24/Leetcode%2021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/",
+                text: "http://ender-coder.github.io/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -236,9 +231,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/05/24/Leetcode%2021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/";
-            const title         = "「Leetcode 21.合并两个有序链表」";
-            const excerpt       = `题目描述：将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/";
+            const title         = "「Leetcode 42.接雨水」";
+            const excerpt       = `题目描述：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -257,10 +252,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-06-02</span>
+                    <span>最后编辑：2021-06-08</span>
                     </div>
                 </div>
             </footer>
@@ -269,12 +264,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" Leetcode 17.电话号码的字母组合" href="/2021/05/23/Leetcode 17.电话号码的字母组合/">&lt; 上一篇</a>
+                    <a title=" Leetcode 32.最长有效括号" href="/2021/06/07/Leetcode 32.最长有效括号/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" Leetcode 22.括号生成" href="/2021/05/24/Leetcode 22.括号生成/">下一篇 &gt;</a>
+                    <a title=" Leetcode 39.组合总数" href="/2021/06/08/Leetcode 39.组合总数/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -290,7 +285,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/05/24/Leetcode%2021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/'
+                path: '/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/'
             });
         }
         if (typeof Valine == 'undefined') {
