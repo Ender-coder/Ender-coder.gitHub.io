@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 3.无重复字符的最长子串 | 心之所向便是光</title>
+  <title>Leetcode 46.全排列 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,21 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++, 滑动窗口" />
+    <meta name="keywords" content="C++, 回溯" />
   
-  <meta name="description" content="题目描述：给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
+  <meta name="description" content="题目描述：给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 3.无重复字符的最长子串">
-<meta property="og:url" content="http://ender-coder.github.io/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/index.html">
+<meta property="og:title" content="Leetcode 46.全排列">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/08/Leetcode%2046.%E5%85%A8%E6%8E%92%E5%88%97/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述：给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
+<meta property="og:description" content="题目描述：给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-05-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-07T17:14:50.349Z">
+<meta property="article:published_time" content="2021-06-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-08T16:57:34.672Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="滑动窗口">
+<meta property="article:tag" content="回溯">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -125,22 +125,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 3.无重复字符的最长子串</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 46.全排列</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2021-05-19</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-06-08</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1403
+                            3.83K
                         
                         字
                     </li>
                     
-                        <li id="/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" class="leancloud_visitors" data-flag-title="Leetcode 3.无重复字符的最长子串">
+                        <li id="/2021/06/08/Leetcode%2046.%E5%85%A8%E6%8E%92%E5%88%97/" class="leancloud_visitors" data-flag-title="Leetcode 46.全排列">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -150,25 +150,28 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1623086090349"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1623171454672"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个字符串，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。<br><span id="more"></span></p>
-<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例 3:"></a>示例 3:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;pwwkew&quot;</span><br><span class="line">输出: 3</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span><br><span class="line">     请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-4"><a href="#示例-4" class="headerlink" title="示例 4:"></a>示例 4:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;&quot;</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个不含重复数字的数组 <code>nums</code> ，返回其 <strong>所有可能的全排列</strong> 。你可以 <strong>按任意顺序</strong> 返回答案。<br><span id="more"></span></p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,2,3]</span><br><span class="line">输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0,1]</span><br><span class="line">输出：[[0,1],[1,0]]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1]</span><br><span class="line">输出：[[1]]</span><br></pre></td></tr></table></figure>
 <h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
-<li>$0 &lt;= s.length &lt;= 5 * 10^4$ </li>
-<li>$s$ 由英文字母、数字、符号和空格组成</li>
+<li>$1 &lt;= nums.length &lt;= 6$ </li>
+<li>$-10 &lt;= nums[i] &lt;= 10$ </li>
+<li><code>nums</code> 中的所有整数 <strong>互不相同</strong></li>
 </ul>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters">https://leetcode-cn.com/problems/longest-substring-without-repeating-characters</a></p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/permutations">https://leetcode-cn.com/problems/permutations</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;由于题目要求寻找的子串是连续的，则我们可以使用滑动窗口的思想。也就是说，<code>right</code> 向右遍历添加字符进入窗口，而当添加的字符与窗口中已有字符重复时，我们将左边的字符移出窗口，直到字符不再重复。而我们维护这样一个窗口，若窗口是目前最大长度时，对这个长度进行记录即可。查找字符是否存在使用一个哈希表解决。注意字符串为空的情况直接返回 0。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        unordered_set&lt;<span class="keyword">char</span>&gt; alpha;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> right = <span class="number">0</span>; right &lt; s.<span class="built_in">size</span>(); right++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(alpha.<span class="built_in">find</span>(s[right]) != alpha.<span class="built_in">end</span>())&#123;</span><br><span class="line">                alpha.<span class="built_in">erase</span>(s[left]);</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            alpha.<span class="built_in">insert</span>(s[right]);</span><br><span class="line">            res = <span class="built_in">max</span>(res, right-left+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(n)$，$n$ 是字符串的长度。滑动窗口的两头指针分别遍历了一次字符串。<br>&emsp;&emsp;空间复杂度：$O(|\Sigma|)$，$\Sigma$ 是字符串中出现过的字符集，$|\Sigma|$ 表示字符集的大小。因为我们需要维护字符串出现过的字符构成的哈希表。</p>
-
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;全排列也即题目中所给数字填在不同的位置构成的所有情况，我们可以按顺序从左到右填上数字，利用回溯的方法即可穷举所有的情况。我们需要填入的数字也即 <code>nums</code> 数组，如何标记已经填入的数字呢？一个方法是维护一个布尔数组用于记录，将已填入的数字标记为 <code>true</code>。每次填入时按顺序遍历，寻找未填入的数字进行填入，并更新这个标记。回溯之后记得将标记回溯为 <code>false</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; result, vector&lt;<span class="keyword">int</span>&gt;&amp; now, vector&lt;<span class="keyword">int</span>&gt;&amp; nums, vector&lt;<span class="keyword">bool</span>&gt;&amp; flag, <span class="keyword">int</span> cnt)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(cnt == nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(now);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!flag[i])&#123;</span><br><span class="line">                now.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">                flag[i] = <span class="literal">true</span>;</span><br><span class="line">                <span class="built_in">backtrack</span>(result, now, nums, flag, cnt+<span class="number">1</span>);</span><br><span class="line">                now.<span class="built_in">pop_back</span>();</span><br><span class="line">                flag[i] = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; now;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">bool</span>&gt; <span class="title">flag</span><span class="params">(nums.size(), <span class="literal">false</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">backtrack</span>(result, now, nums, flag, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;上面的代码我们可以发现，每一次填数时，都需要遍历 <code>flag</code> 数组寻找未填入的数字，这样需要的时间更长，也需要额外的空间，有没有什么办法可以不需要这个标记数组呢？答案是肯定的。我们可以将 <code>nums</code> 数组分割为两个部分，一部分表示已经填入的数，一部分表示未填入的数，每次填入一个数，就将其与分割线的位置交换，例如 <code>&#123;2, 3, | 4, 5, 6&#125;</code> 这样的数组，下一个填入 <code>6</code> 时就将 <code>4</code> 与 <code>6</code> 交换，并且移动分割线，变成 <code>&#123;2, 3, 6, | 5, 4&#125;</code>，这样每次只需要从分割线的位置开始遍历就可以了，并且不需要额外的空间进行标记。值得注意的是，这样的交换会打乱数组的顺序，所以最后输出的结果并不是按照字典序来排列的。题目中说明可以按照任意顺序返回答案，因此可以这样做，如果有要求按照字典序，则只能按照上面的做法。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; result, vector&lt;<span class="keyword">int</span>&gt;&amp; now, vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> begin)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(begin == nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(now);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = begin; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            now.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">swap</span>(nums[begin], nums[i]);</span><br><span class="line">            <span class="built_in">backtrack</span>(result, now, nums, begin+<span class="number">1</span>);</span><br><span class="line">            now.<span class="built_in">pop_back</span>();</span><br><span class="line">            <span class="built_in">swap</span>(nums[begin], nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; now;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">backtrack</span>(result, now, nums, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n\times n!)$，其中 $n$ 是数组的大小。因为我们遍历了所有的排列，全排列的个数为 $n!$。 而对于每一个解，我们都需要 $O(n)$ 的时间将其复制到答案数组中，因此总的时间复杂度为 $O(n\times n!)$。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 是数组的大小。因为作为答案返回的数组不计入所需空间中，而我们需要的额外空间即递归调用的深度，最大深度为 $n$。</p>
+<h4 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h4><p>&emsp;&emsp;看完官方题解才发现，我们在动态维护的 <code>nums</code> 数组，左边表示的已填入的数字就是按照填入的顺序进行排列的，因此可以不用额外的一个 <code>now</code> 数组对结果进行存储，在填完所有的数字后 <code>nums</code> 即为这种排列本身，将其复制到答案中即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; res, vector&lt;<span class="keyword">int</span>&gt;&amp; output, <span class="keyword">int</span> first, <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 所有数都填完了</span></span><br><span class="line">        <span class="keyword">if</span> (first == len) &#123;</span><br><span class="line">            res.<span class="built_in">emplace_back</span>(output);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = first; i &lt; len; ++i) &#123;</span><br><span class="line">            <span class="comment">// 动态维护数组</span></span><br><span class="line">            <span class="built_in">swap</span>(output[i], output[first]);</span><br><span class="line">            <span class="comment">// 继续递归填下一个数</span></span><br><span class="line">            <span class="built_in">backtrack</span>(res, output, first + <span class="number">1</span>, len);</span><br><span class="line">            <span class="comment">// 撤销操作</span></span><br><span class="line">            <span class="built_in">swap</span>(output[i], output[first]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt; &gt; res;</span><br><span class="line">        <span class="built_in">backtrack</span>(res, nums, <span class="number">0</span>, (<span class="keyword">int</span>)nums.<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
             </div>
             
                 <div class="kratos-copyright text-center clearfix">
@@ -223,7 +226,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/",
+                text: "http://ender-coder.github.io/2021/06/08/Leetcode%2046.%E5%85%A8%E6%8E%92%E5%88%97/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -235,9 +238,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/";
-            const title         = "「Leetcode 3.无重复字符的最长子串」";
-            const excerpt       = `题目描述：给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/08/Leetcode%2046.%E5%85%A8%E6%8E%92%E5%88%97/";
+            const title         = "「Leetcode 46.全排列」";
+            const excerpt       = `题目描述：给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -256,10 +259,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">滑动窗口</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%9B%9E%E6%BA%AF/" rel="tag">回溯</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-06-08</span>
+                    <span>最后编辑：2021-06-09</span>
                     </div>
                 </div>
             </footer>
@@ -268,12 +271,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" C++华容道" href="/2019/07/26/C++华容道/">&lt; 上一篇</a>
+                    <a title=" Leetcode 32.最长有效括号" href="/2021/06/07/Leetcode 32.最长有效括号/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" Leetcode 2.两数相加" href="/2021/05/19/Leetcode 2.两数相加/">下一篇 &gt;</a>
+                    <a title=" Leetcode 42.接雨水" href="/2021/06/08/Leetcode 42.接雨水/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -289,7 +292,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/05/19/Leetcode%203.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/'
+                path: '/2021/06/08/Leetcode%2046.%E5%85%A8%E6%8E%92%E5%88%97/'
             });
         }
         if (typeof Valine == 'undefined') {
