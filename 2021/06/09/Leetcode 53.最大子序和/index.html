@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 42.接雨水 | 心之所向便是光</title>
+  <title>Leetcode 53.最大子序和 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,21 +13,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++, 双指针" />
+    <meta name="keywords" content="C++, 分治, 动态规划" />
   
-  <meta name="description" content="题目描述：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。">
+  <meta name="description" content="题目描述：给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 42.接雨水">
-<meta property="og:url" content="http://ender-coder.github.io/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/index.html">
+<meta property="og:title" content="Leetcode 53.最大子序和">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/09/Leetcode%2053.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。">
+<meta property="og:description" content="题目描述：给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-06-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-09T09:25:55.586Z">
+<meta property="article:published_time" content="2021-06-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-09T09:55:02.974Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="双指针">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="分治">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -125,22 +126,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 42.接雨水</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 53.最大子序和</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2021-06-08</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-06-09</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            2.84K
+                            3.08K
                         
                         字
                     </li>
                     
-                        <li id="/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/" class="leancloud_visitors" data-flag-title="Leetcode 42.接雨水">
+                        <li id="/2021/06/09/Leetcode%2053.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/" class="leancloud_visitors" data-flag-title="Leetcode 53.最大子序和">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -150,22 +151,44 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1623230755586"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1623232502974"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定 <code>n</code> 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。<br><span id="more"></span></p>
-<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rainwatertrap.png" alt=""></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]</span><br><span class="line">输出：6</span><br><span class="line">解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 </span><br></pre></td></tr></table></figure>
-<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [4,2,0,3,2,5]</span><br><span class="line">输出：9</span><br></pre></td></tr></table></figure>
-<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n == height.length</span><br><span class="line">0 &lt;= n &lt;= 3 * 104</span><br><span class="line">0 &lt;= height[i] &lt;= 105</span><br></pre></td></tr></table></figure>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/trapping-rain-water">https://leetcode-cn.com/problems/trapping-rain-water</a></p>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个整数数组 <code>nums</code> ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。<br><span id="more"></span><br><strong>进阶</strong>：如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的 <strong>分治法</strong> 求解。</p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出：6</span><br><span class="line">解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+<h3 id="示例-4："><a href="#示例-4：" class="headerlink" title="示例 4："></a>示例 4：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [-1]</span><br><span class="line">输出：-1</span><br></pre></td></tr></table></figure>
+<h3 id="示例-5："><a href="#示例-5：" class="headerlink" title="示例 5："></a>示例 5：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [-100000]</span><br><span class="line">输出：-100000</span><br></pre></td></tr></table></figure>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
+<li>$1 &lt;= nums.length &lt;= 3 * 10^4$ </li>
+<li>$10^5 &lt;= nums[i] &lt;= 10^5$ </li>
+</ul>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray">https://leetcode-cn.com/problems/maximum-subarray</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;这道题有点像 <a href="https://ender-coder.github.io/2021/05/22/Leetcode%2011.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">Leetcode 11.盛最多水的容器</a>，因此也是考虑用双指针的做法。与那道题不同的是，这里的每个柱子并不是没有厚度的“壁”，而且对于所有的“坑”都会盛上水，而不是只选取其中两个壁之间盛水。但是思路应该是一致的，我们可以从两边往中间搜索。这是因为观察可以发现，每个较低的柱子，只要两边有高于它的柱子，则可以填上水直到和较低的一边柱子平齐。而我们在利用双指针搜索的时候，优先扩展较低的那边，则可以保证未搜索的区域不会影响已搜索区域填水的高度。<br>&emsp;&emsp;具体的算法是，维护两个变量记录左边已搜索区域的最大高度 <code>maxleft</code> 和右边已搜索区域的最大高度 <code>maxright</code>，而 <code>left</code> 和 <code>right</code> 分别记录当前搜索的左右指针（下标）。如果当前是左边的最大高度 <code>maxleft</code> 较小，则扩展左边，若出现了更高的柱子则更新 <code>maxleft</code>，较低的柱子则填上雨水直到和 <code>maxleft</code> 平齐，也即更新 <code>water</code> 值；同样的，如果是 <code>maxright</code> 较小，则扩展右边，相应地更新 <code>maxright</code> 或者 <code>water</code> 值。最后两个指针相遇的时候搜索结束，得到结果。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trap</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(height.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> water = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxleft = <span class="number">0</span>, maxright = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = height.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(maxleft &lt;= maxright)&#123;</span><br><span class="line">                <span class="keyword">if</span>(height[left] &gt; maxleft)&#123;</span><br><span class="line">                    maxleft = height[left];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    water += maxleft - height[left];</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(height[right] &gt; maxright)&#123;</span><br><span class="line">                    maxright = height[right];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    water += maxright - height[right];</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> water;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 是数组大小。两个指针从左右两端开始遍历直到相遇，总共只对数组进行了一层遍历。<br>&emsp;&emsp;空间复杂度：$O(1)$。我们只需要常数个变量进行记录。</p>
-<h4 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h4><p>&emsp;&emsp;下面的代码是官方题解中双指针的代码，减少了一次判断，将更新 max 值和 water 值（这里是变量 <code>ans</code>)整合到了一起。相应的指针相遇条件有所不同（因为我们上面的代码更新完 max 值也对指针进行了移动，因此指向的永远是未搜索的区域，必须两个指针已经重合后错开才算搜索完毕）。<br>&emsp;&emsp;官方题解中还有动态规划和栈等其他解法，也可以提供一定的解决思路，时间复杂度都是一样的 $O(n)$，但是动态规划和栈解法均需要 $O(n)$ 的空间。感兴趣的可以阅读 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/trapping-rain-water/solution/jie-yu-shui-by-leetcode-solution-tuvc/">接雨水 - 力扣官方题解</a>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">trap</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = height.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> leftMax = <span class="number">0</span>, rightMax = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            leftMax = <span class="built_in">max</span>(leftMax, height[left]);</span><br><span class="line">            rightMax = <span class="built_in">max</span>(rightMax, height[right]);</span><br><span class="line">            <span class="keyword">if</span> (height[left] &lt; height[right]) &#123;</span><br><span class="line">                ans += leftMax - height[left];</span><br><span class="line">                ++left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans += rightMax - height[right];</span><br><span class="line">                --right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h4 id="1-动态规划"><a href="#1-动态规划" class="headerlink" title="1.动态规划"></a>1.动态规划</h4><p>&emsp;&emsp;我们用 <code>dp[i]</code> 表示以 <code>nums[i]</code> 结尾的最大子序列和。那么 <code>dp[i]</code> 只有两种情况，第一种是 <code>nums[i]</code> 加上 <code>dp[i-1]</code> 所表示的那一段，第二种是 <code>nums[i]</code> 单独作为新的一段。而我们只需要保留这两种中较大的那一个。也即状态转移方程为 <code>dp[i] = max&#123;dp[i-1]+nums[i], nums[i]&#125;</code>。而我们所要求的结果也即 <code>dp</code> 数组中最大的值。<br>&emsp;&emsp;另外我们通过观察可以发现，每一个 <code>dp[i]</code> 只取决于 <code>dp[i-1]</code>，并且在遍历的时候便可以边记录最大值，则其实我们无需建立一个 <code>dp</code> 数组，只需要一个变量 <code>pre</code> 来表示每一个 <code>dp[i-1]</code> 即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> pre = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            pre = <span class="built_in">max</span>(pre+nums[i], nums[i]);</span><br><span class="line">            result = <span class="built_in">max</span>(result, pre);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为数组的长度。因为我们只对数组进行了一次遍历。<br>&emsp;&emsp;空间复杂度：$O(1)$。我们只需要常数个变量的空间。</p>
+<h4 id="2-分治法-官方题解"><a href="#2-分治法-官方题解" class="headerlink" title="2.分治法 - 官方题解"></a>2.分治法 - 官方题解</h4><p>&emsp;&emsp;这是题目中提到的更为精妙的进阶方法，没有想到，参阅了官方题解 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/">最大子序和 - 力扣官方题解</a>。主要思路是利用了线段树，对于每一个区间 <code>[l, r]</code>，维护了 4 个变量，分别是</p>
+<ul>
+<li>$lSum$，表示 <code>[l, r]</code> 中以 <code>l</code> 为左端点的最大子序和。</li>
+<li>$rSum$，表示 <code>[l, r]</code> 中以 <code>r</code> 为右端点的最大子序和。</li>
+<li>$iSum$，表示 <code>[l, r]</code> 的区间和。</li>
+<li>$mSum$，表示 <code>[l, r]</code> 中最大子序和。</li>
+</ul>
+<p>&emsp;&emsp;对于每一个区间 <code>[l, r]</code> 这些变量的赋值都来自于 <code>[l, m]</code> 和 <code>[m+1, r]</code> 的这些变量，也即分治后递归回升的整合。具体整合方法为</p>
+<ul>
+<li>$iSum = iSum_l + iSum_r$，也即左右子区间的和即为该区间的和。</li>
+<li>$lSum = max(lSum_l, iSum_l+lSum_r)$，也即要不是左区间的 $lSum$，要不是整个左区间加上右区间的 $lSum$。</li>
+<li>$rSum = max(rSum_r, iSum_r+rSum_l)$，同理，要不是右区间的 $rSum$，要不是整个右区间加上左区间的 $rSum$。</li>
+<li>$mSum = max(mSum_l, mSum_r, rSum_l+lSum_r)$，也即如果 $mSum$ 不跨越 <code>m</code>，则可以是左区间或者是右区间的 $mSum$，如果跨越 <code>m</code>，则是左区间的 $rSum$ 加上右区间的 $lSum$。</li>
+</ul>
+<p>&emsp;&emsp;最后递归到最外层，求出 <code>[0, nums.size()-1]</code> 区间的 $mSum$ 即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Status</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> lSum, rSum, mSum, iSum;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function">Status <span class="title">pushUp</span><span class="params">(Status l, Status r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> iSum = l.iSum + r.iSum;</span><br><span class="line">        <span class="keyword">int</span> lSum = <span class="built_in">max</span>(l.lSum, l.iSum + r.lSum);</span><br><span class="line">        <span class="keyword">int</span> rSum = <span class="built_in">max</span>(r.rSum, r.iSum + l.rSum);</span><br><span class="line">        <span class="keyword">int</span> mSum = <span class="built_in">max</span>(<span class="built_in">max</span>(l.mSum, r.mSum), l.rSum + r.lSum);</span><br><span class="line">        <span class="keyword">return</span> (Status) &#123;lSum, rSum, mSum, iSum&#125;;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function">Status <span class="title">get</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt; &amp;a, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">            <span class="keyword">return</span> (Status) &#123;a[l], a[l], a[l], a[l]&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        Status lSub = <span class="built_in">get</span>(a, l, m);</span><br><span class="line">        Status rSub = <span class="built_in">get</span>(a, m + <span class="number">1</span>, r);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pushUp</span>(lSub, rSub);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">get</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>() - <span class="number">1</span>).mSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，这样的方法下其实相当于是进行了一颗二叉树的先序遍历。<br>&emsp;&emsp;空间复杂度：$O(\log n)$，也即递归的深度。</p>
+<p>&emsp;&emsp;这样的方法下使用了递归，实际运行的时间比动态规划更长，也需要更多的空间，但是它的意义是它可以解决任意区间下的最大子序和问题，并且建立成为一颗树之后，所有的子区间信息都可以用堆的方法来存储，就可以在 $O(\log n)$ 的时间内找到任意区间的答案。并且假如序列中的某些值发生修改，只需要对有影响的区间值进行修改维护，所需的时间只要 $O(\log n)$，便可以继续使用。这样的特性对于大规模的查询优势便十分明显。</p>
+
             </div>
             
                 <div class="kratos-copyright text-center clearfix">
@@ -220,7 +243,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/",
+                text: "http://ender-coder.github.io/2021/06/09/Leetcode%2053.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -232,9 +255,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/";
-            const title         = "「Leetcode 42.接雨水」";
-            const excerpt       = `题目描述：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/09/Leetcode%2053.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/";
+            const title         = "「Leetcode 53.最大子序和」";
+            const excerpt       = `题目描述：给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -253,7 +276,7 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%88%86%E6%B2%BB/" rel="tag">分治</a>, <a class="tag-none-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a>
                     </div>
                     <div class="pull-date">
                     <span>最后编辑：2021-06-09</span>
@@ -265,12 +288,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" Leetcode 46.全排列" href="/2021/06/08/Leetcode 46.全排列/">&lt; 上一篇</a>
+                    <a title=" Leetcode 33.搜索旋转排序数组" href="/2021/06/08/Leetcode 33.搜索旋转排序数组/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" Leetcode 39.组合总数" href="/2021/06/08/Leetcode 39.组合总数/">下一篇 &gt;</a>
+                    <a title=" Leetcode 49.字母异位词分组" href="/2021/06/09/Leetcode 49.字母异位词分组/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -286,7 +309,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/06/08/Leetcode%2042.%E6%8E%A5%E9%9B%A8%E6%B0%B4/'
+                path: '/2021/06/09/Leetcode%2053.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/'
             });
         }
         if (typeof Valine == 'undefined') {
