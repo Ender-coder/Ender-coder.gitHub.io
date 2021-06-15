@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 39.组合总数 | 心之所向便是光</title>
+  <title>Leetcode 62.不同路径 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,21 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++, 回溯" />
+    <meta name="keywords" content="C++, 数学方法" />
   
-  <meta name="description" content="题目描述：给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 candidates 中的数字可以无限制重复被选取。">
+  <meta name="description" content="题目描述： 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。 问总共有多少条不同的路径？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 39.组合总数">
-<meta property="og:url" content="http://ender-coder.github.io/2021/06/08/Leetcode%2039.%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B0/index.html">
+<meta property="og:title" content="Leetcode 62.不同路径">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/10/Leetcode%2062.%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述：给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 candidates 中的数字可以无限制重复被选取。">
+<meta property="og:description" content="题目描述： 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。 问总共有多少条不同的路径？">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-06-07T17:45:00.000Z">
-<meta property="article:modified_time" content="2021-06-09T10:13:53.773Z">
+<meta property="article:published_time" content="2021-06-10T12:55:00.000Z">
+<meta property="article:modified_time" content="2021-06-15T16:40:34.582Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="回溯">
+<meta property="article:tag" content="数学方法">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -125,22 +125,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 39.组合总数</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 62.不同路径</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2021-06-08</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-06-10</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            2.16K
+                            1280
                         
                         字
                     </li>
                     
-                        <li id="/2021/06/08/Leetcode%2039.%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B0/" class="leancloud_visitors" data-flag-title="Leetcode 39.组合总数">
+                        <li id="/2021/06/10/Leetcode%2062.%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" class="leancloud_visitors" data-flag-title="Leetcode 62.不同路径">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -150,30 +150,38 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1623233633773"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1623775234582"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个无重复元素的数组 <code>candidates</code> 和一个目标数 <code>target</code> ，找出 <code>candidates</code> 中所有可以使数字和为 <code>target</code> 的组合。</p>
-<p><code>candidates</code> 中的数字可以无限制重复被选取。<br><span id="more"></span></p>
-<p><strong>说明</strong>：</p>
+                <h3 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述：</h3>
+<p>一个机器人位于一个 <code>m x n</code> 网格的左上角 （起始点在下图中标记为 “Start” ）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。</p>
+<p>问总共有多少条不同的路径？</p>
+<span id="more"></span>
+<h3 id="示例-1"><a class="markdownIt-Anchor" href="#示例-1"></a> 示例 1：</h3>
+<p><img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" alt="" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：m = 3, n = 7</span><br><span class="line">输出：28</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2"><a class="markdownIt-Anchor" href="#示例-2"></a> 示例 2：</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：m = 3, n = 2</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">从左上角开始，总共有 3 条路径可以到达右下角。</span><br><span class="line">1. 向右 -&gt; 向下 -&gt; 向下</span><br><span class="line">2. 向下 -&gt; 向下 -&gt; 向右</span><br><span class="line">3. 向下 -&gt; 向右 -&gt; 向下</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3"><a class="markdownIt-Anchor" href="#示例-3"></a> 示例 3：</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：m = 7, n = 3</span><br><span class="line">输出：28</span><br></pre></td></tr></table></figure>
+<h3 id="示例-4"><a class="markdownIt-Anchor" href="#示例-4"></a> 示例 4：</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：m = 3, n = 3</span><br><span class="line">输出：6</span><br></pre></td></tr></table></figure>
+<h3 id="提示"><a class="markdownIt-Anchor" href="#提示"></a> 提示：</h3>
 <ul>
-<li>所有数字（包括 <code>target</code>）都是正整数。</li>
-<li>解集不能包含重复的组合。 </li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>&lt;</mo><mo>=</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo>&lt;</mo><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">1 &lt;= m, n &lt;= 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span></li>
+<li>题目数据保证答案小于等于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2*10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></li>
 </ul>
-<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：candidates = [2,3,6,7], target = 7,</span><br><span class="line">所求解集为：</span><br><span class="line">[</span><br><span class="line">  [7],</span><br><span class="line">  [2,2,3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：candidates = [2,3,5], target = 8,</span><br><span class="line">所求解集为：</span><br><span class="line">[</span><br><span class="line">  [2,2,2,2],</span><br><span class="line">  [2,3,3],</span><br><span class="line">  [3,5]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
-<li>$1 &lt;= candidates.length &lt;= 30$ </li>
-<li>$1 &lt;= candidates[i] &lt;= 200$ </li>
-<li><code>candidate</code> 中的每个元素都是独一无二的。</li>
-<li>$1 &lt;= target &lt;= 500$ </li>
-</ul>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum">https://leetcode-cn.com/problems/combination-sum</a></p>
-<hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;题目要求所有的可行解，则依然可以使用回溯的方法来进行搜索遍历，也即对于每一个数 <code>candidates[i]</code>，都可以选择是否将其加入结果中，然后再转化为搜索 <code>target-candidates[i]</code> 的问题。为了避免产生重复解，我们按照 <code>candidates</code> 的顺序添加，也即若当前选择不添加 <code>candidates[i]</code>，则转化的子问题也不能再添加 <code>candidates[i]</code>。注意到题目中的数字可以无限制重复选取，则我们每次都需要保持从上一次添加的数字开始（也即上一次添加的数字仍然可以添加）。每当 <code>target</code> 为 0，意味着当前添加的数字的和为 <code>target</code>，也即找到了一组解，将其添加到结果列表中。<br>&emsp;&emsp;而为了加快搜索速度，我们可以进行剪枝。比如我们可以先对 <code>candidates</code> 进行排序，当 <code>target</code> 已经小于当前想添加的数字时，也肯定小于后面所有的数字，则都不会是结果，则可以直接跳出循环返回。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; result, vector&lt;<span class="keyword">int</span>&gt;&amp; now, vector&lt;<span class="keyword">int</span>&gt;&amp; candidates, <span class="keyword">int</span> begin, <span class="keyword">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(target == <span class="number">0</span>)&#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(now);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = begin; i &lt; candidates.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target &lt; candidates[i]) <span class="keyword">break</span>;</span><br><span class="line">            now.<span class="built_in">push_back</span>(candidates[i]);</span><br><span class="line">            <span class="built_in">dfs</span>(result, now, candidates, i, target-candidates[i]);</span><br><span class="line">            now.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">combinationSum</span>(vector&lt;<span class="keyword">int</span>&gt;&amp; candidates, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; result;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; now;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">sort</span>(candidates.<span class="built_in">begin</span>(), candidates.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="built_in">dfs</span>(result, now, candidates, <span class="number">0</span>, target);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(S)$，$S$ 是可行解的长度之和。我们遍历了所有的可行解得到结果，而对于不可行的情况马上剪枝，则时间复杂度是可行解的长度之和。因为这道题确实比较难给出一个较紧密的上界。对于每个数字选或者不选，一共拥有非常多的可能，这是指数级别的。但是我们进行的剪枝可以排除掉非常多的情况，因此实际的运行情况不好以<code>target</code> 的大小或者是 <code>candidates</code> 的大小界定。<br>&emsp;&emsp;空间复杂度：$O(target)$。作为结果返回的数组不计入所需空间中，而所有的数字都是正整数，则最大的可行解长度也就是 <code>target</code> 的值（全由 1 构成可行解），这也是我们栈递归的最大深度，因此空间复杂度为 $O(target)$。</p>
+<h3 id="链接"><a class="markdownIt-Anchor" href="#链接"></a> 链接：</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths">https://leetcode-cn.com/problems/unique-paths</a></p>
+<hr />
+<h3 id="题目分析"><a class="markdownIt-Anchor" href="#题目分析"></a> 题目分析</h3>
+<p>  这是一道很经典的数学题。机器人处在 <code>m x n</code> 的网格中，并且只能往右和往下移动，则从左上角移动到右下角，总的移动路程是一定的，一定是往右走了 <code>n-1</code> 步，往下走了 <code>m-1</code> 步，也即总的移动路程是 <code>m-1+n-1</code>。而不同的移动方案，也即是在 <code>m-1+n-1</code> 步中，选择其中的 <code>m-1</code> 往下（或者选择 <code>n-1</code> 步往右），也即是一个数学组合问题。答案就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">(</mo><mfrac linethickness="0px"><mrow><mi>m</mi><mo>−</mo><mn>1</mn><mo>+</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo fence="true">)</mo></mrow><annotation encoding="application/x-tex">\binom{m-1+n-1}{m-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2984390000000001em;vertical-align:-0.403331em;"></span><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.895108em;"><span style="top:-2.355em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.144em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">(</mo><mfrac linethickness="0px"><mrow><mi>m</mi><mo>−</mo><mn>1</mn><mo>+</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo fence="true">)</mo></mrow><annotation encoding="application/x-tex">\binom{m-1+n-1}{n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2984390000000001em;vertical-align:-0.403331em;"></span><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.895108em;"><span style="top:-2.355em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.144em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span></span>。为了减少运算量，我们可以选择 m 和 n 其中更小的那个来计算。<br />
+  虽然题目中保证答案小于等于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2*10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>，也即答案不会超过 int 的范围，但是在计算的过程还是会超过，需要使用 long long int 类型。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in">min</span>(m, n); i++)&#123;</span><br><span class="line">            result *= (m+n)-i<span class="number">-1</span>;</span><br><span class="line">            result /= i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\min(m,n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">min</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi mathvariant="normal">、</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">m、n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord cjk_fallback">、</span><span class="mord mathdefault">n</span></span></span></span> 分别是网格的行数和列数。也即计算组合数的时间复杂度。<br />
+  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。我们只需要常数的空间存放变量。</p>
 
             </div>
             
@@ -229,7 +237,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/06/08/Leetcode%2039.%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B0/",
+                text: "http://ender-coder.github.io/2021/06/10/Leetcode%2062.%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -241,10 +249,12 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/06/08/Leetcode%2039.%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B0/";
-            const title         = "「Leetcode 39.组合总数」";
-            const excerpt       = `题目描述：给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
-candidates 中的数字可以无限制重复被选取。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/10/Leetcode%2062.%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/";
+            const title         = "「Leetcode 62.不同路径」";
+            const excerpt       = `题目描述：
+一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
+机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
+问总共有多少条不同的路径？`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -263,10 +273,10 @@ candidates 中的数字可以无限制重复被选取。`;
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%9B%9E%E6%BA%AF/" rel="tag">回溯</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" rel="tag">数学方法</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-06-09</span>
+                    <span>最后编辑：2021-06-16</span>
                     </div>
                 </div>
             </footer>
@@ -275,12 +285,12 @@ candidates 中的数字可以无限制重复被选取。`;
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" Leetcode 34.在排序数组中查找元素的第一个和最后一个位置" href="/2021/06/08/Leetcode 34.在排序数组中查找元素的第一个和最后一个位置/">&lt; 上一篇</a>
+                    <a title=" Leetcode 56.合并区间" href="/2021/06/10/Leetcode 56.合并区间/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" Leetcode 42.接雨水" href="/2021/06/08/Leetcode 42.接雨水/">下一篇 &gt;</a>
+                    <a title=" Leetcode 64.最小路径和" href="/2021/06/16/Leetcode 64.最小路径和/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -296,7 +306,7 @@ candidates 中的数字可以无限制重复被选取。`;
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/06/08/Leetcode%2039.%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B0/'
+                path: '/2021/06/10/Leetcode%2062.%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/'
             });
         }
         if (typeof Valine == 'undefined') {
