@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 79.单词搜索 | 心之所向便是光</title>
+  <title>Leetcode 84.柱状图中最大的矩形 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,22 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++, DFS, 回溯" />
+    <meta name="keywords" content="C++, 单调栈" />
   
-  <meta name="description" content="题目描述：给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。">
+  <meta name="description" content="题目描述：给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。 求在该柱状图中，能够勾勒出来的矩形的最大面积。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 79.单词搜索">
-<meta property="og:url" content="http://ender-coder.github.io/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/index.html">
+<meta property="og:title" content="Leetcode 84.柱状图中最大的矩形">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/17/Leetcode%2084.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述：给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。">
+<meta property="og:description" content="题目描述：给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。 求在该柱状图中，能够勾勒出来的矩形的最大面积。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-06-17T10:41:00.000Z">
-<meta property="article:modified_time" content="2021-06-17T11:29:50.088Z">
+<meta property="article:published_time" content="2021-06-17T12:44:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T11:46:18.701Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="回溯">
-<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="单调栈">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -126,7 +125,7 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 79.单词搜索</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 84.柱状图中最大的矩形</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
@@ -136,12 +135,12 @@
                         <i class="fas fa-edit"></i> 
                         
                         
-                            3.67K
+                            1.95K
                         
                         字
                     </li>
                     
-                        <li id="/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" class="leancloud_visitors" data-flag-title="Leetcode 79.单词搜索">
+                        <li id="/2021/06/17/Leetcode%2084.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/" class="leancloud_visitors" data-flag-title="Leetcode 84.柱状图中最大的矩形">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -151,30 +150,22 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1623929390088"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1624362378701"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个 <code>m x n</code> 二维字符网格 <code>board</code> 和一个字符串单词 <code>word</code> 。如果 <code>word</code> 存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。<br><span id="more"></span></p>
-<p>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
-<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p><img src="https://assets.leetcode.com/uploads/2020/11/04/word2.jpg" alt=""></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCCED&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><p><img src="https://assets.leetcode.com/uploads/2020/11/04/word-1.jpg" alt=""></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;SEE&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><p><img src="https://assets.leetcode.com/uploads/2020/10/15/word3.jpg" alt=""></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCB&quot;</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
-<li><code>m == board.length</code></li>
-<li><code>n = board[i].length</code></li>
-<li><code>1 &lt;= m, n &lt;= 6</code></li>
-<li><code>1 &lt;= word.length &lt;= 15</code></li>
-<li><code>board</code> 和 <code>word</code> 仅由大小写英文字母组成</li>
-</ul>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-search">https://leetcode-cn.com/problems/word-search</a></p>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定 <code>n</code> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 <code>1</code> 。</p>
+<p>求在该柱状图中，能够勾勒出来的矩形的最大面积。<br><span id="more"></span></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/histogram.png" alt=""></p>
+<p>以上是柱状图的示例，其中每个柱子的宽度为 <code>1</code>，给定的高度为 <code>[2,1,5,6,2,3]</code>。</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/histogram_area.png" alt=""></p>
+<p>图中阴影部分为所能勾勒出的最大矩形面积，其面积为 <code>10</code> 个单位。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [2,1,5,6,2,3]</span><br><span class="line">输出: 10</span><br></pre></td></tr></table></figure>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-rectangle-in-histogram">https://leetcode-cn.com/problems/largest-rectangle-in-histogram</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;这道题是在一个二维的表格中寻找一个单词，由于每次搜索的格子是相邻的，我们很容易可以想到 DFS（深度优先搜索）的方法。因为题目要求结点不能重复使用，我们使用一个和 <code>board</code> 同样大小的布尔数组 <code>use</code> 来标记结点是否已经被使用。我们从符合 <code>word[0]</code> 的某个单元格开始搜索，每次往某个方向搜索，如果这个方向的邻结点还没有被使用，并且符合我们需要的下一个字母（<code>word[index]</code>），则从这个结点进行下一层的搜索。当我们搜索到 <code>word</code> 的尽头仍然可以找到符合的字母时，则说明这个单词 <code>word</code> 存在于 <code>board</code> 中，直接返回 <code>true</code>，不再进行搜索。如果当前方向搜索不到则进行回溯，将标记为已使用的单元格还原为未使用，继续进行其他方向的搜索。如果经历了所有的搜索都无法找到，则结果为 <code>false</code>。需要注意的是，初始的 <code>use</code> 需要全部标记为未使用。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">const</span> vector&lt;vector&lt;<span class="keyword">char</span>&gt;&gt;&amp; board,</span></span></span><br><span class="line"><span class="params"><span class="function">             vector&lt;vector&lt;<span class="keyword">bool</span>&gt;&gt;&amp; use, <span class="keyword">int</span> x, <span class="keyword">int</span> y,</span></span></span><br><span class="line"><span class="params"><span class="function">             <span class="keyword">const</span> string word, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index == word.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(x &gt; <span class="number">0</span> &amp;&amp; !use[x<span class="number">-1</span>][y] &amp;&amp; board[x<span class="number">-1</span>][y] == word[index])&#123;</span><br><span class="line">            use[x<span class="number">-1</span>][y] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, x<span class="number">-1</span>, y, word, index+<span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            use[x<span class="number">-1</span>][y] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(y &gt; <span class="number">0</span> &amp;&amp; !use[x][y<span class="number">-1</span>] &amp;&amp; board[x][y<span class="number">-1</span>] == word[index])&#123;</span><br><span class="line">            use[x][y<span class="number">-1</span>] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, x, y<span class="number">-1</span>, word, index+<span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            use[x][y<span class="number">-1</span>] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; board.<span class="built_in">size</span>()<span class="number">-1</span> &amp;&amp; !use[x+<span class="number">1</span>][y] &amp;&amp; board[x+<span class="number">1</span>][y] == word[index])&#123;</span><br><span class="line">            use[x+<span class="number">1</span>][y] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, x+<span class="number">1</span>, y, word, index+<span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            use[x+<span class="number">1</span>][y] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(y &lt; board[<span class="number">0</span>].<span class="built_in">size</span>()<span class="number">-1</span> &amp;&amp; !use[x][y+<span class="number">1</span>] &amp;&amp; board[x][y+<span class="number">1</span>] == word[index])&#123;</span><br><span class="line">            use[x][y+<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, x, y+<span class="number">1</span>, word, index+<span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            use[x][y+<span class="number">1</span>] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">exist</span><span class="params">(vector&lt;vector&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, string word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(board[i][j] == word[<span class="number">0</span>])&#123;</span><br><span class="line">                    vector&lt;vector&lt;<span class="keyword">bool</span>&gt;&gt; <span class="built_in">use</span>(board.<span class="built_in">size</span>(), vector&lt;<span class="keyword">bool</span>&gt;(board[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="literal">false</span>));</span><br><span class="line">                    use[i][j] = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, i, j, word, <span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(mn\times3^L)$，其中 $m、n、L$ 分别为 <code>board</code> 的行数、列数和 <code>word</code> 的长度，这是一个比较宽松的上界。我们最多对整个 <code>board</code> 的所有单元格作为起点进行搜索，除了起点，每次搜索最多只有三个方向可以搜索（上一个结点的方向已经被使用），最大搜索长度是单词的长度。我们对于已使用的单元格或者是不符合的字母都是不会进行搜索的，有了这些剪枝实际上的时间复杂度会远远小于这个上界。<br>&emsp;&emsp;空间复杂度：$O(mn)$，其中 $m、n$ 分别为 <code>board</code> 的行数和列数。我们建立了一个 $m\times n$ 的数组用于标记某个单元格是否已经使用。而 DFS 最大的搜索深度为单词的长度或者是搜满 <code>board</code>，也即 $O(\min(L,mn))$。因此总的空间复杂度为 $O(mn)$。</p>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;通过观察我们可以知道，对于每一个柱子，都有以它为高的矩形存在，我们只需要遍历所有这样的矩形即可得到最大矩形。每一个矩形的宽边界是哪里呢？是这个柱子两边低于它的第一个柱子。获取这个信息并不需要每次都进行遍历，我们只需要使用单调栈的做法。按照从左到右的顺序遍历，我们维护一个升序的柱子序列，则对于栈顶的柱子，它的左边界就是栈中的前一个柱子，而当我们遍历到某个柱子不符合升序序列，也即比栈顶元素小时，它就是栈顶矩形的右边界。这个时候就可以计算以栈顶为高的矩形的大小了。并且计算后可以将其出栈，这是因为它是目前遍历过的柱子中最高的值，不会对其他矩形产生影响。出栈后，如果这个柱子仍然比新的栈顶小，则仍需要继续这个过程，因此我们使用的是 while 循环。结束过程之后，我们要将这个柱子进栈。<br>&emsp;&emsp;对于连续两个同样高度的柱子是怎么处理的呢？以它们为高的矩形应该是一样的，因此我们只需要计算其中一个即可。两个都加入栈中的话，右边那个的左边界会被认为是左边这个，因此计算得到的矩形面积会比实际小，左边那个的计算则不会受到影响。我们的结果是要求最大的矩形面积，因此偏小的那个不会对最终结果造成影响。由此可知，我们可以直接将同样高度的也加入到栈中。<br>&emsp;&emsp;栈中存放的信息是什么？我们需要知道柱子的高度，也即矩形的高；而柱子的宽度是以它的左右边界的下标差来计算的，因此我们也需要知道柱子的下标。因此我们有两种方法，一种是直接存放柱子的下标，每次需要用到柱子高度时再通过柱子下标查询高度；另外一种是直接用一个 <code>pair</code> 将这两个信息存放进去。<br>&emsp;&emsp;这个题目对于边界是怎么处理的？我们可以利用哨兵的技巧。也即在柱子序列两边添加一个高度为 0 的柱子，这样就可以直接处理边界的柱子了。可是数组不能有下标为 -1 的情况，<code>heights[-1]</code> 是非法的，因此我采用的是 <code>pair</code> 的做法，最开始就在栈中直接添加了一个 <code>&#123;-1, 0&#125;</code>，表示下标为 -1 的柱子高度为 0。这样的好处是栈永远不会为空，并且这个哨兵可以处理其作为左边界的情况。对于右边界的哨兵就更简单了，直接在数组最后添加一个 0 表示一个高度为 0 的柱子即可，这样到最后可以处理掉栈中剩余的所有柱子，只留下两个哨兵。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        stack&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; s;</span><br><span class="line">        s.<span class="built_in">push</span>(&#123;<span class="number">-1</span>, <span class="number">0</span>&#125;);</span><br><span class="line">        heights.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; heights.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(heights[i] &lt; s.<span class="built_in">top</span>().second)&#123;</span><br><span class="line">                <span class="keyword">int</span> height = s.<span class="built_in">top</span>().second;</span><br><span class="line">                s.<span class="built_in">pop</span>();</span><br><span class="line">                result = <span class="built_in">max</span>(result, (i - s.<span class="built_in">top</span>().first - <span class="number">1</span>) * height);</span><br><span class="line">            &#125;</span><br><span class="line">            s.<span class="built_in">push</span>(&#123;i, heights[i]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 是柱子的数量。我们只对数组进行了一次遍历。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 是柱子的数量。也即栈的开销。</p>
 
             </div>
             
@@ -230,7 +221,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/",
+                text: "http://ender-coder.github.io/2021/06/17/Leetcode%2084.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -242,9 +233,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/";
-            const title         = "「Leetcode 79.单词搜索」";
-            const excerpt       = `题目描述：给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/17/Leetcode%2084.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/";
+            const title         = "「Leetcode 84.柱状图中最大的矩形」";
+            const excerpt       = `题目描述：给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+求在该柱状图中，能够勾勒出来的矩形的最大面积。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -263,10 +255,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/DFS/" rel="tag">DFS</a>, <a class="tag-none-link" href="/tags/%E5%9B%9E%E6%BA%AF/" rel="tag">回溯</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" rel="tag">单调栈</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-06-17</span>
+                    <span>最后编辑：2021-06-22</span>
                     </div>
                 </div>
             </footer>
@@ -275,13 +267,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" Leetcode 78.子集" href="/2021/06/17/Leetcode 78.子集/">&lt; 上一篇</a>
+                    <a title=" Leetcode 79.单词搜索" href="/2021/06/17/Leetcode 79.单词搜索/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" Leetcode 84.柱状图中最大的矩形" href="/2021/06/17/Leetcode 84.柱状图中最大的矩形/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -296,7 +284,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/'
+                path: '/2021/06/17/Leetcode%2084.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2/'
             });
         }
         if (typeof Valine == 'undefined') {
