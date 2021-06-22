@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 55.跳跃游戏 | 心之所向便是光</title>
+  <title>Leetcode 85.最大矩形 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,21 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++, 贪心" />
+    <meta name="keywords" content="C++, 单调栈" />
   
-  <meta name="description" content="题目描述：给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。 数组中的每个元素代表你在该位置可以跳跃的最大长度。 判断你是否能够到达最后一个下标。">
+  <meta name="description" content="题目描述：给定一个仅包含 0 和 1 、大小为 rows x cols 的二维二进制矩阵，找出只包含 1 的最大矩形，并返回其面积。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 55.跳跃游戏">
-<meta property="og:url" content="http://ender-coder.github.io/2021/06/10/Leetcode%2055.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/index.html">
+<meta property="og:title" content="Leetcode 85.最大矩形">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/22/Leetcode%2085.%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述：给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。 数组中的每个元素代表你在该位置可以跳跃的最大长度。 判断你是否能够到达最后一个下标。">
+<meta property="og:description" content="题目描述：给定一个仅包含 0 和 1 、大小为 rows x cols 的二维二进制矩阵，找出只包含 1 的最大矩形，并返回其面积。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-06-10T08:50:00.000Z">
-<meta property="article:modified_time" content="2021-06-10T09:26:08.447Z">
+<meta property="article:published_time" content="2021-06-22T12:45:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T13:01:58.730Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="贪心">
+<meta property="article:tag" content="单调栈">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -125,22 +125,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 55.跳跃游戏</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 85.最大矩形</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2021-06-10</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-06-22</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1016
+                            2.41K
                         
                         字
                     </li>
                     
-                        <li id="/2021/06/10/Leetcode%2055.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/" class="leancloud_visitors" data-flag-title="Leetcode 55.跳跃游戏">
+                        <li id="/2021/06/22/Leetcode%2085.%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/" class="leancloud_visitors" data-flag-title="Leetcode 85.最大矩形">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -150,24 +150,28 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1623317168447"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1624366918730"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个非负整数数组 <code>nums</code> ，你最初位于数组的 <strong>第一个下标</strong> 。</p>
-<p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
-<p>判断你是否能够到达最后一个下标。<br><span id="more"></span></p>
-<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,3,1,1,4]</span><br><span class="line">输出：true</span><br><span class="line">解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,2,1,0,4]</span><br><span class="line">输出：false</span><br><span class="line">解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。</span><br></pre></td></tr></table></figure>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个仅包含 0 和 1 、大小为 rows x cols 的二维二进制矩阵，找出只包含 1 的最大矩形，并返回其面积。<br><span id="more"></span></p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p><img src="https://assets.leetcode.com/uploads/2020/09/14/maximal.jpg" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]]</span><br><span class="line">输出：6</span><br><span class="line">解释：最大矩形如上图所示。</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = []</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[&quot;0&quot;]]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+<h3 id="示例-4："><a href="#示例-4：" class="headerlink" title="示例 4："></a>示例 4：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[&quot;1&quot;]]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+<h3 id="示例-5："><a href="#示例-5：" class="headerlink" title="示例 5："></a>示例 5：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[&quot;0&quot;,&quot;0&quot;]]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
 <h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
-<li>$1 &lt;= nums.length &lt;= 3 * 10^4$ </li>
-<li>$0 &lt;= nums[i] &lt;= 10^5$ </li>
+<li><code>rows == matrix.length</code></li>
+<li><code>cols == matrix[0].length</code></li>
+<li><code>0 &lt;= row, cols &lt;= 200</code></li>
+<li><code>matrix[i][j]</code> 为 <code>&#39;0&#39;</code> 或 <code>&#39;1&#39;</code></li>
 </ul>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game">https://leetcode-cn.com/problems/jump-game</a></p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximal-rectangle">https://leetcode-cn.com/problems/maximal-rectangle</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;这道题目可以使用贪心的思想。对于某个位置 y 是否可以到达，需要满足两个条件：前面的某个位置 x 可以到达，x 可以跳跃到 y，也即有 <code>x + nums[x] &gt;= y</code>。那我们可以遍历数组，贪心地获取当前可以到达的最远位置，直到遍历到所有的可到达位置，若可以到达的最远位置没有超过数组的最后一个下标，则数组的最后一个下标不可达。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canJump</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> maxdistance = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= maxdistance &amp;&amp; maxdistance &lt; n; i++)&#123;</span><br><span class="line">            maxdistance = <span class="built_in">max</span>(maxdistance, nums[i] + i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxdistance &gt;= n<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 是数组的大小。我们最多只需要遍历一遍数组。<br>&emsp;&emsp;空间复杂度：$O(1)$。我们只需要常数个变量的空间。</p>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;做这道题之前先看看与之关联的上一道题 <a href="https://ender-coder.github.io/2021/06/17/Leetcode%2084.柱状图中最大的矩形/">Leetcode 84.柱状图中最大的矩形</a>。我们可以发现，如果我们按照每一列的顺序维护 <code>heights</code>，就可以复用上一题的代码。就像下面这样。这样是可以遍历所有可能存在的矩形的，因此得到的答案就是最终答案。<br><img src="https://i.loli.net/2021/06/22/RJQ6qUOE17DXVZG.png" alt="leetcode85.png"><br>&emsp;&emsp;PS：下面的代码中 <code>largestRectangleArea</code> 函数来自上一题，使用的是单调栈的做法，具体过程可以参阅上一题题解。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        stack&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; s;</span><br><span class="line">        s.<span class="built_in">push</span>(&#123;<span class="number">-1</span>, <span class="number">0</span>&#125;);</span><br><span class="line">        heights.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; heights.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(heights[i] &lt; s.<span class="built_in">top</span>().second)&#123;</span><br><span class="line">                <span class="keyword">int</span> height = s.<span class="built_in">top</span>().second;</span><br><span class="line">                s.<span class="built_in">pop</span>();</span><br><span class="line">                result = <span class="built_in">max</span>(result, (i - s.<span class="built_in">top</span>().first - <span class="number">1</span>) * height);</span><br><span class="line">            &#125;</span><br><span class="line">            s.<span class="built_in">push</span>(&#123;i, heights[i]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximalRectangle</span><span class="params">(vector&lt;vector&lt;<span class="keyword">char</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxArea = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">heights</span><span class="params">(matrix[<span class="number">0</span>].size(), <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                    heights[j]++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> heights[j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            maxArea = <span class="built_in">max</span>(maxArea, <span class="built_in">largestRectangleArea</span>(heights));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxArea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(mn)$，其中 $m、n$ 分别是矩阵的行数和列数。我们遍历矩阵的一行进行一次处理，而处理的函数时间复杂度是 $O(n)$。因此总的时间复杂度就是 $O(mn)$。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 是矩阵的列数。因为我们需要维护一个 <code>heights</code> 数组，大小为 $O(n)$，并且进行处理的 <code>largestRectangleArea</code> 函数也需要 $O(n)$ 的栈空间。</p>
 
             </div>
             
@@ -223,7 +227,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/06/10/Leetcode%2055.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/",
+                text: "http://ender-coder.github.io/2021/06/22/Leetcode%2085.%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -235,11 +239,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/06/10/Leetcode%2055.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/";
-            const title         = "「Leetcode 55.跳跃游戏」";
-            const excerpt       = `题目描述：给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。
-数组中的每个元素代表你在该位置可以跳跃的最大长度。
-判断你是否能够到达最后一个下标。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/22/Leetcode%2085.%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/";
+            const title         = "「Leetcode 85.最大矩形」";
+            const excerpt       = `题目描述：给定一个仅包含 0 和 1 、大小为 rows x cols 的二维二进制矩阵，找出只包含 1 的最大矩形，并返回其面积。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -258,10 +260,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" rel="tag">单调栈</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-06-10</span>
+                    <span>最后编辑：2021-06-22</span>
                     </div>
                 </div>
             </footer>
@@ -270,13 +272,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" Leetcode 53.最大子序和" href="/2021/06/09/Leetcode 53.最大子序和/">&lt; 上一篇</a>
+                    <a title=" Leetcode 84.柱状图中最大的矩形" href="/2021/06/17/Leetcode 84.柱状图中最大的矩形/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" Leetcode 56.合并区间" href="/2021/06/10/Leetcode 56.合并区间/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -291,7 +289,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/06/10/Leetcode%2055.%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/'
+                path: '/2021/06/22/Leetcode%2085.%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/'
             });
         }
         if (typeof Valine == 'undefined') {
