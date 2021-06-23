@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta property="article:published_time" content="2021-06-23T10:14:00.000Z">
-<meta property="article:modified_time" content="2021-06-23T14:45:47.981Z">
+<meta property="article:modified_time" content="2021-06-23T15:55:55.372Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="DFS">
@@ -139,7 +139,7 @@
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1437
+                            1438
                         
                         字
                     </li>
@@ -154,13 +154,14 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1624459547981"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1624463755372"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
                 <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个二叉树，找出其最大深度。</p>
 <p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。<br><span id="more"></span><br><strong>说明</strong>: 叶子节点是指没有子节点的节点。</p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><p>给定二叉树 <code>[3,9,20,null,null,15,7]</code>，<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure><br>返回它的最大深度 3 。</p>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><p>给定二叉树 <code>[3,9,20,null,null,15,7]</code>，<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure></p>
+<p>返回它的最大深度 3 。</p>
 <h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree">https://leetcode-cn.com/problems/maximum-depth-of-binary-tree</a></p>
 <hr>
 <h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h4 id="1-广度优先搜索"><a href="#1-广度优先搜索" class="headerlink" title="1.广度优先搜索"></a>1.广度优先搜索</h4><p>&emsp;&emsp;从 <a href="https://ender-coder.github.io/2021/06/23/Leetcode%20102.二叉树的层序遍历/">Leetcode 102.二叉树的层序遍历</a> 我们可以很容易想到这个算法。层序遍历题目中对于每一层都需要新开一行进行存储，直接改成计数即可，代码比层序遍历更简单。</p>
