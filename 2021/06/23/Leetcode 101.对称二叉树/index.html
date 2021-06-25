@@ -15,12 +15,12 @@
   
     <meta name="keywords" content="C++, 二叉树, 迭代, 递归, 队列" />
   
-  <meta name="description" content="题目描述： 给定一个二叉树，检查它是否是镜像对称的。 进阶：你可以运用递归和迭代两种方法解决这个问题吗？">
+  <meta name="description" content="题目描述：给定一个二叉树，检查它是否是镜像对称的。 进阶：你可以运用递归和迭代两种方法解决这个问题吗？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 101.对称二叉树">
 <meta property="og:url" content="http://ender-coder.github.io/2021/06/23/Leetcode%20101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述： 给定一个二叉树，检查它是否是镜像对称的。 进阶：你可以运用递归和迭代两种方法解决这个问题吗？">
+<meta property="og:description" content="题目描述：给定一个二叉树，检查它是否是镜像对称的。 进阶：你可以运用递归和迭代两种方法解决这个问题吗？">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta property="article:published_time" content="2021-06-23T08:46:00.000Z">
@@ -29,8 +29,8 @@
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="递归">
 <meta property="article:tag" content="迭代">
-<meta property="article:tag" content="二叉树">
 <meta property="article:tag" content="队列">
+<meta property="article:tag" content="二叉树">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -138,7 +138,7 @@
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1.90K
+                            1.92K
                         
                         字
                     </li>
@@ -157,28 +157,18 @@
                 </div>
                 
                 <hr />
-                <h3 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述：</h3>
-<p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<p><strong>进阶</strong>：你可以运用递归和迭代两种方法解决这个问题吗？</p>
-<span id="more"></span>
-<p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   / \</span><br><span class="line">  2   2</span><br><span class="line"> / \ / \</span><br><span class="line">3  4 4  3</span><br></pre></td></tr></table></figure>
-<p>但是下面这个 <code>[1,2,2,null,3,null,3]</code> 则不是镜像对称的:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line"> / \</span><br><span class="line">2   2</span><br><span class="line"> \   \</span><br><span class="line"> 3    3</span><br></pre></td></tr></table></figure>
-<h3 id="链接"><a class="markdownIt-Anchor" href="#链接"></a> 链接：</h3>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree">https://leetcode-cn.com/problems/symmetric-tree</a></p>
-<hr />
-<h3 id="题目分析"><a class="markdownIt-Anchor" href="#题目分析"></a> 题目分析</h3>
-<h4 id="1递归"><a class="markdownIt-Anchor" href="#1递归"></a> 1.递归</h4>
-<p>  什么样的树是镜像对称的？对应的结点值相同，并且他们的左右子树也刚好对称。这个定义是递归的，因此我们可以使用一个递归函数 <code>check</code> 来检查两个树是否对称。结点同时为空则对称，若同时不为空，则需满足结点值相同，并且左右子树互相对称。而我们只需要检查根结点的左右子树是否满足这样的对称树即可。这样的遍历是前序遍历。</p>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<p><strong>进阶</strong>：你可以运用递归和迭代两种方法解决这个问题吗？<br><span id="more"></span></p>
+<p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   / \</span><br><span class="line">  2   2</span><br><span class="line"> / \ / \</span><br><span class="line">3  4 4  3</span><br></pre></td></tr></table></figure></p>
+<p>但是下面这个 <code>[1,2,2,null,3,null,3]</code> 则不是镜像对称的:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line"> / \</span><br><span class="line">2   2</span><br><span class="line"> \   \</span><br><span class="line"> 3    3</span><br></pre></td></tr></table></figure></p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree">https://leetcode-cn.com/problems/symmetric-tree</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h4 id="1-递归"><a href="#1-递归" class="headerlink" title="1.递归"></a>1.递归</h4><p>&emsp;&emsp;什么样的树是镜像对称的？对应的结点值相同，并且他们的左右子树也刚好对称。这个定义是递归的，因此我们可以使用一个递归函数 <code>check</code> 来检查两个树是否对称。结点同时为空则对称，若同时不为空，则需满足结点值相同，并且左右子树互相对称。而我们只需要检查根结点的左右子树是否满足这样的对称树即可。这样的遍历是前序遍历。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(TreeNode* p, TreeNode* q)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!p &amp;&amp; !q) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(!p || !q) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> p-&gt;val == q-&gt;val &amp;&amp; <span class="built_in">check</span>(p-&gt;left, q-&gt;right) &amp;&amp; <span class="built_in">check</span>(p-&gt;right, q-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">check</span>(root-&gt;left, root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点数。我们遍历了二叉树。<br />
-  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点数。也即栈空间的最大深度。</p>
-<h4 id="2迭代"><a class="markdownIt-Anchor" href="#2迭代"></a> 2.迭代</h4>
-<p>  迭代算法可以模拟递归的过程。我们维护一个队列，队列中的每两个结点是对应的结点。每次检查时从队头出列两个结点，判断他们是否同时为空或者是值相同，并且将他们的左右子树按照对称关系两两加入到队列中。直到队列为空也即遍历所有的结点，仍然符合的话则为对称树。这样的遍历是层序遍历。</p>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。我们遍历了二叉树。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。也即栈空间的最大深度。</p>
+<h4 id="2-迭代"><a href="#2-迭代" class="headerlink" title="2.迭代"></a>2.迭代</h4><p>&emsp;&emsp;迭代算法可以模拟递归的过程。我们维护一个队列，队列中的每两个结点是对应的结点。每次检查时从队头出列两个结点，判断他们是否同时为空或者是值相同，并且将他们的左右子树按照对称关系两两加入到队列中。直到队列为空也即遍历所有的结点，仍然符合的话则为对称树。这样的遍历是层序遍历。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        queue&lt;TreeNode*&gt; que;</span><br><span class="line">        que.<span class="built_in">push</span>(root-&gt;left);</span><br><span class="line">        que.<span class="built_in">push</span>(root-&gt;right);</span><br><span class="line">        <span class="keyword">while</span>(!que.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            TreeNode* p = que.<span class="built_in">front</span>();</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line">            TreeNode *q = que.<span class="built_in">front</span>();</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(!p &amp;&amp; !q) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(!p || !q || p-&gt;val != q-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">            que.<span class="built_in">push</span>(p-&gt;left);</span><br><span class="line">            que.<span class="built_in">push</span>(q-&gt;right);</span><br><span class="line"></span><br><span class="line">            que.<span class="built_in">push</span>(p-&gt;right);</span><br><span class="line">            que.<span class="built_in">push</span>(q-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点数。我们遍历了二叉树。每个结点最多进队一次，出队一次。<br />
-  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点数。队列的最大长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>。</p>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。我们遍历了二叉树。每个结点最多进队一次，出队一次。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。队列的最大长度为 $n$。</p>
 
             </div>
             
@@ -248,8 +238,7 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://ender-coder.github.io/2021/06/23/Leetcode%20101.%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/";
             const title         = "「Leetcode 101.对称二叉树」";
-            const excerpt       = `题目描述：
-给定一个二叉树，检查它是否是镜像对称的。
+            const excerpt       = `题目描述：给定一个二叉树，检查它是否是镜像对称的。
 进阶：你可以运用递归和迭代两种方法解决这个问题吗？`;
             let _URL;
             switch (dest) {

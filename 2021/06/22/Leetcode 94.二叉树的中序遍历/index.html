@@ -15,22 +15,22 @@
   
     <meta name="keywords" content="C++, 二叉树, 栈, 迭代, 递归" />
   
-  <meta name="description" content="题目描述： 给定一个二叉树的根节点 root ，返回它的 中序 遍历。">
+  <meta name="description" content="题目描述：给定一个二叉树的根节点 root ，返回它的 中序 遍历。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 94.二叉树的中序遍历">
 <meta property="og:url" content="http://ender-coder.github.io/2021/06/22/Leetcode%2094.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述： 给定一个二叉树的根节点 root ，返回它的 中序 遍历。">
+<meta property="og:description" content="题目描述：给定一个二叉树的根节点 root ，返回它的 中序 遍历。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta property="article:published_time" content="2021-06-22T14:26:00.000Z">
 <meta property="article:modified_time" content="2021-06-23T09:39:52.831Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="栈">
 <meta property="article:tag" content="递归">
 <meta property="article:tag" content="迭代">
 <meta property="article:tag" content="二叉树">
+<meta property="article:tag" content="栈">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -138,7 +138,7 @@
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1.72K
+                            1.73K
                         
                         字
                     </li>
@@ -157,42 +157,28 @@
                 </div>
                 
                 <hr />
-                <h3 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述：</h3>
-<p>给定一个二叉树的根节点 <code>root</code> ，返回它的 <strong>中序</strong> 遍历。</p>
-<span id="more"></span>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个二叉树的根节点 <code>root</code> ，返回它的 <strong>中序</strong> 遍历。<br><span id="more"></span></p>
 <p><strong>进阶</strong>: 递归算法很简单，你可以通过迭代算法完成吗？</p>
-<h3 id="示例-1"><a class="markdownIt-Anchor" href="#示例-1"></a> 示例 1：</h3>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg" alt="" /></p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p><img src="https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg" alt=""></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,null,2,3]</span><br><span class="line">输出：[1,3,2]</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2"><a class="markdownIt-Anchor" href="#示例-2"></a> 示例 2：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
-<h3 id="示例-3"><a class="markdownIt-Anchor" href="#示例-3"></a> 示例 3：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1]</span><br><span class="line">输出：[1]</span><br></pre></td></tr></table></figure>
-<h3 id="示例-4"><a class="markdownIt-Anchor" href="#示例-4"></a> 示例 4：</h3>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/15/inorder_5.jpg" alt="" /></p>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1]</span><br><span class="line">输出：[1]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-4："><a href="#示例-4：" class="headerlink" title="示例 4："></a>示例 4：</h3><p><img src="https://assets.leetcode.com/uploads/2020/09/15/inorder_5.jpg" alt=""></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,2]</span><br><span class="line">输出：[2,1]</span><br></pre></td></tr></table></figure>
-<h3 id="示例-5"><a class="markdownIt-Anchor" href="#示例-5"></a> 示例 5：</h3>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/15/inorder_4.jpg" alt="" /></p>
+<h3 id="示例-5："><a href="#示例-5：" class="headerlink" title="示例 5："></a>示例 5：</h3><p><img src="https://assets.leetcode.com/uploads/2020/09/15/inorder_4.jpg" alt=""></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,null,2]</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
-<h3 id="提示"><a class="markdownIt-Anchor" href="#提示"></a> 提示：</h3>
-<ul>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
 <li>树中节点数目在范围 <code>[0, 100]</code> 内</li>
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
-<h3 id="链接"><a class="markdownIt-Anchor" href="#链接"></a> 链接：</h3>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal">https://leetcode-cn.com/problems/binary-tree-inorder-traversal</a></p>
-<hr />
-<h3 id="题目分析"><a class="markdownIt-Anchor" href="#题目分析"></a> 题目分析</h3>
-<h4 id="1递归解法"><a class="markdownIt-Anchor" href="#1递归解法"></a> 1.递归解法</h4>
-<p>  非常容易想到的解法，也即按照 左子树-根结点-右子树 的顺序递归遍历二叉树即可。</p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal">https://leetcode-cn.com/problems/binary-tree-inorder-traversal</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h4 id="1-递归解法"><a href="#1-递归解法" class="headerlink" title="1.递归解法"></a>1.递归解法</h4><p>&emsp;&emsp;非常容易想到的解法，也即按照 左子树-根结点-右子树 的顺序递归遍历二叉树即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; result, TreeNode* root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root)&#123;</span><br><span class="line">            <span class="built_in">inorder</span>(result, root-&gt;left);</span><br><span class="line">            result.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">            <span class="built_in">inorder</span>(result, root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line">        <span class="built_in">inorder</span>(result, root);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点个数。我们遍历了一次二叉树。<br />
-  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点个数。也即栈的深度，而当二叉树是一条链时，最大深度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>。</p>
-<h4 id="2迭代解法"><a class="markdownIt-Anchor" href="#2迭代解法"></a> 2.迭代解法</h4>
-<p>  其实我们需要做的就是将递归的栈显式地模拟出来。寻找左结点之前将根结点压栈，直到最左的结点，然后将栈顶出栈并加入到结果中，然后开始遍历右子树。</p>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为二叉树的结点个数。我们遍历了一次二叉树。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 为二叉树的结点个数。也即栈的深度，而当二叉树是一条链时，最大深度为 $n$。</p>
+<h4 id="2-迭代解法"><a href="#2-迭代解法" class="headerlink" title="2.迭代解法"></a>2.迭代解法</h4><p>&emsp;&emsp;其实我们需要做的就是将递归的栈显式地模拟出来。寻找左结点之前将根结点压栈，直到最左的结点，然后将栈顶出栈并加入到结果中，然后开始遍历右子树。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line">        stack&lt;TreeNode*&gt; s;</span><br><span class="line">        <span class="keyword">while</span>(root != <span class="literal">nullptr</span> || !s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="keyword">while</span>(root != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">                s.<span class="built_in">push</span>(root);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            root = s.<span class="built_in">top</span>();</span><br><span class="line">            result.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点个数。我们遍历了一次二叉树。<br />
-  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点个数。也即栈的大小。</p>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为二叉树的结点个数。我们遍历了一次二叉树。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 为二叉树的结点个数。也即栈的大小。</p>
 
             </div>
             
@@ -262,8 +248,7 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://ender-coder.github.io/2021/06/22/Leetcode%2094.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/";
             const title         = "「Leetcode 94.二叉树的中序遍历」";
-            const excerpt       = `题目描述：
-给定一个二叉树的根节点 root ，返回它的 中序 遍历。`;
+            const excerpt       = `题目描述：给定一个二叉树的根节点 root ，返回它的 中序 遍历。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;

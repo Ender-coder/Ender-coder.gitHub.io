@@ -15,12 +15,12 @@
   
     <meta name="keywords" content="C++, 动态规划" />
   
-  <meta name="description" content="题目描述： 给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。 说明：每次只能向下或者向右移动一步。">
+  <meta name="description" content="题目描述：给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。 说明：每次只能向下或者向右移动一步。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 64.最小路径和">
 <meta property="og:url" content="http://ender-coder.github.io/2021/06/16/Leetcode%2064.%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述： 给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。 说明：每次只能向下或者向右移动一步。">
+<meta property="og:description" content="题目描述：给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。 说明：每次只能向下或者向右移动一步。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta property="article:published_time" content="2021-06-15T16:18:00.000Z">
@@ -135,7 +135,7 @@
                         <i class="fas fa-edit"></i> 
                         
                         
-                            1.52K
+                            1496
                         
                         字
                     </li>
@@ -154,32 +154,22 @@
                 </div>
                 
                 <hr />
-                <h3 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述：</h3>
-<p>给定一个包含非负整数的 <code>m x n</code> 网格 <code>grid</code> ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
-<p><strong>说明</strong>：每次只能向下或者向右移动一步。</p>
-<span id="more"></span>
-<p></p>
-<h3 id="示例-1"><a class="markdownIt-Anchor" href="#示例-1"></a> 示例 1：</h3>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/05/minpath.jpg" alt="" /></p>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个包含非负整数的 <code>m x n</code> 网格 <code>grid</code> ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
+<p><strong>说明</strong>：每次只能向下或者向右移动一步。<br><span id="more"></span></p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p><img src="https://assets.leetcode.com/uploads/2020/11/05/minpath.jpg" alt=""></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[1,3,1],[1,5,1],[4,2,1]]</span><br><span class="line">输出：7</span><br><span class="line">解释：因为路径 1→3→1→1→1 的总和最小。</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2"><a class="markdownIt-Anchor" href="#示例-2"></a> 示例 2：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[1,2,3],[4,5,6]]</span><br><span class="line">输出：12</span><br></pre></td></tr></table></figure>
-<h3 id="提示"><a class="markdownIt-Anchor" href="#提示"></a> 提示：</h3>
-<ul>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[1,2,3],[4,5,6]]</span><br><span class="line">输出：12</span><br></pre></td></tr></table></figure>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
 <li><code>m == grid.length</code></li>
 <li><code>n == grid[i].length</code></li>
 <li><code>1 &lt;= m, n &lt;= 200</code></li>
 <li><code>0 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
-<h3 id="链接"><a class="markdownIt-Anchor" href="#链接"></a> 链接：</h3>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-path-sum">https://leetcode-cn.com/problems/minimum-path-sum</a></p>
-<hr />
-<h3 id="题目分析"><a class="markdownIt-Anchor" href="#题目分析"></a> 题目分析</h3>
-<p>  由于只能往右或往下走，则每一格最多来自两个方向（左边或者上边）。我们采用动态规划的方法，<code>dp[i][j]</code> 记录从左上角到 <code>grid[i][j]</code> 的最小路径和，从左到右，从上到下遍历 <code>grid</code>，直到右下角，得出答案 <code>dp[m-1][n-1]</code>。而每一格的最小路径和也即从左边或者上边选择值较小的那一个，然后加上本身的数值。<br />
-  注意左上角的最小路径和也即其本身，第一列只能来自上边，第一行只能来自左边。</p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-path-sum">https://leetcode-cn.com/problems/minimum-path-sum</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;由于只能往右或往下走，则每一格最多来自两个方向（左边或者上边）。我们采用动态规划的方法，<code>dp[i][j]</code> 记录从左上角到 <code>grid[i][j]</code> 的最小路径和，从左到右，从上到下遍历 <code>grid</code>，直到右下角，得出答案 <code>dp[m-1][n-1]</code>。而每一格的最小路径和也即从左边或者上边选择值较小的那一个，然后加上本身的数值。<br>&emsp;&emsp;注意左上角的最小路径和也即其本身，第一列只能来自上边，第一行只能来自左边。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = grid.<span class="built_in">size</span>(), n = grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">dp</span>(m, vector&lt;<span class="keyword">int</span>&gt;(n));</span><br><span class="line"></span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];      <span class="comment">// 左上角</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)&#123; <span class="comment">// 第一列</span></span><br><span class="line">            dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + grid[i][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)&#123; <span class="comment">// 第一行</span></span><br><span class="line">            dp[<span class="number">0</span>][j] = dp[<span class="number">0</span>][j<span class="number">-1</span>] + grid[<span class="number">0</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)&#123;</span><br><span class="line">                dp[i][j] = <span class="built_in">min</span>(dp[i<span class="number">-1</span>][j], dp[i][j<span class="number">-1</span>]) + grid[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(mn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi mathvariant="normal">、</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">m、n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord cjk_fallback">、</span><span class="mord mathdefault">n</span></span></span></span> 分别是 <code>grid</code> 的行数和列数。动态规划的过程对 <code>grid</code> 进行了一次遍历。<br />
-  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(mn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi mathvariant="normal">、</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">m、n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord cjk_fallback">、</span><span class="mord mathdefault">n</span></span></span></span> 分别是 <code>grid</code> 的行数和列数。也即动态规划数组的大小。（可以优化到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\min(m,n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">min</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>，具体方法是只存储上一行或者上一列的 dp 值）</p>
+<p>&emsp;&emsp;时间复杂度：$O(mn)$，其中 $m、n$ 分别是 <code>grid</code> 的行数和列数。动态规划的过程对 <code>grid</code> 进行了一次遍历。<br>&emsp;&emsp;空间复杂度：$O(mn)$，其中 $m、n$ 分别是 <code>grid</code> 的行数和列数。也即动态规划数组的大小。（可以优化到 $O(\min(m,n))$，具体方法是只存储上一行或者上一列的 dp 值）</p>
 
             </div>
             
@@ -249,8 +239,7 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://ender-coder.github.io/2021/06/16/Leetcode%2064.%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/";
             const title         = "「Leetcode 64.最小路径和」";
-            const excerpt       = `题目描述：
-给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
+            const excerpt       = `题目描述：给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
 说明：每次只能向下或者向右移动一步。`;
             let _URL;
             switch (dest) {
