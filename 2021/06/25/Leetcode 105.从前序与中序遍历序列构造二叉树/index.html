@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="../images/spider-man.webp">
-  <title>Leetcode 79.单词搜索 | 心之所向便是光</title>
+  <title>Leetcode 105.从前序与中序遍历序列构造二叉树 | 心之所向便是光</title>
   <meta name="author" content="Ender" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,22 +13,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++, DFS, 回溯" />
+    <meta name="keywords" content="C++, 二叉树, 栈, 迭代, 递归" />
   
-  <meta name="description" content="题目描述：给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。">
+  <meta name="description" content="题目描述：根据一棵树的前序遍历与中序遍历构造二叉树。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 79.单词搜索">
-<meta property="og:url" content="http://ender-coder.github.io/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/index.html">
+<meta property="og:title" content="Leetcode 105.从前序与中序遍历序列构造二叉树">
+<meta property="og:url" content="http://ender-coder.github.io/2021/06/25/Leetcode%20105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述：给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。">
+<meta property="og:description" content="题目描述：根据一棵树的前序遍历与中序遍历构造二叉树。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
-<meta property="article:published_time" content="2021-06-17T10:41:00.000Z">
-<meta property="article:modified_time" content="2021-06-17T11:29:50.088Z">
+<meta property="article:published_time" content="2021-06-25T05:50:00.000Z">
+<meta property="article:modified_time" content="2021-06-25T07:58:11.973Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="回溯">
-<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="栈">
+<meta property="article:tag" content="递归">
+<meta property="article:tag" content="迭代">
+<meta property="article:tag" content="二叉树">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta name="twitter:site" content="@undefined">
@@ -126,22 +128,22 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Leetcode 79.单词搜索</h1>
+                    <h1 class="kratos-entry-title text-center">Leetcode 105.从前序与中序遍历序列构造二叉树</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fas fa-calendar-alt"></i> 2021-06-17</li>
+                    <li><i class="fas fa-calendar-alt"></i> 2021-06-25</li>
                     <li><i class="fas fa-user"></i> 作者 Ender</li>
                     <li>
                         <i class="fas fa-edit"></i> 
                         
                         
-                            3.67K
+                            4.46K
                         
                         字
                     </li>
                     
-                        <li id="/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" class="leancloud_visitors" data-flag-title="Leetcode 79.单词搜索">
+                        <li id="/2021/06/25/Leetcode%20105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="leancloud_visitors" data-flag-title="Leetcode 105.从前序与中序遍历序列构造二叉树">
                             <i class="fas fa-eye"></i>
                             <span class="leancloud-visitors-count"> </span> 次阅读
                         </li>
@@ -151,30 +153,23 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1623929390088"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1624607891973"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
-                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个 <code>m x n</code> 二维字符网格 <code>board</code> 和一个字符串单词 <code>word</code> 。如果 <code>word</code> 存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。<br><span id="more"></span></p>
-<p>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
-<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p><img src="https://assets.leetcode.com/uploads/2020/11/04/word2.jpg" alt=""></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCCED&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><p><img src="https://assets.leetcode.com/uploads/2020/11/04/word-1.jpg" alt=""></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;SEE&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><p><img src="https://assets.leetcode.com/uploads/2020/10/15/word3.jpg" alt=""></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCB&quot;</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
-<li><code>m == board.length</code></li>
-<li><code>n = board[i].length</code></li>
-<li><code>1 &lt;= m, n &lt;= 6</code></li>
-<li><code>1 &lt;= word.length &lt;= 15</code></li>
-<li><code>board</code> 和 <code>word</code> 仅由大小写英文字母组成</li>
-</ul>
-<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-search">https://leetcode-cn.com/problems/word-search</a></p>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>根据一棵树的前序遍历与中序遍历构造二叉树。<br><span id="more"></span></p>
+<p><strong>注意</strong>：你可以假设树中没有重复的元素。</p>
+<p>例如，给出<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">前序遍历 preorder = [3,9,20,15,7]</span><br><span class="line">中序遍历 inorder = [9,3,15,20,7]</span><br></pre></td></tr></table></figure></p>
+<p>返回如下的二叉树：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure></p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal">https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;这道题是在一个二维的表格中寻找一个单词，由于每次搜索的格子是相邻的，我们很容易可以想到 DFS（深度优先搜索）的方法。因为题目要求结点不能重复使用，我们使用一个和 <code>board</code> 同样大小的布尔数组 <code>use</code> 来标记结点是否已经被使用。我们从符合 <code>word[0]</code> 的某个单元格开始搜索，每次往某个方向搜索，如果这个方向的邻结点还没有被使用，并且符合我们需要的下一个字母（<code>word[index]</code>），则从这个结点进行下一层的搜索。当我们搜索到 <code>word</code> 的尽头仍然可以找到符合的字母时，则说明这个单词 <code>word</code> 存在于 <code>board</code> 中，直接返回 <code>true</code>，不再进行搜索。如果当前方向搜索不到则进行回溯，将标记为已使用的单元格还原为未使用，继续进行其他方向的搜索。如果经历了所有的搜索都无法找到，则结果为 <code>false</code>。需要注意的是，初始的 <code>use</code> 需要全部标记为未使用。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">const</span> vector&lt;vector&lt;<span class="keyword">char</span>&gt;&gt;&amp; board,</span></span></span><br><span class="line"><span class="params"><span class="function">             vector&lt;vector&lt;<span class="keyword">bool</span>&gt;&gt;&amp; use, <span class="keyword">int</span> x, <span class="keyword">int</span> y,</span></span></span><br><span class="line"><span class="params"><span class="function">             <span class="keyword">const</span> string word, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index == word.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(x &gt; <span class="number">0</span> &amp;&amp; !use[x<span class="number">-1</span>][y] &amp;&amp; board[x<span class="number">-1</span>][y] == word[index])&#123;</span><br><span class="line">            use[x<span class="number">-1</span>][y] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, x<span class="number">-1</span>, y, word, index+<span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            use[x<span class="number">-1</span>][y] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(y &gt; <span class="number">0</span> &amp;&amp; !use[x][y<span class="number">-1</span>] &amp;&amp; board[x][y<span class="number">-1</span>] == word[index])&#123;</span><br><span class="line">            use[x][y<span class="number">-1</span>] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, x, y<span class="number">-1</span>, word, index+<span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            use[x][y<span class="number">-1</span>] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; board.<span class="built_in">size</span>()<span class="number">-1</span> &amp;&amp; !use[x+<span class="number">1</span>][y] &amp;&amp; board[x+<span class="number">1</span>][y] == word[index])&#123;</span><br><span class="line">            use[x+<span class="number">1</span>][y] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, x+<span class="number">1</span>, y, word, index+<span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            use[x+<span class="number">1</span>][y] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(y &lt; board[<span class="number">0</span>].<span class="built_in">size</span>()<span class="number">-1</span> &amp;&amp; !use[x][y+<span class="number">1</span>] &amp;&amp; board[x][y+<span class="number">1</span>] == word[index])&#123;</span><br><span class="line">            use[x][y+<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, x, y+<span class="number">1</span>, word, index+<span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            use[x][y+<span class="number">1</span>] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">exist</span><span class="params">(vector&lt;vector&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, string word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(board[i][j] == word[<span class="number">0</span>])&#123;</span><br><span class="line">                    vector&lt;vector&lt;<span class="keyword">bool</span>&gt;&gt; <span class="built_in">use</span>(board.<span class="built_in">size</span>(), vector&lt;<span class="keyword">bool</span>&gt;(board[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="literal">false</span>));</span><br><span class="line">                    use[i][j] = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">dfs</span>(board, use, i, j, word, <span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;时间复杂度：$O(mn\times3^L)$，其中 $m、n、L$ 分别为 <code>board</code> 的行数、列数和 <code>word</code> 的长度，这是一个比较宽松的上界。我们最多对整个 <code>board</code> 的所有单元格作为起点进行搜索，除了起点，每次搜索最多只有三个方向可以搜索（上一个结点的方向已经被使用），最大搜索长度是单词的长度。我们对于已使用的单元格或者是不符合的字母都是不会进行搜索的，有了这些剪枝实际上的时间复杂度会远远小于这个上界。<br>&emsp;&emsp;空间复杂度：$O(mn)$，其中 $m、n$ 分别为 <code>board</code> 的行数和列数。我们建立了一个 $m\times n$ 的数组用于标记某个单元格是否已经使用。而 DFS 最大的搜索深度为单词的长度或者是搜满 <code>board</code>，也即 $O(\min(L,mn))$。因此总的空间复杂度为 $O(mn)$。</p>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h4 id="1-迭代"><a href="#1-迭代" class="headerlink" title="1.迭代"></a>1.迭代</h4><p>&emsp;&emsp;我们知道，在前序遍历中，结点的顺序按照 <code>[根结点 左子树 右子树]</code> 的顺序排列。则在连续的两个结点之间的关系只有两种情况，一种是后面结点是前面结点的左孩子，一种是后面结点是前面结点本身或者某个祖先的右孩子。而这两情况，可以通过中序遍历加以区分。中序遍历中，结点的排列是按照 <code>[左子树 根结点 右子树]</code> 进行排列的，若是第一种情况，则两种遍历的顺序相反，第二种情况则相同。并且第二种情况中是哪个祖先的右子树呢？其实就是前序遍历和中序遍历不再相反的那一个结点，也即局部的根结点。结合这样的数据特点，我们选择栈这种数据结构。栈中存放的结点是 <code>还没考虑过右孩子的结点</code>。<br>&emsp;&emsp;我们使用一个 <code>inorderIndex</code> 来表示当前中序遍历的下标。我们按前序遍历的顺序作为循环，前序遍历的第一个结点就是根结点，加入到栈中。开始检查栈顶结点是否是当前中序遍历的结点，如果不是，也即意味着是第一种情况，前序遍历到的结点是栈顶结点的左孩子（这个左孩子会比栈顶结点更早出现于中序遍历中，因此栈顶结点不会是当前中序遍历的结点），连接到树中，并将其入栈；如果是，则说明是第二种情况，这个时候我们要找到是哪个祖先的右孩子，开始出栈，同时中序遍历下标也开始右移，不断比对直到栈为空或者栈顶结点不再是中序遍历的结点，则说明该结点是栈顶结点的右子树了。上面说的两种情况可能有点复杂，我们用下面的树进行理解。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">前序遍历 [1, 2, 3, 4, 5, 6, 7, 8]</span><br><span class="line">中序遍历 [4, 3, 2, 6, 5, 7, 1, 8]</span><br><span class="line">      1</span><br><span class="line">     / \</span><br><span class="line">    2   8</span><br><span class="line">   / \</span><br><span class="line">  3   5</span><br><span class="line"> /   / \</span><br><span class="line">4   6   7</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;中序遍历的第一个数字是 <code>4</code>。前序遍历中 <code>1</code> 为根，<code>2</code> 是第一种情况，也即是 <code>1</code> 的左孩子（可以采用反证法，如果不是，则 <code>2</code> 只能为 <code>1</code> 的右孩子，且左孩子为空，这个时候中序遍历一定是 <code>1</code> 开始的）。同理，在前序遍历遇到 <code>4</code> 之前的所有数字都要入栈，也即栈中为 <code>[1, 2, 3, 4]</code>。<br>&emsp;&emsp;遇到 <code>4</code> 之后，我们可以知道，<code>4</code> 是最左的孩子了。那么前序遍历的下一个数字 <code>5</code> 是哪个祖先的右孩子呢？在中序遍历中，这个祖先的右孩子是比祖先的祖先更早出现的（因为他们在祖先的祖先的左孩子中），因此我们找到中序遍历中比栈更早出现的结点即可。我们将 <code>4</code> 出栈；<code>inorderIndex</code> 右移，栈顶为 <code>3</code>，中序遍历也为 <code>3</code>，继续出栈；栈顶为 <code>2</code>，中序遍历为 <code>2</code>，继续出栈；栈顶为 <code>1</code>，而中序遍历为 <code>6</code>。这个时候，我们可以知道，<code>6</code> 就是在 <code>2</code> 的右孩子中了（<code>2</code> 是祖先，<code>1</code> 是祖先的祖先，<code>6</code> 所在的子树比 <code>1</code> 更早出现，是 <code>2</code> 的右孩子）。而前序遍历到的结点 <code>5</code> 就是 <code>2</code> 的右孩子的根（前序遍历的根最早出现），所以可以直接将其连接到 <code>2</code> 的右孩子中，然后将 <code>5</code> 入栈。<br>&emsp;&emsp;这个时候的栈是 <code>[1, 5]</code>。又可以继续上面的过程，<code>6</code> 不是 <code>5</code>，是第一种情况，也即 <code>5</code> 的左孩子，连接并入栈。重复以上的过程就可以得到最终的答案。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; preorder, vector&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preorder.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        stack&lt;TreeNode*&gt; stk;</span><br><span class="line">        TreeNode *root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(preorder[<span class="number">0</span>]);</span><br><span class="line">        stk.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">int</span> inorderIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; preorder.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            TreeNode *now = stk.<span class="built_in">top</span>();</span><br><span class="line">            <span class="keyword">if</span>(inorder[inorderIndex] != now-&gt;val)&#123;</span><br><span class="line">                now-&gt;left = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(preorder[i]);</span><br><span class="line">                stk.<span class="built_in">push</span>(now-&gt;left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(!stk.<span class="built_in">empty</span>() &amp;&amp; stk.<span class="built_in">top</span>()-&gt;val == inorder[inorderIndex])&#123;</span><br><span class="line">                    now = stk.<span class="built_in">top</span>();</span><br><span class="line">                    stk.<span class="built_in">pop</span>();</span><br><span class="line">                    inorderIndex++;</span><br><span class="line">                &#125;</span><br><span class="line">                now-&gt;right = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(preorder[i]);</span><br><span class="line">                stk.<span class="built_in">push</span>(now-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。我们对前序遍历和中序遍历都进行了一次遍历。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。栈的最大元素个数为 $n$。</p>
+<h4 id="2-递归"><a href="#2-递归" class="headerlink" title="2.递归"></a>2.递归</h4><p>&emsp;&emsp;我们知道，前序遍历的结构是 <code>[根结点, [左子树的前序遍历], [右子树的前序遍历]]</code>，中序遍历的顺序是 <code>[[左子树的中序遍历], 根结点, [右子树的中序遍历]]</code>。可以发现，他们的定义是递归的，并且这三块中的内容也具有对应关系，左子树的前序遍历和中序遍历构造的树就是根结点的左子树，右子树同理。因此我们应该可以使用一个递归函数解决这个问题。<br>&emsp;&emsp;递归的关键就是找到这三块内容的分界线。很容易可以想到利用根结点进行划分。前序遍历的第一个结点就是根结点，而我们在中序遍历中就可以根据根结点的值找到根结点的位置，划分好中序遍历后，再根据左子树序列的长度，可以划分前序遍历。为了提升寻找中序遍历中根结点的位置速度，我们给中序遍历建立了一个值和结点位置对应的哈希表。<br>&emsp;&emsp;递归函数的返回值是一棵树，我们利用根结点新建结点，再递归调用函数建立左子树和右子树，然后向上层返回根结点即可。递归中止的条件也即结点为空。<br>&emsp;&emsp;<code>preorder[preLeft ~ preRight]</code> 和 <code>inorder[inLeft ~ inRight]</code> 分别表示了前序遍历和中序遍历的区间。（代码是为了便于理解，实际上没有用到 <code>inRight</code>）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; inorderIndex;</span><br><span class="line">    </span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; preorder, vector&lt;<span class="keyword">int</span>&gt;&amp; inorder, <span class="keyword">int</span> preLeft, <span class="keyword">int</span> preRight, <span class="keyword">int</span> inLeft, <span class="keyword">int</span> inRight)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preLeft &gt; preRight) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> rootVal = preorder[preLeft];</span><br><span class="line">        <span class="keyword">int</span> inRoot = inorderIndex[rootVal];</span><br><span class="line">        <span class="keyword">int</span> leftLength = inRoot - inLeft;</span><br><span class="line">        TreeNode *root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(rootVal);</span><br><span class="line">        root-&gt;left = <span class="built_in">build</span>(preorder, inorder, preLeft + <span class="number">1</span>, preLeft + leftLength, inLeft, inRoot - <span class="number">1</span>);</span><br><span class="line">        root-&gt;right = <span class="built_in">build</span>(preorder, inorder, preLeft + leftLength + <span class="number">1</span>, preRight, inRoot + <span class="number">1</span>, inRight);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; preorder, vector&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = inorder.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">            inorderIndex[inorder[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">build</span>(preorder, inorder, <span class="number">0</span>, size - <span class="number">1</span>, <span class="number">0</span>, size - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。我们对中序遍历行了一次遍历建立哈希表，而在递归的过程中实际我们对前序遍历和中序遍历进行了一次遍历。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。哈希表的大小为 $n$，递归栈的最大深度也为 $n$。</p>
 
             </div>
             
@@ -230,7 +225,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://ender-coder.github.io/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/",
+                text: "http://ender-coder.github.io/2021/06/25/Leetcode%20105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -242,9 +237,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://ender-coder.github.io/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/";
-            const title         = "「Leetcode 79.单词搜索」";
-            const excerpt       = `题目描述：给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。`;
+            const hostUrl       = "http://ender-coder.github.io/2021/06/25/Leetcode%20105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/";
+            const title         = "「Leetcode 105.从前序与中序遍历序列构造二叉树」";
+            const excerpt       = `题目描述：根据一棵树的前序遍历与中序遍历构造二叉树。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -263,10 +258,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fas fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/DFS/" rel="tag">DFS</a>, <a class="tag-none-link" href="/tags/%E5%9B%9E%E6%BA%AF/" rel="tag">回溯</a>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a>, <a class="tag-none-link" href="/tags/%E6%A0%88/" rel="tag">栈</a>, <a class="tag-none-link" href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag">迭代</a>, <a class="tag-none-link" href="/tags/%E9%80%92%E5%BD%92/" rel="tag">递归</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-06-17</span>
+                    <span>最后编辑：2021-06-25</span>
                     </div>
                 </div>
             </footer>
@@ -275,13 +270,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" Leetcode 78.子集" href="/2021/06/17/Leetcode 78.子集/">&lt; 上一篇</a>
+                    <a title=" Leetcode 104.二叉树的最大深度" href="/2021/06/23/Leetcode 104.二叉树的最大深度/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" Leetcode 84.柱状图中最大的矩形" href="/2021/06/17/Leetcode 84.柱状图中最大的矩形/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -296,7 +287,7 @@
                 appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
                 visitor: true,
                 enableQQ: true,
-                path: '/2021/06/17/Leetcode%2079.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/'
+                path: '/2021/06/25/Leetcode%20105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/'
             });
         }
         if (typeof Valine == 'undefined') {
