@@ -15,12 +15,12 @@
   
     <meta name="keywords" content="C++, 二叉树" />
   
-  <meta name="description" content="题目描述： 给你二叉树的根结点 root ，请你将它展开为一个单链表。">
+  <meta name="description" content="题目描述：给你二叉树的根结点 root ，请你将它展开为一个单链表。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 114.二叉树展开为链表">
 <meta property="og:url" content="http://ender-coder.github.io/2021/06/25/Leetcode%20114.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="心之所向便是光">
-<meta property="og:description" content="题目描述： 给你二叉树的根结点 root ，请你将它展开为一个单链表。">
+<meta property="og:description" content="题目描述：给你二叉树的根结点 root ，请你将它展开为一个单链表。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta property="article:published_time" content="2021-06-25T15:15:00.000Z">
@@ -135,7 +135,7 @@
                         <i class="fas fa-edit"></i> 
                         
                         
-                            3.22K
+                            3.24K
                         
                         字
                     </li>
@@ -154,42 +154,29 @@
                 </div>
                 
                 <hr />
-                <h3 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述：</h3>
-<p>给你二叉树的根结点 <code>root</code> ，请你将它展开为一个单链表。</p>
-<span id="more"></span>
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给你二叉树的根结点 <code>root</code> ，请你将它展开为一个单链表。<br><span id="more"></span></p>
 <ul>
 <li>展开后的单链表应该同样使用 <code>TreeNode</code> ，其中 <code>right</code> 子指针指向链表中下一个结点，而左子指针始终为 <code>null</code> 。</li>
 <li>展开后的单链表应该与二叉树 <strong>先序遍历</strong> 顺序相同。</li>
 </ul>
 <p><strong>进阶</strong>：你可以使用原地算法（<code>O(1)</code> 额外空间）展开这棵树吗？</p>
-<h3 id="示例-1"><a class="markdownIt-Anchor" href="#示例-1"></a> 示例 1：</h3>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/14/flaten.jpg" alt="" /></p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><p><img src="https://assets.leetcode.com/uploads/2021/01/14/flaten.jpg" alt=""></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,2,5,3,4,null,6]</span><br><span class="line">输出：[1,null,2,null,3,null,4,null,5,null,6]</span><br></pre></td></tr></table></figure>
-<h3 id="示例-2"><a class="markdownIt-Anchor" href="#示例-2"></a> 示例 2：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
-<h3 id="示例-3"><a class="markdownIt-Anchor" href="#示例-3"></a> 示例 3：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [0]</span><br><span class="line">输出：[0]</span><br></pre></td></tr></table></figure>
-<h3 id="提示"><a class="markdownIt-Anchor" href="#提示"></a> 提示：</h3>
-<ul>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [0]</span><br><span class="line">输出：[0]</span><br></pre></td></tr></table></figure>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
 <li>树中结点数在范围 <code>[0, 2000]</code> 内</li>
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
-<h3 id="链接"><a class="markdownIt-Anchor" href="#链接"></a> 链接：</h3>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list">https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list</a></p>
-<hr />
-<h3 id="题目分析"><a class="markdownIt-Anchor" href="#题目分析"></a> 题目分析</h3>
-<h4 id="1前序遍历"><a class="markdownIt-Anchor" href="#1前序遍历"></a> 1.前序遍历</h4>
-<p>  如果先不考虑进阶的要求，我们可以直接按照先序遍历的顺序遍历一次二叉树，将其所有结点逐一添加到数组中，然后再逐一进行连接。（如果采用迭代的方法遍历二叉树则还可以边遍历边连接）</p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list">https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h4 id="1-前序遍历"><a href="#1-前序遍历" class="headerlink" title="1.前序遍历"></a>1.前序遍历</h4><p>&emsp;&emsp;如果先不考虑进阶的要求，我们可以直接按照先序遍历的顺序遍历一次二叉树，将其所有结点逐一添加到数组中，然后再逐一进行连接。（如果采用迭代的方法遍历二叉树则还可以边遍历边连接）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(vector&lt;TreeNode*&gt;&amp; list, TreeNode* root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span>;</span><br><span class="line">        list.<span class="built_in">push_back</span>(root);</span><br><span class="line">        <span class="built_in">preorder</span>(list, root-&gt;left);</span><br><span class="line">        <span class="built_in">preorder</span>(list, root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">flatten</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;TreeNode*&gt; list;</span><br><span class="line">        <span class="built_in">preorder</span>(list, root);</span><br><span class="line">        TreeNode *pre = root;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; list.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            pre-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">            pre-&gt;right = list[i];</span><br><span class="line">            pre = pre-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点数。我们遍历一次二叉树，重新连接了一次二叉树。<br />
-  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点数。我们需要一个大小为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的数组存放二叉树结点。</p>
-<h4 id="2寻找前驱结点"><a class="markdownIt-Anchor" href="#2寻找前驱结点"></a> 2.寻找前驱结点</h4>
-<p>  进阶的要求如何达到呢？我们如果能够直接在原树进行连接，则不需要额外空间。最终的树是按照前序遍历的顺序逐一连接到右子树中的，而前序遍历的顺序是 <code>[根结点 左子树 右子树]</code>。如果当前结点左子树为空，则与最终结果一样，无需进行操作。如果当前结点左子树不为空，则当前结点右子树应该是在左子树访问完毕后才进行访问，这个时候，右子树的前驱结点应该就是左子树的最右叶子。我们寻找到这个前驱结点，并将当前结点的右子树作为前驱结点的右子树连接，同时将当前结点的左子树变为右子树。如此处理所有的结点。<br />
-  如下面例子（第一棵树）所示，<code>1</code> 有左子树，我们找到左子树的最右叶子 <code>4</code>，并将 <code>1</code> 的右子树 <code>[5, 6]</code> 连接到 <code>4</code> 之后，如第二棵树所示。然后再将左子树根结点 <code>2</code> 变为 <code>1</code> 的右子树，如第三棵树所示。这个时候就处理好了 <code>1</code> 这个结点，接下来以同样的流程处理 <code>2</code> 这个结点。如第四第五颗树所示。</p>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。我们遍历一次二叉树，重新连接了一次二叉树。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。我们需要一个大小为 $n$ 的数组存放二叉树结点。</p>
+<h4 id="2-寻找前驱结点"><a href="#2-寻找前驱结点" class="headerlink" title="2.寻找前驱结点"></a>2.寻找前驱结点</h4><p>&emsp;&emsp;进阶的要求如何达到呢？我们如果能够直接在原树进行连接，则不需要额外空间。最终的树是按照前序遍历的顺序逐一连接到右子树中的，而前序遍历的顺序是 <code>[根结点 左子树 右子树]</code>。如果当前结点左子树为空，则与最终结果一样，无需进行操作。如果当前结点左子树不为空，则当前结点右子树应该是在左子树访问完毕后才进行访问，这个时候，右子树的前驱结点应该就是左子树的最右叶子。我们寻找到这个前驱结点，并将当前结点的右子树作为前驱结点的右子树连接，同时将当前结点的左子树变为右子树。如此处理所有的结点。<br>&emsp;&emsp;如下面例子（第一棵树）所示，<code>1</code> 有左子树，我们找到左子树的最右叶子 <code>4</code>，并将 <code>1</code> 的右子树 <code>[5, 6]</code> 连接到 <code>4</code> 之后，如第二棵树所示。然后再将左子树根结点 <code>2</code> 变为 <code>1</code> 的右子树，如第三棵树所示。这个时候就处理好了 <code>1</code> 这个结点，接下来以同样的流程处理 <code>2</code> 这个结点。如第四第五颗树所示。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    1                 1             1                  1              1</span><br><span class="line">   / \               /               \                  \              \</span><br><span class="line">  2   5             2                 2                  2              2</span><br><span class="line"> / \   \           / \               / \                /                \</span><br><span class="line">3   4   6         3   4             3   4              3                  3</span><br><span class="line">                       \                 \              \                  \               </span><br><span class="line">                        5                 5              4                  4</span><br><span class="line">                         \                 \              \                  \</span><br><span class="line">                          6                 6              5                  5</span><br><span class="line">                                                            \                  \</span><br><span class="line">                                                             6                  6</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">flatten</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        TreeNode *now = root;</span><br><span class="line">        <span class="keyword">while</span>(now != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(now-&gt;left != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">                TreeNode *pre = now-&gt;left;</span><br><span class="line">                <span class="keyword">while</span>(pre-&gt;right != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">                    pre = pre-&gt;right;</span><br><span class="line">                &#125;</span><br><span class="line">                pre-&gt;right = now-&gt;right;</span><br><span class="line">                now-&gt;right = now-&gt;left;</span><br><span class="line">                now-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            now = now-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>  时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 为二叉树的结点数。我们对于每个结点都需要访问一次进行处理，而寻找前驱结点的过程中每个结点至多被访问一次。<br />
-  空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。这个算法为原地算法，我们只需要常数的空间存放若干变量。</p>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 为二叉树的结点数。我们对于每个结点都需要访问一次进行处理，而寻找前驱结点的过程中每个结点至多被访问一次。<br>&emsp;&emsp;空间复杂度：$O(1)$。这个算法为原地算法，我们只需要常数的空间存放若干变量。</p>
 
             </div>
             
@@ -259,8 +246,7 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://ender-coder.github.io/2021/06/25/Leetcode%20114.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/";
             const title         = "「Leetcode 114.二叉树展开为链表」";
-            const excerpt       = `题目描述：
-给你二叉树的根结点 root ，请你将它展开为一个单链表。`;
+            const excerpt       = `题目描述：给你二叉树的根结点 root ，请你将它展开为一个单链表。`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -358,7 +344,7 @@
         
           <a class="list-group-item" href="/categories/Leetcode/">
             <i class="fas fa-folder"></i> Leetcode
-            <span>45</span>
+            <span>48</span>
           </a>
         
           <a class="list-group-item" href="/categories/Project/">
@@ -381,7 +367,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fas fa-tags"></i>标签云</h4>
       <div class="tag-clouds">
-        <a href="/tags/BFS/" style="font-size: 0.63em;">BFS</a> <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/DFS/" style="font-size: 0.63em;">DFS</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.66em;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 0.77em;">二叉树</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 0.63em;">分治</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.77em;">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 0.63em;">单调栈</a> <a href="/tags/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95/" style="font-size: 0.66em;">原地算法</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.69em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.63em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.74em;">回溯</a> <a href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" style="font-size: 0.6em;">字典序</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.6em;">快慢指针</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 0.66em;">数学方法</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.66em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.63em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 0.6em;">贪心</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 0.71em;">迭代</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.71em;">递归</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.66em;">队列</a>
+        <a href="/tags/BFS/" style="font-size: 0.63em;">BFS</a> <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/DFS/" style="font-size: 0.63em;">DFS</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/set/" style="font-size: 0.6em;">set</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.65em;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 0.78em;">二叉树</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 0.6em;">位运算</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 0.63em;">分治</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.75em;">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 0.63em;">单调栈</a> <a href="/tags/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95/" style="font-size: 0.65em;">原地算法</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.68em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.63em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.73em;">回溯</a> <a href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" style="font-size: 0.6em;">字典序</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.6em;">快慢指针</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 0.65em;">数学方法</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.65em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.63em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 0.6em;">贪心</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 0.7em;">迭代</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.73em;">递归</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.65em;">队列</a>
       </div>
   </aside>
 
@@ -392,6 +378,24 @@
     <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2021/06/29/Leetcode%20136.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/"><i class="fas fa-file-alt"></i> Leetcode 136.只出现一次的数字</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/06/29/Leetcode%20128.%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/"><i class="fas fa-file-alt"></i> Leetcode 128.最长连续序列</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/06/29/Leetcode%20124.%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C/"><i class="fas fa-file-alt"></i> Leetcode 124.二叉树中的最大路径和</a>
+            
+          
         
           
           
@@ -406,23 +410,11 @@
           
         
           
-          
-            <a class="list-group-item" href="/2021/06/25/Leetcode%20105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/"><i class="fas fa-file-alt"></i> Leetcode 105.从前序与中序遍历序列构造二叉树</a>
             
           
-        
-          
-          
-            <a class="list-group-item" href="/2021/06/23/Leetcode%20104.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/"><i class="fas fa-file-alt"></i> Leetcode 104.二叉树的最大深度</a>
             
           
-        
-          
-          
-            <a class="list-group-item" href="/2021/06/23/Leetcode%20102.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/"><i class="fas fa-file-alt"></i> Leetcode 102.二叉树的层序遍历</a>
             
-          
-        
           
             
           
