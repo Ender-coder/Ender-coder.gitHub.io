@@ -594,7 +594,7 @@ ${kr.copyrightNotice}
         fancyboxInit();
         setCopyright();
         saveTitle();
-        /*initMathjax();*/
+        //initMathjax();
         codeCopyInit();
         commentsLazyLoad();
         expireNotify();
