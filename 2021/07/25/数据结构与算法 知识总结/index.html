@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="../images/spider-man.webp">
+  <title>数据结构与算法 知识总结 | 心之所向便是光</title>
+  <meta name="author" content="Ender" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;关于 数据结构与算法 知识体系的总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法 知识总结">
+<meta property="og:url" content="http://ender-coder.github.io/2021/07/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="心之所向便是光">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;关于 数据结构与算法 知识体系的总结。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
+<meta property="article:published_time" content="2021-07-25T13:30:00.000Z">
+<meta property="article:modified_time" content="2021-07-30T15:00:55.533Z">
+<meta property="article:author" content="Ender">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
+<meta name="twitter:site" content="@undefined">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  <script src="//cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fas fa-home fa-fw"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fas fa-folder fa-fw"></i>归档</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fas fa-comments fa-fw"></i>友链</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/about"><i class="fas fa-paper-plane fa-fw"></i>关于</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">心之所向便是光</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>心之所向便是光</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                
+                    <h1 class="kratos-entry-title text-center">数据结构与算法 知识总结</h1>
+                
+                
+                <ul class="kratos-post-meta text-center">
+                    <li><i class="fas fa-calendar-alt"></i> 2021-07-25</li>
+                    <li><i class="fas fa-user"></i> 作者 Ender</li>
+                    <li>
+                        <i class="fas fa-edit"></i> 
+                        
+                        
+                            7.51K
+                        
+                        字
+                    </li>
+                    
+                        <li id="/2021/07/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="leancloud_visitors" data-flag-title="数据结构与算法 知识总结">
+                            <i class="fas fa-eye"></i>
+                            <span class="leancloud-visitors-count"> </span> 次阅读
+                        </li>
+                        
+                    
+                </ul>
+            </header>
+            <div class="kratos-post-content">
+                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                    本文最后编辑于 <time datetime="1627657255533"></time> 前，其中的内容可能需要更新。
+                </div>
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">常用的数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">3.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">3.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-vector"><span class="toc-number">3.2.</span> <span class="toc-text">STL vector</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-1"><span class="toc-number">4.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-list"><span class="toc-number">4.2.</span> <span class="toc-text">STL list</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88"><span class="toc-number">5.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-2"><span class="toc-number">5.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-stack"><span class="toc-number">5.2.</span> <span class="toc-text">STL stack</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">6.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-3"><span class="toc-number">6.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-queue"><span class="toc-number">6.2.</span> <span class="toc-text">STL queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-deque"><span class="toc-number">6.3.</span> <span class="toc-text">STL deque</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">7.</span> <span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-4"><span class="toc-number">7.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">7.2.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">7.2.1.</span> <span class="toc-text">完全二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">7.2.2.</span> <span class="toc-text">满二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-number">7.2.3.</span> <span class="toc-text">二叉查找树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">7.2.4.</span> <span class="toc-text">平衡二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-number">7.2.5.</span> <span class="toc-text">红黑树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="toc-number">7.2.6.</span> <span class="toc-text">哈夫曼树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-number">7.3.</span> <span class="toc-text">多路查找树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#B-B-%E6%A0%91"><span class="toc-number">7.3.1.</span> <span class="toc-text">B&#x2F;B+ 树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-set-%E5%92%8C-map"><span class="toc-number">7.4.</span> <span class="toc-text">STL set 和 map</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#set"><span class="toc-number">7.4.1.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#multiset"><span class="toc-number">7.4.2.</span> <span class="toc-text">multiset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#map"><span class="toc-number">7.4.3.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#multimap"><span class="toc-number">7.4.4.</span> <span class="toc-text">multimap</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-number">8.</span> <span class="toc-text">哈希表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-5"><span class="toc-number">8.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0"><span class="toc-number">8.2.</span> <span class="toc-text">哈希函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">8.3.</span> <span class="toc-text">哈希冲突的解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-unordered-set-%E5%92%8C-unordered-map"><span class="toc-number">8.4.</span> <span class="toc-text">STL unordered_set 和 unordered_map</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#unordered-set"><span class="toc-number">8.4.1.</span> <span class="toc-text">unordered_set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unordered-map"><span class="toc-number">8.4.2.</span> <span class="toc-text">unordered_map</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86"><span class="toc-number">9.</span> <span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-6"><span class="toc-number">9.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E9%80%94"><span class="toc-number">9.2.</span> <span class="toc-text">用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%92%8C%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">9.3.</span> <span class="toc-text">堆和二叉搜索树的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E5%A0%86"><span class="toc-number">9.4.</span> <span class="toc-text">调整堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%A0%86"><span class="toc-number">9.5.</span> <span class="toc-text">建立堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-%E4%B8%AD%E7%9A%84%E5%A0%86"><span class="toc-number">9.6.</span> <span class="toc-text">STL 中的堆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-number">10.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-7"><span class="toc-number">10.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">10.2.</span> <span class="toc-text">图的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number">10.3.</span> <span class="toc-text">图的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-number">10.4.</span> <span class="toc-text">最小生成树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">10.5.</span> <span class="toc-text">最短路径</span></a></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;关于 <strong>数据结构与算法</strong> 知识体系的总结。<br><span id="more"></span></p>
+<h2 id="常用的数据结构"><a href="#常用的数据结构" class="headerlink" title="常用的数据结构"></a>常用的数据结构</h2><ul>
+<li>数组 array</li>
+<li>链表 list</li>
+<li>栈 stack</li>
+<li>队列 queue</li>
+<li>树 tree</li>
+<li>哈希表（散列表） hash</li>
+<li>堆 heap</li>
+<li>图 graph</li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>元素在内存中连续存放，每个元素占用的相同的空间。</li>
+<li>可以通过下标迅速访问数组元素。$O(1)$ </li>
+<li>插入和删除效率低（需要整体移动腾出空间或者删除空间）。$O(n)$ </li>
+<li>需要预留空间，在定义的时候就定义好大小并申请内存空间。</li>
+<li>难以扩展。</li>
+</ul>
+<h3 id="STL-vector"><a href="#STL-vector" class="headerlink" title="STL vector"></a>STL vector</h3><p>&emsp;&emsp;STL 中的 vector 是封装了动态大小数组的顺序存储容器，它与数组有着非常多的相似之处，可以直接进行随机访问，与数组不同的是，vector 可以动态地增加大小，可以在末尾增加/删除元素。并且 vector 拥有迭代器，也可以通过迭代器进行访问。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于vector的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html">https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html</a></p>
+ 
+    </div></div>
+    </div>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>元素在内存中非连续存放，依靠指针进行连接。</li>
+<li>每个元素存储占用的空间比数组更大（需要存储下一个位置的指针，双向链表还需存储上一个位置的指针）</li>
+<li>随机访问的效率低，需要按照链表的顺序遍历。$O(n)$ </li>
+<li>插入和删除效率高，在相应结点修改指针进行连接。$O(1)$ </li>
+<li>无需事先知道数据大小，可以在插入结点的时候再申请空间，内存利用率高。</li>
+<li>易于动态扩展。</li>
+</ul>
+<h3 id="STL-list"><a href="#STL-list" class="headerlink" title="STL list"></a>STL list</h3><p>&emsp;&emsp;STL 中的 list 就是封装好的双向链表容器。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于list的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/scandy-yuan/archive/2013/01/08/2851324.html">https://www.cnblogs.com/scandy-yuan/archive/2013/01/08/2851324.html</a></p>
+ 
+    </div></div>
+    </div>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>栈是一种特殊的线性表。</li>
+<li>按照先进后出（FILO）的规则存储数据。</li>
+<li>只能在一端（栈顶）执行插入和删除操作。</li>
+</ul>
+<h3 id="STL-stack"><a href="#STL-stack" class="headerlink" title="STL stack"></a>STL stack</h3><p>&emsp;&emsp;STL 中的 stack 就是封装好的栈容器。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于stack的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/isChenJY/p/11603829.html">https://www.cnblogs.com/isChenJY/p/11603829.html</a></p>
+ 
+    </div></div>
+    </div>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>队列是一种特殊的线性表。</li>
+<li>按照先进先出（FIFO）的规则存储数据。</li>
+<li>可以在队头执行删除操作，在队尾执行插入操作。</li>
+</ul>
+<h3 id="STL-queue"><a href="#STL-queue" class="headerlink" title="STL queue"></a>STL queue</h3><p>&emsp;&emsp;STL 中的 queue 就是封装好的队列容器。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于queue的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/479.html">http://c.biancheng.net/view/479.html</a></p>
+ 
+    </div></div>
+    </div>
+<h3 id="STL-deque"><a href="#STL-deque" class="headerlink" title="STL deque"></a>STL deque</h3><p>&emsp;&emsp;STL 中的 deque 是封装好的双端队列。可以从队列的两端插入和删除元素。与 vector 类似，支持随机访问和快速插入删除。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于deque的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/scandy-yuan/archive/2013/01/09/2853603.html">https://www.cnblogs.com/scandy-yuan/archive/2013/01/09/2853603.html</a></p>
+ 
+    </div></div>
+    </div>
+<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h3 id="特点-4"><a href="#特点-4" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>由有限结点组成的具有层次关系的一个集合。</li>
+<li>每个节点有 0 个或多个子节点。</li>
+<li>没有父节点的节点称为根。</li>
+<li>每一个非根节点有且仅有一个父节点。</li>
+<li>除了根节点外，每个子节点可以分为多个不相交的子树。</li>
+</ul>
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><ul>
+<li>每个节点至多含有两个子树（分别称为左子树、右子树）。</li>
+</ul>
+<h4 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h4><ul>
+<li>设二叉树的深度为 h。</li>
+<li>除第 h 层外，其它各层 (1～(h-1)层) 的结点数都达到最大个数。</li>
+<li>第 h 层所有的结点都连续集中在最左边。</li>
+</ul>
+<h4 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h4><ul>
+<li>二叉树的所有层结点数都达到最大个数。</li>
+</ul>
+<h4 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h4><ul>
+<li>也成为二叉搜索树、有序二叉树。</li>
+<li>若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值。</li>
+<li>若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值。</li>
+<li>任意节点的左、右子树也分别为二叉查找树。</li>
+<li>没有键值相等的节点。</li>
+</ul>
+<h4 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h4><ul>
+<li>当且仅当任何节点的两棵子树的高度差不大于 1 的二叉树</li>
+<li>典型的平衡二叉树：AVL 树（自平衡二叉搜索树）</li>
+</ul>
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><ul>
+<li>红黑树是一种弱平衡二叉树，旋转次数更少。</li>
+<li>每个结点要么是红的要么是黑的。（红或黑）</li>
+<li>根结点是黑的。（根黑）</li>
+<li>每个叶结点（叶结点即指树尾端NIL指针或NULL结点）都是黑的。（叶黑）</li>
+<li>如果一个结点是红的，那么它的两个儿子都是黑的。（红子黑）</li>
+<li>对于任意结点而言，其到叶结点树尾端NIL指针的每条路径都包含相同数目的黑结点。（路径下黑相同）</li>
+<li>红黑树的调整操作方式有旋转和变色两种。</li>
+</ul>
+<h4 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h4><ul>
+<li>一种带权路径长度最短的二叉树。</li>
+<li>也称为最优二叉树。</li>
+</ul>
+<h3 id="多路查找树"><a href="#多路查找树" class="headerlink" title="多路查找树"></a>多路查找树</h3><h4 id="B-B-树"><a href="#B-B-树" class="headerlink" title="B/B+ 树"></a>B/B+ 树</h4><ul>
+<li>B/B+树是为了磁盘或其它存储设备而设计的一种平衡多路查找树。</li>
+<li>在大规模的数据存储中，二叉查找树会由于深度过大而造成磁盘 I/O 读写频繁，因而造成效率低下。</li>
+<li>在相同的的节点的情况下,一颗B/B+树的高度远远小于红黑树的高度。</li>
+</ul>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于AVL树、红黑树、B/B+树的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/whoamiyang/article/details/51926985">https://blog.csdn.net/whoamiyang/article/details/51926985</a></p>
+ 
+    </div></div>
+    </div>
+<h3 id="STL-set-和-map"><a href="#STL-set-和-map" class="headerlink" title="STL set 和 map"></a>STL set 和 map</h3><h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><ul>
+<li>set 表示的是一个集合。</li>
+<li>set 中的元素都是唯一的。</li>
+<li>set 中的元素在插入的时候就会进行排序（默认升序）。</li>
+<li>set 中的元素的值并不能直接被改变，需要使用迭代器。</li>
+<li>set 的底层实现是红黑树。</li>
+</ul>
+<p>&emsp;&emsp;由于以上特点的存在，set 的插入删除和查找的效率是 $O(\log n)$ 的。set 中的元素可以使用迭代器 iterator 进行访问。</p>
+<h4 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h4><p>&emsp;&emsp;与 set 的功能类似，不同的是允许插入重复的值。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于set和multiset的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ChinaHook/p/6985444.html">https://www.cnblogs.com/ChinaHook/p/6985444.html</a></p>
+ 
+    </div></div>
+    </div>
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><ul>
+<li>map 表示的是一个映射集合，保存的是 key-value 对。</li>
+<li>map 中的关键字（key）是唯一的。</li>
+<li>map 中的元素在插入的时候就会根据 key 进行排序（默认升序）。</li>
+<li>map 中的元素的值并不能直接被改变，需要使用迭代器。</li>
+<li>map 的底层实现是红黑树。</li>
+</ul>
+<p>&emsp;&emsp;map 与 set 非常相似，只是存储的是一个数据对，其中一个是关键字，作为标识，而关键字对应的值则只跟随关键字，没有类型、大小等等限制。可以使用 map 的迭代器的成员变量 first 和 second 来访问关键字和值，也可以直接使用关键字作为下标进行访问，得到的是对应的值。</p>
+<h4 id="multimap"><a href="#multimap" class="headerlink" title="multimap"></a>multimap</h4><p>&emsp;&emsp;与 map 的功能类似，不同的是允许插入重复的关键字。相应的，multimap 就不再支持通过关键字作为下标进行访问。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于map和multimap的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28584889/article/details/83855734">https://blog.csdn.net/qq_28584889/article/details/83855734</a></p>
+ 
+    </div></div>
+    </div>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><h3 id="特点-5"><a href="#特点-5" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>根据关键码值(Key value)而直接进行访问。</li>
+<li>通过哈希函数把关键码值映射到表中一个位置。</li>
+<li>插入删除和查找的复杂度都是 $O(1)$ 。</li>
+</ul>
+<h3 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h3><p>&emsp;&emsp;一个好的哈希表离不开好的哈希函数。好的哈希函数计算快并且冲突少，才能真正达到 $O(1)$ 的复杂度。哈希函数设计的考虑因素有以下几点</p>
+<ul>
+<li>关键字的长度和表的长度</li>
+<li>计算散列地址所需要的时间较小（也即哈希函数不能太复杂）</li>
+<li>关键字分布是否均匀，是否有规律可循</li>
+<li>在满足以上条件的情况下尽量减少冲突</li>
+</ul>
+<h3 id="哈希冲突的解决办法"><a href="#哈希冲突的解决办法" class="headerlink" title="哈希冲突的解决办法"></a>哈希冲突的解决办法</h3><p>&emsp;&emsp;经过哈希函数处理后仍然有不同的数据对应相同的值，也即不同的关键字映射到相同的位置上，这时候就产生了哈希冲突。我们一般有开放定址法、链地址法、公共溢出区法、再哈希法。下面中的 $\alpha$ 表示装填因子，装填因子=数据总数/哈希表长。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>哈希冲突的解决办法</span></div>
+    <div class="xContent"><div class="inner">
+        <p><strong>1.开放定址法</strong><br>&emsp;&emsp;开放其他关键字对应的位置给产生冲突的关键字放置。</p>
+<ul>
+<li>线性探测再散列：发生哈希冲突时在原来值的基础上往后加一个单位，直至不发生哈希冲突。查找效率 $S_{nl}\approx\frac{1}{2}(1+\frac{1}{1-\alpha})$ 。</li>
+<li>平方探测再散列：发生哈希冲突时在原来值的基础上先加1的平方个单位，若仍然存在则减1的平方个单位。随之是2的平方，3的平方等等。直至不发生哈希冲突。</li>
+<li>随机探测再散列：发生哈希冲突时通过伪随机函数随机生成一个数，在原来值的基础上加上随机数，直至不发生哈希冲突。查找效率 $S_{nr}\approx-\frac{1}{\alpha}\ln(1-\alpha)$ 。</li>
+</ul>
+<p><strong>2.链地址法</strong><br>&emsp;&emsp;产生哈希冲突后在存储数据后面加一个指针，指向后面冲突的数据。查找效率 $S_{nc}\approx 1+\frac{\alpha}{2}$ 。</p>
+<ul>
+<li>处理冲突简单，无堆积现象（非同义词不会产生冲突），因此平均查找长度较短。</li>
+<li>由于链表上的结点空间是动态申请的，因此更适合难以事先知道表长的情况。</li>
+<li>开发定址法为了减少冲突，要求装填因子较小（也不能超过1），浪费的空间也比较多。而链地址法中装填因子甚至可以超过1，当然，过长的链条也会使哈希表退化成为 $O(n)$ 的复杂度。</li>
+<li>使用链地址法构造的哈希表删除结点更加简单，直接删去链表上相应结点即可。</li>
+</ul>
+<p><strong>3.公共溢出区法</strong><br>&emsp;&emsp;建立公共溢出区存储所有哈希冲突的数据。</p>
+<p><strong>4.再哈希法</strong><br>&emsp;&emsp;对于冲突的哈希值再次进行哈希处理，直至没有哈希冲突。</p>
+ 
+    </div></div>
+    </div>
+<h3 id="STL-unordered-set-和-unordered-map"><a href="#STL-unordered-set-和-unordered-map" class="headerlink" title="STL unordered_set 和 unordered_map"></a>STL unordered_set 和 unordered_map</h3><h4 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h4><ul>
+<li>unordered_set 表示的是无序集合。</li>
+<li>unordered_set 的其他性质与 set 类似。</li>
+<li>unordered_set 的底层实现是哈希表。</li>
+</ul>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于unordered_set的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7250.html">http://c.biancheng.net/view/7250.html</a></p>
+ 
+    </div></div>
+    </div>
+<h4 id="unordered-map"><a href="#unordered-map" class="headerlink" title="unordered_map"></a>unordered_map</h4><ul>
+<li>unordered_map 表示的是无序映射集合。</li>
+<li>unordered_map 的其他性质与 map 类似。</li>
+<li>unordered_map 的底层实现是哈希表。</li>
+</ul>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于unordered_map的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7231.html">http://c.biancheng.net/view/7231.html</a></p>
+ 
+    </div></div>
+    </div>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h3 id="特点-6"><a href="#特点-6" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>堆其实看做是用数组实现的完全二叉树（按照层序遍历存储）。</li>
+<li>最大堆的节点的值总是不大于其父节点的值。</li>
+<li>最小堆的节点的值总是不大于其父节点的值。</li>
+<li>根结点下标从 0 开始</li>
+<li>左子节点的下标为 2 * i + 1</li>
+<li>右子节点的下标为 2 * i + 2</li>
+</ul>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ul>
+<li>快速找出集合中的最大值或最小值</li>
+<li>构造优先队列</li>
+<li>堆排序</li>
+</ul>
+<h3 id="堆和二叉搜索树的区别"><a href="#堆和二叉搜索树的区别" class="headerlink" title="堆和二叉搜索树的区别"></a>堆和二叉搜索树的区别</h3><ul>
+<li>节点顺序不同。堆中的根结点是最大值或者最小值，而二叉搜索树的根结点是中间值。</li>
+<li>堆的内存占用更小。二叉树需要指针指向子节点，而堆使用数组存储。</li>
+<li>堆的平衡更简单。二叉树必须在平衡的情况下才能保证大部分操作是 $O(\log n)$ 的，而堆不需要整棵树都有序，可以保证所有的操作都具有 $O(\log n)$ 的性能。</li>
+<li>二叉树的搜索更快。二叉搜索树建立之后，只要是平衡的，搜索的性能就能够达到 $O(\log n)$，而堆主要处理的是最大值或最小值，快速地进行相关的插入和删除操作，搜索性能会比较差。</li>
+</ul>
+<h3 id="调整堆"><a href="#调整堆" class="headerlink" title="调整堆"></a>调整堆</h3><p>&emsp;&emsp;下面是调整堆的代码。我们在加入一个结点的时候，需要对堆进行调整使堆依然保持特性。根结点下标为 <code>begin</code>，堆尾下标（也即堆的大小）为 <code>k</code>。需要保证的是除了刚加入的根结点，其叶子结点都已经满足堆的特性。一次调整的时间复杂度为 $O(\log n)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">adjustMinHeap</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> begin, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">2</span> * begin + <span class="number">1</span> &lt; k)&#123;</span><br><span class="line">        <span class="keyword">int</span> minChild = <span class="number">2</span> * begin + <span class="number">1</span>; <span class="comment">// 赋为左孩子</span></span><br><span class="line">        <span class="comment">// 若右孩子更小则赋为右孩子</span></span><br><span class="line">        <span class="keyword">if</span>(minChild + <span class="number">1</span> &lt; k &amp;&amp; nums[minChild] &gt; nums[minChild + <span class="number">1</span>])&#123;</span><br><span class="line">            minChild = minChild + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 孩子比双亲小则交换</span></span><br><span class="line">        <span class="keyword">if</span>(nums[begin] &gt; nums[minChild])&#123;</span><br><span class="line">            <span class="built_in">swap</span>(nums[begin], nums[minChild]);</span><br><span class="line">            <span class="comment">// 需要重新调整被破坏的孩子</span></span><br><span class="line">            begin = minChild;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="建立堆"><a href="#建立堆" class="headerlink" title="建立堆"></a>建立堆</h3><p>&emsp;&emsp;调整堆的代码就是上面所给出的代码。我们只需要自底向上将每个子树都调整到符合堆特性即可，这样就完成了一个堆的建立。这个操作的时间复杂度是 $O(n)$。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> begin = k / <span class="number">2</span> - <span class="number">1</span>; begin &gt;= <span class="number">0</span>; begin--)&#123;</span><br><span class="line">    <span class="built_in">adjustMinHeap</span>(nums, begin, k);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="STL-中的堆"><a href="#STL-中的堆" class="headerlink" title="STL 中的堆"></a>STL 中的堆</h3><p>&emsp;&emsp;在 STL 的头文件 <code>algorithm</code> 中含有关于堆的代码。当然实际应用的时候通常会要求我们自己实现堆的操作。</p>
+<p>STL 中的堆支持以下的基本操作:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make_heap</span>(first, last, comp); <span class="comment">//建立一个空堆；</span></span><br><span class="line"><span class="built_in">push_heap</span>(first, last, comp); <span class="comment">//向堆中插入一个新元素；</span></span><br><span class="line"><span class="built_in">top_heap</span>(first, last, comp);  <span class="comment">//获取当前堆顶元素的值；</span></span><br><span class="line"><span class="built_in">sort_heap</span>(first, last, comp); <span class="comment">//对当前堆进行排序；</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h3 id="特点-7"><a href="#特点-7" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>由顶点和连接顶点的边构成的离散结构。</li>
+<li>有向图的边具有方向性。</li>
+<li>加权图的边具有权重。</li>
+<li>完全图的每两个顶点之间都有边。</li>
+<li>树是一种特殊的有向图。</li>
+</ul>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于图的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yjw123456/article/details/90211563">https://blog.csdn.net/yjw123456/article/details/90211563</a></p>
+ 
+    </div></div>
+    </div>
+<h3 id="图的表示"><a href="#图的表示" class="headerlink" title="图的表示"></a>图的表示</h3><ul>
+<li>邻接矩阵：一个拥有 V 个顶点的图使用一个 V * V 的矩阵表示，行和列都表示顶点，由两个顶点所决定的矩阵对应元素表示这里两个顶点是否相连、如果相连这个值表示的是相连边的权重。</li>
+<li>邻接链表：一个拥有 V 个顶点的图使用一个大小为 V 的线性表和一些链表表示，每个顶点连接的链表表示与其有邻接关系的顶点。如果对查询的要求较高的话，链表也可以换成其他高效的查找结构（如哈希表）。</li>
+</ul>
+<h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3><ul>
+<li>深度优先搜索（DFS）</li>
+<li>广度优先搜索（BFS）</li>
+<li>拓扑排序：给定一副有向图，将所有的顶点排序，使得所有的有向边均从排在前面的顶点指向排在后面的顶点。（如果一个有向图有环则没有拓扑排序）</li>
+</ul>
+<h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><ul>
+<li>图的生成树：是它的一棵含有其他所有顶点的无环连通子图。</li>
+<li>加权无向图的最小生成树（MST）：是它的一棵所有边的权值之和最小的生成树。</li>
+<li>Prime 算法（加点法）：先选择一个顶点，并不断将下一条连接树中的顶点与不在树中的顶点且权重最小的边加入树中。（优先队列）</li>
+<li>Kruskal 算法（加边法）：按照边的权重顺序不断将最小的边加入到生成树中，不能和已有的边产生环。（优先队列和并查集）</li>
+</ul>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于最小生成树算法的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6858481283715039240">https://juejin.cn/post/6858481283715039240</a></p>
+ 
+    </div></div>
+    </div>
+<h3 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h3><ul>
+<li>加权有向图的最短路径问题：找到从一个顶点到达另一个顶点的成本（权重和）最小的路径。</li>
+<li>DFS 和 BFS（单源最短路径）</li>
+<li>Floyd 算法（允许负权边（但不能在环路上），多源最短路径，动态规划思想）：最开始只允许经过1号顶点进行中转，接下来只允许经过1和2号顶点进行中转，直到允许经过 1~n 号所有顶点进行中转，求任意两点之间的最短路程。（$O(v^3)$ 时间复杂度和 $O(v^2)$ 空间复杂度）</li>
+<li>Dijkstra 算法（不允许负权边，单源最短路径，贪心法思想）：每次找到离源点最近的一个顶点，然后以该顶点为中心进行扩展，最终得到源点到其余所有点的最短路径。（$O(v^2)$ 的时间复杂度，如果边数远小于 $v^2$ 则可以使用堆优化到 $O(e\log v)$ 的时间复杂度）</li>
+<li>Bellman-Ford 算法（允许负权边，单源最短路径）：对所有的边进行 n-1 轮松弛操作，得到从某一点出发到其他点的最短路径，同时可以判断是否存在负权环。（时间复杂度 $O(ve)$，空间复杂度 $O(e)$）</li>
+</ul>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fas fa-plus"></i></div><span>关于最短路径算法的详细信息</span></div>
+    <div class="xContent"><div class="inner">
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qibofang/article/details/51594673">https://blog.csdn.net/qibofang/article/details/51594673</a></p>
+ 
+    </div></div>
+    </div>
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fas fa-coffee"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fas fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fas fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://ender-coder.github.io/2021/07/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://ender-coder.github.io/2021/07/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/";
+            const title         = "「数据结构与算法 知识总结」";
+            const excerpt       = `前言&emsp;&emsp;关于 数据结构与算法 知识体系的总结。`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fas fa-tags"></i>
+                        
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-07-30</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" Leetcode 236.二叉树的最近公共祖先" href="/2021/07/23/Leetcode 236.二叉树的最近公共祖先/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+            <div id="v-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Valine({
+                el: '#v-comments',
+                appId: 'xViI6ucIqBOwXsIxB7YGyFWu-gzGzoHsz',
+                appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
+                visitor: true,
+                enableQQ: true,
+                path: '/2021/07/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/'
+            });
+        }
+        if (typeof Valine == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
+        
+    </article>
+</section>
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/spider-man.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=1498076242&auto=0&height=66"></iframe></p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fas fa-compass"></i>
+        目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">常用的数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-vector"><span class="toc-text">STL vector</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-1"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-list"><span class="toc-text">STL list</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88"><span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-2"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-stack"><span class="toc-text">STL stack</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-3"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-queue"><span class="toc-text">STL queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-deque"><span class="toc-text">STL deque</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-4"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">完全二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">满二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-text">二叉查找树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">平衡二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-text">红黑树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="toc-text">哈夫曼树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-text">多路查找树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#B-B-%E6%A0%91"><span class="toc-text">B&#x2F;B+ 树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-set-%E5%92%8C-map"><span class="toc-text">STL set 和 map</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#set"><span class="toc-text">set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#multiset"><span class="toc-text">multiset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#map"><span class="toc-text">map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#multimap"><span class="toc-text">multimap</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-text">哈希表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-5"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0"><span class="toc-text">哈希函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-text">哈希冲突的解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-unordered-set-%E5%92%8C-unordered-map"><span class="toc-text">STL unordered_set 和 unordered_map</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#unordered-set"><span class="toc-text">unordered_set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unordered-map"><span class="toc-text">unordered_map</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86"><span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-6"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E9%80%94"><span class="toc-text">用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%92%8C%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">堆和二叉搜索树的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E5%A0%86"><span class="toc-text">调整堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%A0%86"><span class="toc-text">建立堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-%E4%B8%AD%E7%9A%84%E5%A0%86"><span class="toc-text">STL 中的堆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-7"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-text">图的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-text">图的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">最小生成树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-text">最短路径</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fas fa-archive"></i>分类</h4>
+    <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/categories/Leetcode/">
+            <i class="fas fa-folder"></i> Leetcode
+            <span>67</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/Project/">
+            <i class="fas fa-folder"></i> Project
+            <span>1</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/Test/">
+            <i class="fas fa-folder"></i> Test
+            <span>1</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/">
+            <i class="fas fa-folder"></i> 复习资料
+            <span>3</span>
+          </a>
+        
+      </ul>
+    </div>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fas fa-tags"></i>标签云</h4>
+      <div class="tag-clouds">
+        <a href="/tags/BFS/" style="font-size: 0.68em;">BFS</a> <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/DFS/" style="font-size: 0.7em;">DFS</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/set/" style="font-size: 0.6em;">set</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.65em;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 0.75em;">二叉树</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 0.6em;">位运算</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 0.63em;">分治</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.78em;">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 0.63em;">单调栈</a> <a href="/tags/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95/" style="font-size: 0.65em;">原地算法</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.7em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.68em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.73em;">回溯</a> <a href="/tags/%E5%A0%86/" style="font-size: 0.6em;">堆</a> <a href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" style="font-size: 0.6em;">字典序</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">归并排序</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.68em;">快慢指针</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">快速排序</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.63em;">排序</a> <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/" style="font-size: 0.6em;">摩尔投票</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 0.65em;">数学方法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.65em;">数据结构</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.65em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.63em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 0.6em;">贪心</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 0.73em;">迭代</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.75em;">递归</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.65em;">队列</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+    <h4 class="widget-title"><i class="fas fa-folder"></i>最新文章</h4>
+    <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"><i class="fas fa-file-alt"></i> 数据结构与算法 知识总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/23/Leetcode%20236.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/"><i class="fas fa-file-alt"></i> Leetcode 236.二叉树的最近公共祖先</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/23/Leetcode%20234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/"><i class="fas fa-file-alt"></i> Leetcode 234.回文链表</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/23/Leetcode%20226.%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/"><i class="fas fa-file-alt"></i> Leetcode 226.翻转二叉树</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/23/Leetcode%20221.%E6%9C%80%E5%A4%A7%E6%AD%A3%E6%96%B9%E5%BD%A2/"><i class="fas fa-file-alt"></i> Leetcode 221.最大正方形</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+    </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fas fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fas fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fas fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <li><a href="" title="1422112890"><i class="fab fa-qq fa-fw"></i></a></li>
+                        <li><a href="" title="Ender0u0"><i class="fab fa-weixin fa-fw"></i></a></li>
+                        
+                        <li><a href="mailto:1422112890@qq.com" title="1422112890@qq.com"><i class="fas fa-envelope fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://www.instagram.com/Ender0u0" title="Ender0u0"><i class="fab fa-instagram fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Ender-coder" title="Ender-coder"><i class="fab fa-github fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://www.zhihu.com/people/ender-95-27" title="Ender"><i class="fab fa-zhihu fa-fw"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li><i class='fas fa-fan fa-spin fa-fw'></i> 努力运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos-Rebirth</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                        <div>
+                            <li>&copy; 2021 Ender 版权所有.</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.js"></script>
+    </div>
+
+<script async src="/js/candy.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.js"></script>
+<script defer src="/js/pjax.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+    <script>
+    // Initialize
+    const init = () => {
+        mermaid.initialize({theme: 'dark'});
+    };
+    const reload = () => {
+        mermaid.init(undefined, ".mermaid");
+    };
+    if (typeof mermaid == 'undefined') {
+        const src = 'https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js';
+        $.getScript(src, init);
+    }
+    // Set PJAX callback function
+    window.addEventListener('pjax:complete', reload);
+</script>
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
