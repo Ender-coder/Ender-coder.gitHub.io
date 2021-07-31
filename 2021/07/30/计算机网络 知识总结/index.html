@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="../images/spider-man.webp">
+  <title>计算机网络 知识总结 | 心之所向便是光</title>
+  <meta name="author" content="Ender" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;关于 计算机网络 知识体系的总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络 知识总结">
+<meta property="og:url" content="http://ender-coder.github.io/2021/07/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="心之所向便是光">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;关于 计算机网络 知识体系的总结。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
+<meta property="article:published_time" content="2021-07-30T15:14:00.000Z">
+<meta property="article:modified_time" content="2021-07-31T16:48:54.610Z">
+<meta property="article:author" content="Ender">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
+<meta name="twitter:site" content="@undefined">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  <script src="//cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fas fa-home fa-fw"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fas fa-folder fa-fw"></i>归档</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fas fa-comments fa-fw"></i>友链</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/about"><i class="fas fa-paper-plane fa-fw"></i>关于</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">心之所向便是光</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>心之所向便是光</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                
+                    <h1 class="kratos-entry-title text-center">计算机网络 知识总结</h1>
+                
+                
+                <ul class="kratos-post-meta text-center">
+                    <li><i class="fas fa-calendar-alt"></i> 2021-07-30</li>
+                    <li><i class="fas fa-user"></i> 作者 Ender</li>
+                    <li>
+                        <i class="fas fa-edit"></i> 
+                        
+                        
+                            4.13K
+                        
+                        字
+                    </li>
+                    
+                        <li id="/2021/07/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="leancloud_visitors" data-flag-title="计算机网络 知识总结">
+                            <i class="fas fa-eye"></i>
+                            <span class="leancloud-visitors-count"> </span> 次阅读
+                        </li>
+                        
+                    
+                </ul>
+            </header>
+            <div class="kratos-post-content">
+                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                    本文最后编辑于 <time datetime="1627750134610"></time> 前，其中的内容可能需要更新。
+                </div>
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-number">2.1.</span> <span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%86%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">网络分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A0%E7%89%B9%E7%BD%91"><span class="toc-number">2.3.</span> <span class="toc-text">因特网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.4.</span> <span class="toc-text">网络服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%86%E5%B1%82"><span class="toc-number">2.5.</span> <span class="toc-text">网络分层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">2.6.</span> <span class="toc-text">网络性能分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">3.</span> <span class="toc-text">物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">编码方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E4%BB%8B%E8%B4%A8"><span class="toc-number">3.2.</span> <span class="toc-text">物理介质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">3.3.</span> <span class="toc-text">多路复用技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">4.</span> <span class="toc-text">数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="toc-number">4.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E7%AD%89%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.2.</span> <span class="toc-text">停等协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.3.</span> <span class="toc-text">滑动窗口协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E9%80%80-N-%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.3.1.</span> <span class="toc-text">回退 N 协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%80%A7%E9%87%8D%E4%BC%A0"><span class="toc-number">4.3.2.</span> <span class="toc-text">选择性重传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE%E6%95%88%E7%8E%87"><span class="toc-number">4.3.3.</span> <span class="toc-text">提高滑动窗口协议效率</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPP-%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.4.</span> <span class="toc-text">PPP 协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%AD%90%E5%B1%82"><span class="toc-number">5.</span> <span class="toc-text">介质访问控制子层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="toc-number">5.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">5.2.</span> <span class="toc-text">以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E7%BD%91%E6%A1%A5"><span class="toc-number">5.3.</span> <span class="toc-text">透明网桥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-number">5.4.</span> <span class="toc-text">生成树协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">5.5.</span> <span class="toc-text">虚拟局域网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">5.6.</span> <span class="toc-text">交换机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A4%E7%89%8C%E7%8E%AF%E7%BD%91"><span class="toc-number">5.7.</span> <span class="toc-text">令牌环网</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">6.</span> <span class="toc-text">网络层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-3"><span class="toc-number">6.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-number">6.2.</span> <span class="toc-text">IP 数据报</span></a></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;关于 <strong>计算机网络</strong> 知识体系的总结。<br><span id="more"></span></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><ul>
+<li>计算机网络 —— 自主计算机的互连集合</li>
+</ul>
+<h3 id="网络分类"><a href="#网络分类" class="headerlink" title="网络分类"></a>网络分类</h3><ul>
+<li>直连网<ul>
+<li>点到点网络<ul>
+<li>单工（simplex）：如有线电视</li>
+<li>半双工（half duplex）：如对讲机</li>
+<li>全双工（full duplex）：如电话</li>
+</ul>
+</li>
+<li>多路访问网络（共享介质、可能存在碰撞）<ul>
+<li>单播、多播、广播</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>间接连网：用路由器（或网关）连接起来构成的网络，也称网络互连<ul>
+<li>系统域网、局域网、城域网、广域网<h3 id="因特网"><a href="#因特网" class="headerlink" title="因特网"></a>因特网</h3></li>
+</ul>
+</li>
+<li>多层 ISP（因特网服务提供商）结构，由终端、路由器、通信链路组成</li>
+</ul>
+<h3 id="网络服务"><a href="#网络服务" class="headerlink" title="网络服务"></a>网络服务</h3><ul>
+<li>可靠/不可靠：如 TCP/UDP</li>
+<li>面向连接/无连接：如电话/邮件</li>
+<li>有确认/无确认：如挂号信/数据报</li>
+</ul>
+<h3 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h3><ul>
+<li>上层服务可以使用下层服务提供的协议</li>
+<li>因特网模型（4层）<ul>
+<li>物理网络层<ul>
+<li>物理层 bitstream 字节流</li>
+<li>数据链路层 PPP Ethernet （节点 node / 跳 hop）数据帧</li>
+</ul>
+</li>
+<li>网络层 IP 路由协议 （主机 host） 数据报</li>
+<li>传输层 TCP UDP （端 end） 数据段</li>
+<li>应用层 FTP SMTP HTTP 消息</li>
+</ul>
+</li>
+<li>ISO/OSI 参考模型（7层）<ul>
+<li>物理层：传输原始比特流</li>
+<li>数据链路层：在物理网路中传送数据包</li>
+<li>网络层：通过路由选择连接各种网络</li>
+<li>传输层：用于进程之间的数据传送</li>
+<li>会话层：提供会话式的数据传送服务</li>
+<li>表示层：提供数据转换服务</li>
+<li>应用层：为专门应用提供服务</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络性能分析"><a href="#网络性能分析" class="headerlink" title="网络性能分析"></a>网络性能分析</h3><ul>
+<li>包交换技术<ul>
+<li>延迟<ul>
+<li>处理延迟：检查比特错，确定输出链路</li>
+<li>排队延迟：在输出链路队列等待发送</li>
+<li>传输延迟：包长（bits）/ 链路带宽（bps）</li>
+<li>传播延迟：物理链路长度 / 信号传播速度</li>
+</ul>
+</li>
+<li>丢失</li>
+</ul>
+</li>
+<li>带宽：一条链路或通道可达到的最大数据传输速率</li>
+<li>吞吐量：一条链路或通道的实际数据传输速率</li>
+</ul>
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><ul>
+<li>载波信号一般采用正弦波信号</li>
+</ul>
+<h3 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h3><ul>
+<li>FSK 频移键控、ASK 幅移键控、PSK 相移键控、QAM 正交调幅</li>
+<li>单极编码</li>
+<li>双极编码<ul>
+<li>不归零编码 NRZ（有时钟漂移、基线漂移）</li>
+<li>不归零反转编码 NRZI（有时钟漂移、基线漂移）</li>
+<li>曼切斯特编码（克服时钟漂移、基线漂移）（以太网）<ul>
+<li>0 变为 01、1 变为 10</li>
+</ul>
+</li>
+<li>差分曼切斯特编码（克服时钟漂移、基线漂移）<ul>
+<li>0 起始跳变、1 起始不跳变、中间一定跳变</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4B / 5B 编码：使用 5 比特表示 4 比特，不会多于 1 个前导零和多于 2 个末端零。可以结合 NRZI，不会有过多跳变同时克服时钟漂移、基线漂移。</li>
+</ul>
+<h3 id="物理介质"><a href="#物理介质" class="headerlink" title="物理介质"></a>物理介质</h3><ul>
+<li>有线介质<ul>
+<li>双绞线</li>
+<li>同轴电缆</li>
+<li>光纤（利用了光的全反射）<ul>
+<li>单模光纤：速率高、距离长</li>
+<li>多模光纤<ul>
+<li>阶跃光纤：速率低、距离短</li>
+<li>渐变光纤：速率中、距离中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>无线介质 —— 大气：如地面微波、wifi、3/4/5G、卫星</li>
+</ul>
+<h3 id="多路复用技术"><a href="#多路复用技术" class="headerlink" title="多路复用技术"></a>多路复用技术</h3><ul>
+<li>电路交换技术：时分多路复用、频分多路复用、波分多路复用、码分多路复用</li>
+<li>包交换技术：统计多路复用</li>
+</ul>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>只涉及一个直连网</li>
+<li>主要功能：形成帧、差错检测、差错控制、介质访问控制</li>
+<li>差错：丢失、重复、错序、溢出、比特错，碰撞（多路访问）</li>
+<li>纠错码：海明码、二维奇偶检验码</li>
+<li>校验码：<ul>
+<li>奇偶校验码</li>
+<li>二维奇偶校验码（可以纠正 1 位比特错）</li>
+<li>校验和</li>
+<li>循环冗余校验码 CRC（容易用硬件实现、速度快、检错率高）</li>
+</ul>
+</li>
+<li>可靠数据传输：确认帧、超时定时器（自动重发请求 ARQ）<ul>
+<li>停等协议</li>
+<li>滑动窗口协议</li>
+<li>PPP 协议</li>
+</ul>
+</li>
+</ul>
+<h3 id="停等协议"><a href="#停等协议" class="headerlink" title="停等协议"></a>停等协议</h3><ul>
+<li>确认帧（ACK）表示序号为 ACK 以及之前的数据帧以及全部收到并已交给上层协议。</li>
+<li>只有收到前一个数据帧的确认才可以发送下一个数据帧。</li>
+</ul>
+<h3 id="滑动窗口协议"><a href="#滑动窗口协议" class="headerlink" title="滑动窗口协议"></a>滑动窗口协议</h3><ul>
+<li>发送窗口：连续发送数据帧的可用序号范围，主要用于流控制。</li>
+<li>发送窗口大小：表示发送窗口的大小，也是发送缓冲区的大小。<h4 id="回退-N-协议"><a href="#回退-N-协议" class="headerlink" title="回退 N 协议"></a>回退 N 协议</h4></li>
+<li>出现超时的时候将重传所有已发送且未收到确认的帧。</li>
+</ul>
+<h4 id="选择性重传"><a href="#选择性重传" class="headerlink" title="选择性重传"></a>选择性重传</h4><ul>
+<li>否定性确认帧（NAK）表示在这一帧之前的数据帧全部收到并已交给上层协议，要求发送方重传这一帧。每个帧值发送一次 NAK。</li>
+<li>接收窗口：用于确定应该保存那些帧，用序号范围表示。</li>
+<li>接收窗口大小：表示接收窗口的大小，也是接收缓冲区的大小。</li>
+</ul>
+<h4 id="提高滑动窗口协议效率"><a href="#提高滑动窗口协议效率" class="headerlink" title="提高滑动窗口协议效率"></a>提高滑动窗口协议效率</h4><ul>
+<li>选择性确认：接收方把已收到的帧的序号告诉发送方。当发送方要重传帧的时候，不会发送这些帧。</li>
+<li>延迟确认：接收方收到一帧后并不立即发送确认帧，而是等待一段时间再发送。</li>
+<li>捎带确认：通信双方采用全双工的方式工作，接收方在发数据给对方时顺便把确认号也告诉对方。</li>
+</ul>
+<h3 id="PPP-协议"><a href="#PPP-协议" class="headerlink" title="PPP 协议"></a>PPP 协议</h3><ul>
+<li>PPP 协议是点到点网络的数据链路层协议。</li>
+<li>PPP 协议是根据 HDLC（高级数据链路控制）协议进行设计的，主要用于串行电缆、电话线等各种串行链路。</li>
+<li>PPP 协议可以提供连接认证、传输加密和压缩功能。</li>
+<li>PPP 协议可以为各种网络层协议提供服务。</li>
+<li>PPP 协议的多链路捆绑技术可以通过将通信两端之间的多条通信链路捆绑成一条虚拟的链路而达到扩充链路可用带宽的目的。</li>
+<li>PPP 协议没有纠错、流控制、确保有序功能。</li>
+</ul>
+<h2 id="介质访问控制子层"><a href="#介质访问控制子层" class="headerlink" title="介质访问控制子层"></a>介质访问控制子层</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>多路访问网络采用共享介质连接所有站点，发送站点通过广播方式发送数据并占用整个共享介质的带宽。由于每个站点只需要一条线接入网络就可以访问所有站点，所以安装简单并且价格便宜，局域网一般都采用这种链路。</li>
+<li>数据链路层<ul>
+<li>介质访问控制子层（MAC 子层）：控制和协调所有站点对共享介质的访问，避免或减少冲突。</li>
+<li>逻辑链路控制子层（LLC 子层）：为上层协议提供服务<ul>
+<li>LLC 1：提供无确认无连接服务</li>
+<li>LLC 2：提供有确认面向连接的服务</li>
+<li>LLC 3：提供有确认无连接的服务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CSMA（载波监听多路访问）<ul>
+<li>1-persistent CSMA：信道空立即发送，信道忙持续监听。（以太网）</li>
+<li>non-persistent CSMA：信道空立即发送，信道忙延迟一段随机长度的时间。（最省电）</li>
+<li>p-persistent CSMA：信道空立即以概率p发送，以概率1-p延迟一个时间槽，信道忙延迟一个时间槽。</li>
+</ul>
+</li>
+</ul>
+<h3 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h3><ul>
+<li>MAC 层协议<ul>
+<li>CSMA/CD（带冲突检测的载波监听多路访问）<ul>
+<li>发送数据帧之前先监听信道。如果空闲立即发送，如果忙持续监听直到空闲。</li>
+<li>边发送边检测冲突。如果发送完毕都没有检测到冲突则发送成功。</li>
+<li>如果发送时检测到冲突，则停止发送，在发送 32 位干扰位以加强冲突信号后采用二进制退避算法随机延迟一段时间，再重新监听。</li>
+</ul>
+</li>
+<li>接收帧的方式<ul>
+<li>以太网站点会缓存所有帧</li>
+<li>如果缓存的帧有错则丢弃</li>
+<li>对比目的地址，如果是需要接收的帧则接收（包括单播多播广播）</li>
+<li>如果网卡设置是混杂模式则会接收所有无错的帧</li>
+</ul>
+</li>
+<li>最短帧问题<ul>
+<li>发送 96 bits 时间信道均空闲则认为信道空闲</li>
+<li>最短帧 64 Bytes，也是争用窗口长度。为了使发送站点能检测到所有冲突。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>物理层协议<ul>
+<li>传输方法：异步传输</li>
+<li>编码方法：采用曼切斯特编码</li>
+<li>冲突域：两个接口同时发送数据会产生冲突（集线器，半双工）</li>
+<li>广播域：一个广播帧可以到达的所有接口（交换机，全双工，不同接口不同冲突域）</li>
+</ul>
+</li>
+</ul>
+<h3 id="透明网桥"><a href="#透明网桥" class="headerlink" title="透明网桥"></a>透明网桥</h3><ul>
+<li>扩展局域网：用网桥连接若干局域网，形成一个更大的局域网。</li>
+<li>原来的局域网成为该扩展局域网的一部分，称为一个网段。</li>
+<li>MAC 地址表：目的 MAC 地址、转发端口、TTL。</li>
+<li>过滤（filter）、转发（forward）、扩散（flood）。</li>
+<li>自学习：将接收到的帧的原地址和接收端口记录到表中。</li>
+</ul>
+<h3 id="生成树协议"><a href="#生成树协议" class="headerlink" title="生成树协议"></a>生成树协议</h3><ul>
+<li>配置信息 BPDU（当前根BID，到根距离、发送BID、发送端口）</li>
+<li>网桥ID BID（优先权、网桥的 MAC 地址）</li>
+<li>端口ID PID（优先权、序号）</li>
+<li>根端口：网桥上离根最近的端口</li>
+<li>指定网桥：网段上离根最近的网桥（最近路径有多条选最小 BID）</li>
+<li>指定端口：指定网桥上与网桥连接的端口</li>
+<li>阻塞端口：网桥上既非根端口又非指定端口</li>
+</ul>
+<h3 id="虚拟局域网"><a href="#虚拟局域网" class="headerlink" title="虚拟局域网"></a>虚拟局域网</h3><ul>
+<li>网桥只在具有相同 VLAN ID 的端口之间转发帧，把原来的局域网分割成多个相互隔离的局域网，称为虚拟局域网。</li>
+<li>默认 VLAN 为 VLAN 1</li>
+<li>一个 VLAN 的帧只能转发到属于同一个 VLAN 端口或者干道端口，只有发往干道端口的帧才需要加上 VLAN ID。</li>
+</ul>
+<h3 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h3><ul>
+<li>交换机：一个把多个网段连接起来的设备，也称为多端口网桥。</li>
+<li>交换机结构：<ul>
+<li>共享总线式交换机</li>
+<li>纵横式交换机：可以实现多路并行传输</li>
+</ul>
+</li>
+<li>转发方法：<ul>
+<li>存储转发：交换机接收整个帧之后转发它。</li>
+<li>直通：交换机不用收到整个帧而是收到帧的硬件地址后立即转发它。</li>
+<li>无碎片：交换机不用收到整个帧而是收到帧的前64个字节后立即转发它。</li>
+<li>适应性交换：自动在上面三种方式进行选择。</li>
+</ul>
+</li>
+<li>全双工模式：交换机可以在全双工模式下工作，没有冲突，不需要 CSMA/CD 算法。</li>
+</ul>
+<h3 id="令牌环网"><a href="#令牌环网" class="headerlink" title="令牌环网"></a>令牌环网</h3><ul>
+<li>令牌环网：一个通过在站点之间传递令牌防止冲突并且具有优先权的星形 LAN。</li>
+<li>数据传送过程：<ul>
+<li>令牌绕环而行</li>
+<li>只有截获令牌的站点才可以发送数据帧</li>
+<li>发送的数据帧通过所有的活动站点</li>
+<li>目的站点拷贝数据帧</li>
+<li>只有发送方移除数据帧</li>
+<li>当没有数据帧要发送或者持有时间到时需要释放令牌，继续绕环而行。</li>
+</ul>
+</li>
+<li>具有 ACK 标志（是否见到）</li>
+<li>具有 Copy 标志（是否收到）</li>
+<li>具有监控站（超时产生新的令牌帧）</li>
+<li>具有选举帧（监控站失效时重新进行选举）</li>
+<li>无主帧（数据传递出错，找不到源站点，第 2 次收到则进行丢弃）</li>
+</ul>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>网络层协议负责确定把收到的包从哪条路径转发出去，即路由选择功能。</li>
+<li>交换技术<ul>
+<li>电路交换：通过在网络中连接多条物理电路形成一条通路后传送数据。</li>
+<li>包交换：采用统计多路复用的方法通过网络传送数据包。<ul>
+<li>虚电路：先建立连接再传送数据包。<ul>
+<li>交换式虚电路：每次传送数据前建立连接，传送完释放连接。</li>
+<li>永久虚电路：由管理员建好后一直保持，随时可以传送数据。</li>
+</ul>
+</li>
+<li>数据报：根据数据包的目的地址直接转发数据包。（因特网）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IP 协议（因特网的网络层协议）<ul>
+<li>可路由的（routable）：全局地址，按层分配。</li>
+<li>尽力服务：无连接无确认的数据报服务。</li>
+<li>可以运行在任何网络上。</li>
+</ul>
+</li>
+</ul>
+<h3 id="IP-数据报"><a href="#IP-数据报" class="headerlink" title="IP 数据报"></a>IP 数据报</h3>
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fas fa-coffee"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fas fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fas fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://ender-coder.github.io/2021/07/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://ender-coder.github.io/2021/07/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/";
+            const title         = "「计算机网络 知识总结」";
+            const excerpt       = `前言&emsp;&emsp;关于 计算机网络 知识体系的总结。`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fas fa-tags"></i>
+                        
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-08-01</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 数据结构与算法 知识总结" href="/2021/07/25/数据结构与算法 知识总结/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+            <div id="v-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Valine({
+                el: '#v-comments',
+                appId: 'xViI6ucIqBOwXsIxB7YGyFWu-gzGzoHsz',
+                appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
+                visitor: true,
+                enableQQ: true,
+                path: '/2021/07/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/'
+            });
+        }
+        if (typeof Valine == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
+        
+    </article>
+</section>
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/spider-man.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=1498076242&auto=0&height=66"></iframe></p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fas fa-compass"></i>
+        目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%86%E7%B1%BB"><span class="toc-text">网络分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A0%E7%89%B9%E7%BD%91"><span class="toc-text">因特网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1"><span class="toc-text">网络服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%86%E5%B1%82"><span class="toc-text">网络分层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-text">网络性能分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-text">物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-text">编码方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E4%BB%8B%E8%B4%A8"><span class="toc-text">物理介质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-text">多路复用技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E7%AD%89%E5%8D%8F%E8%AE%AE"><span class="toc-text">停等协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE"><span class="toc-text">滑动窗口协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E9%80%80-N-%E5%8D%8F%E8%AE%AE"><span class="toc-text">回退 N 协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%80%A7%E9%87%8D%E4%BC%A0"><span class="toc-text">选择性重传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE%E6%95%88%E7%8E%87"><span class="toc-text">提高滑动窗口协议效率</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPP-%E5%8D%8F%E8%AE%AE"><span class="toc-text">PPP 协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%AD%90%E5%B1%82"><span class="toc-text">介质访问控制子层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E7%BD%91%E6%A1%A5"><span class="toc-text">透明网桥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">生成树协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">虚拟局域网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">交换机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A4%E7%89%8C%E7%8E%AF%E7%BD%91"><span class="toc-text">令牌环网</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-text">网络层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-3"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">IP 数据报</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fas fa-archive"></i>分类</h4>
+    <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/categories/Leetcode/">
+            <i class="fas fa-folder"></i> Leetcode
+            <span>67</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/Project/">
+            <i class="fas fa-folder"></i> Project
+            <span>1</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/Test/">
+            <i class="fas fa-folder"></i> Test
+            <span>1</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/">
+            <i class="fas fa-folder"></i> 复习资料
+            <span>4</span>
+          </a>
+        
+      </ul>
+    </div>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fas fa-tags"></i>标签云</h4>
+      <div class="tag-clouds">
+        <a href="/tags/BFS/" style="font-size: 0.68em;">BFS</a> <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/DFS/" style="font-size: 0.7em;">DFS</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/set/" style="font-size: 0.6em;">set</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.65em;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 0.75em;">二叉树</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 0.6em;">位运算</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 0.63em;">分治</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.78em;">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 0.63em;">单调栈</a> <a href="/tags/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95/" style="font-size: 0.65em;">原地算法</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.7em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.68em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.73em;">回溯</a> <a href="/tags/%E5%A0%86/" style="font-size: 0.6em;">堆</a> <a href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" style="font-size: 0.6em;">字典序</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">归并排序</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.68em;">快慢指针</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">快速排序</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.63em;">排序</a> <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/" style="font-size: 0.6em;">摩尔投票</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 0.65em;">数学方法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.65em;">数据结构</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.65em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.63em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 0.6em;">贪心</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 0.73em;">迭代</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.75em;">递归</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.65em;">队列</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+    <h4 class="widget-title"><i class="fas fa-folder"></i>最新文章</h4>
+    <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"><i class="fas fa-file-alt"></i> 计算机网络 知识总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"><i class="fas fa-file-alt"></i> 数据结构与算法 知识总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/23/Leetcode%20236.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/"><i class="fas fa-file-alt"></i> Leetcode 236.二叉树的最近公共祖先</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/23/Leetcode%20234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/"><i class="fas fa-file-alt"></i> Leetcode 234.回文链表</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/23/Leetcode%20226.%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/"><i class="fas fa-file-alt"></i> Leetcode 226.翻转二叉树</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+    </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fas fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fas fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fas fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <li><a href="" title="1422112890"><i class="fab fa-qq fa-fw"></i></a></li>
+                        <li><a href="" title="Ender0u0"><i class="fab fa-weixin fa-fw"></i></a></li>
+                        
+                        <li><a href="mailto:1422112890@qq.com" title="1422112890@qq.com"><i class="fas fa-envelope fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://www.instagram.com/Ender0u0" title="Ender0u0"><i class="fab fa-instagram fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Ender-coder" title="Ender-coder"><i class="fab fa-github fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://www.zhihu.com/people/ender-95-27" title="Ender"><i class="fab fa-zhihu fa-fw"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li><i class='fas fa-fan fa-spin fa-fw'></i> 努力运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos-Rebirth</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                        <div>
+                            <li>&copy; 2021 Ender 版权所有.</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.js"></script>
+    </div>
+
+<script async src="/js/candy.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.js"></script>
+<script defer src="/js/pjax.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+    <script>
+    // Initialize
+    const init = () => {
+        mermaid.initialize({theme: 'dark'});
+    };
+    const reload = () => {
+        mermaid.init(undefined, ".mermaid");
+    };
+    if (typeof mermaid == 'undefined') {
+        const src = 'https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js';
+        $.getScript(src, init);
+    }
+    // Set PJAX callback function
+    window.addEventListener('pjax:complete', reload);
+</script>
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
