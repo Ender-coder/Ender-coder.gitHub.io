@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="../images/spider-man.webp">
+  <title>Leetcode 279.完全平方数 | 心之所向便是光</title>
+  <meta name="author" content="Ender" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="C++, 动态规划, 数学方法" />
+  
+  <meta name="description" content="题目描述：给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, …）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 279.完全平方数">
+<meta property="og:url" content="http://ender-coder.github.io/2021/08/05/Leetcode%20279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/index.html">
+<meta property="og:site_name" content="心之所向便是光">
+<meta property="og:description" content="题目描述：给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, …）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
+<meta property="article:published_time" content="2021-08-05T14:02:00.000Z">
+<meta property="article:modified_time" content="2021-08-05T15:57:03.598Z">
+<meta property="article:author" content="Ender">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="数学方法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
+<meta name="twitter:site" content="@undefined">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  <script src="//cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fas fa-home fa-fw"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fas fa-folder fa-fw"></i>归档</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fas fa-comments fa-fw"></i>友链</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/about"><i class="fas fa-paper-plane fa-fw"></i>关于</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">心之所向便是光</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>心之所向便是光</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                
+                    <h1 class="kratos-entry-title text-center">Leetcode 279.完全平方数</h1>
+                
+                
+                <ul class="kratos-post-meta text-center">
+                    <li><i class="fas fa-calendar-alt"></i> 2021-08-05</li>
+                    <li><i class="fas fa-user"></i> 作者 Ender</li>
+                    <li>
+                        <i class="fas fa-edit"></i> 
+                        
+                        
+                            3.44K
+                        
+                        字
+                    </li>
+                    
+                        <li id="/2021/08/05/Leetcode%20279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/" class="leancloud_visitors" data-flag-title="Leetcode 279.完全平方数">
+                            <i class="fas fa-eye"></i>
+                            <span class="leancloud-visitors-count"> </span> 次阅读
+                        </li>
+                        
+                    
+                </ul>
+            </header>
+            <div class="kratos-post-content">
+                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                    本文最后编辑于 <time datetime="1628179023598"></time> 前，其中的内容可能需要更新。
+                </div>
+                
+                <hr />
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定正整数 <code>n</code>，找到若干个完全平方数（比如 1, 4, 9, 16, …）使得它们的和等于 <code>n</code>。你需要让组成和的完全平方数的个数最少。<br><span id="more"></span><br>给你一个整数 <code>n</code> ，返回和为 <code>n</code> 的完全平方数的 <strong>最少数量</strong> 。</p>
+<p><strong>完全平方数</strong> 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9 和 16 都是完全平方数，而 3 和 11 不是。</p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 12</span><br><span class="line">输出：3 </span><br><span class="line">解释：12 = 4 + 4 + 4</span><br></pre></td></tr></table></figure>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 13</span><br><span class="line">输出：2</span><br><span class="line">解释：13 = 4 + 9</span><br></pre></td></tr></table></figure>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
+<li>$1 &lt;= n &lt;= 10^4$ </li>
+</ul>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/perfect-squares">https://leetcode-cn.com/problems/perfect-squares</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h4 id="1-动态规划"><a href="#1-动态规划" class="headerlink" title="1.动态规划"></a>1.动态规划</h4><p>&emsp;&emsp;看到这道题的时候，第一感觉就是动态规划，思考一下其中的过程。对于一个数 $n$，我们将其表示成一个完全平方数 $i^2$ 和另一个数的和，这个问题就转化了成了另一个更小的数 $n-i^2$ 的问题。那么我们令 $f(n)$ 是和为 $n$ 的完全平方数的最少数量，我们要找的是使得 $f(n-i^2)$ 最小的那个 $i$，则有以下动态规划转移方程 $\displaystyle f(n) = 1 + \min^{\lfloor\sqrt{n}\rfloor}_{i}(f(n-i^2))$。特别的，我们令 $f(0)=0$，这样一个完全平方数就刚好能用本身表示。而状态转移是需要用到更小的状态，则我们从小到大进行动态规划即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n+<span class="number">1</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> mindp = INT_MAX;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> root = <span class="number">1</span>; root * root &lt;= i; root++)&#123;</span><br><span class="line">                mindp = <span class="built_in">min</span>(mindp, dp[i-root*root]);</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i] = mindp + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n\sqrt{n})$，其中 $n$ 是正整数的大小。我们进行了从 1 到 $n$ 的动态规划，而每次规划需要计算 $\lfloor\sqrt{n}\rfloor$ 个状态中的最小值。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 是正整数的大小。也即存储动态规划状态的数组大小。</p>
+<h4 id="2-数学方法-官方题解"><a href="#2-数学方法-官方题解" class="headerlink" title="2.数学方法 - 官方题解"></a>2.数学方法 - 官方题解</h4><p>&emsp;&emsp;做出了上面那种动态规划的方法后，总是觉得状态转移需要 $\sqrt{n}$ 个状态有点多，以为有更好的动态规划，没想到那样就是动态规划的解法了。而更好的解法是使用数学定理的，这个实在是知识盲区。<br>&emsp;&emsp;这里使用到的数学定理是 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9B%E5%B9%B3%E6%96%B9%E5%92%8C%E5%AE%9A%E7%90%86">四平方和定理</a>。这个定理说，每个正整数均可表示为 4 个整数的平方和。也就是说，这道题的答案不会超过 4。同时四平方和定理包含了一个更强的结论：当且仅当 $n\neq4^k\times(8m+7)$ 时，$n$ 可以被表示为至多三个正整数的平方和。也就是说，当 $n=4^k\times(8m+7)$ 时，答案一定是 4。而对于剩下的数，还剩下 3 种可能。如果答案是 1，也即该数本身就是完全平方数，容易判断。如果答案是 2，则 $n$ 可以表示成两个完全平方数的和，则我们枚举不大于 $\sqrt{\frac{n}{2}}$ 的平方，并判断减去之后另一个数是不是也是完全平方数就可以了。而剩下的数答案就是 3。<br>&emsp;&emsp;这里对官方题解做了一点点修改，官方题解枚举答案 2 的时候是枚举到了 $\sqrt{n}$，其实到了一半就可以了。并且在看官方题解的时候，注意到了求平方根函数 <code>sqrt</code> 的时间复杂度是 $O(1)$，有点不解，去了解了一下算法原理，看完神清气爽，不得不感叹前人的智慧。这里附上链接 <a target="_blank" rel="noopener" href="https://blog.csdn.net/u013095333/article/details/112059935">sqrt方法复杂度探讨</a>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 判断是否为完全平方数</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> y = <span class="built_in">sqrt</span>(x);</span><br><span class="line">        <span class="keyword">return</span> y * y == x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断是否能表示为 4^k*(8m+7)</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkAnswer4</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (x % <span class="number">4</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            x /= <span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x % <span class="number">8</span> == <span class="number">7</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isPerfectSquare</span>(n)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">checkAnswer4</span>(n)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i * i &lt;= n / <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> j = n - i * i;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isPerfectSquare</span>(j)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(\sqrt{n})$，其中 $n$ 为给定的正整数。最坏情况下答案为 3，我们需要运行所有的判断，而判断答案是否为 1 的时间复杂度为 $O(1)$，判断答案是否为 4 的时间复杂度为 $O(\log n)$，判断为 2 的时间复杂度为 $O(\sqrt{n})$。<br>&emsp;&emsp;空间复杂度：$O(1)$。我们只需要常数的空间保存若干变量。</p>
+<h4 id="3-贪心法-官方题解评论区"><a href="#3-贪心法-官方题解评论区" class="headerlink" title="3.贪心法 - 官方题解评论区"></a>3.贪心法 - 官方题解评论区</h4><p>&emsp;&emsp;在看官方题解的评论的时候，还看到一种贪心的方法。通过上面的分析我们也知道，这道题的答案是不会超过 4 的，所以其实使用贪心的思路不会比正向动态规划慢。贪心的思路就是贪心地认为是 1 个完全平方数的和，不行再判断是不是 2 个完全平方数的和，不行再判断是不是 3 个完全平方数的和，以此类推直到找到答案。<br>&emsp;&emsp;这样做的好处是减少了很多对结果没有用的状态，相当于从结果倒推需要的状态，类似于 DFS 的思想去搜索，在这道题应该是蛮快的。这里附上评论区大佬的 python 代码。这份代码还可以优化，p 循环不需要 ps 里面的所有数，大于 n/2 之后就可以停止了。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ps = <span class="built_in">set</span>([i * i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">int</span>(n**<span class="number">0.5</span>)+<span class="number">1</span>)])</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divisible</span>(<span class="params">n, count</span>):</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">1</span>: <span class="keyword">return</span> n <span class="keyword">in</span> ps</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> ps:</span><br><span class="line">        <span class="keyword">if</span> divisible(n-p, count-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> count <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> divisible(n, count):</span><br><span class="line">        <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fas fa-coffee"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fas fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fas fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://ender-coder.github.io/2021/08/05/Leetcode%20279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://ender-coder.github.io/2021/08/05/Leetcode%20279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/";
+            const title         = "「Leetcode 279.完全平方数」";
+            const excerpt       = `题目描述：给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, …）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fas fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a>, <a class="tag-none-link" href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" rel="tag">数学方法</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-08-05</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 操作系统原理 知识总结" href="/2021/08/05/操作系统原理 知识总结/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" Leetcode 283.移动零" href="/2021/08/05/Leetcode 283.移动零/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+            <div id="v-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Valine({
+                el: '#v-comments',
+                appId: 'xViI6ucIqBOwXsIxB7YGyFWu-gzGzoHsz',
+                appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
+                visitor: true,
+                enableQQ: true,
+                path: '/2021/08/05/Leetcode%20279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/'
+            });
+        }
+        if (typeof Valine == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
+        
+    </article>
+</section>
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/spider-man.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=1498076242&auto=0&height=66"></iframe></p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fas fa-archive"></i>分类</h4>
+    <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/categories/Leetcode/">
+            <i class="fas fa-folder"></i> Leetcode
+            <span>73</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/Project/">
+            <i class="fas fa-folder"></i> Project
+            <span>1</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/Test/">
+            <i class="fas fa-folder"></i> Test
+            <span>1</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/">
+            <i class="fas fa-folder"></i> 复习资料
+            <span>5</span>
+          </a>
+        
+      </ul>
+    </div>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fas fa-tags"></i>标签云</h4>
+      <div class="tag-clouds">
+        <a href="/tags/BFS/" style="font-size: 0.67em;">BFS</a> <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/DFS/" style="font-size: 0.71em;">DFS</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/set/" style="font-size: 0.6em;">set</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.64em;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 0.73em;">二叉树</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 0.6em;">位运算</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 0.62em;">分治</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.78em;">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 0.62em;">单调栈</a> <a href="/tags/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95/" style="font-size: 0.67em;">原地算法</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.69em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.69em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.71em;">回溯</a> <a href="/tags/%E5%A0%86/" style="font-size: 0.6em;">堆</a> <a href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" style="font-size: 0.6em;">字典序</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">归并排序</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.69em;">快慢指针</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">快速排序</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.62em;">排序</a> <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/" style="font-size: 0.6em;">摩尔投票</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 0.67em;">数学方法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.64em;">数据结构</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.64em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.62em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 0.6em;">贪心</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 0.71em;">迭代</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.76em;">递归</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.67em;">队列</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+    <h4 class="widget-title"><i class="fas fa-folder"></i>最新文章</h4>
+    <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/06/Leetcode%20287.%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E6%95%B0/"><i class="fas fa-file-alt"></i> Leetcode 287.寻找重复数</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/05/Leetcode%20283.%E7%A7%BB%E5%8A%A8%E9%9B%B6/"><i class="fas fa-file-alt"></i> Leetcode 283.移动零</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/05/Leetcode%20279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/"><i class="fas fa-file-alt"></i> Leetcode 279.完全平方数</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"><i class="fas fa-file-alt"></i> 操作系统原理 知识总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/04/Leetcode%20240.%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5%20II/"><i class="fas fa-file-alt"></i> Leetcode 240.搜索二维矩阵 II</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+    </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fas fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fas fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fas fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <li><a href="" title="1422112890"><i class="fab fa-qq fa-fw"></i></a></li>
+                        <li><a href="" title="Ender0u0"><i class="fab fa-weixin fa-fw"></i></a></li>
+                        
+                        <li><a href="mailto:1422112890@qq.com" title="1422112890@qq.com"><i class="fas fa-envelope fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://www.instagram.com/Ender0u0" title="Ender0u0"><i class="fab fa-instagram fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Ender-coder" title="Ender-coder"><i class="fab fa-github fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://www.zhihu.com/people/ender-95-27" title="Ender"><i class="fab fa-zhihu fa-fw"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li><i class='fas fa-fan fa-spin fa-fw'></i> 努力运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos-Rebirth</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                        <div>
+                            <li>&copy; 2021 Ender 版权所有.</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.js"></script>
+    </div>
+
+<script async src="/js/candy.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.js"></script>
+<script defer src="/js/pjax.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+    <script>
+    // Initialize
+    const init = () => {
+        mermaid.initialize({theme: 'dark'});
+    };
+    const reload = () => {
+        mermaid.init(undefined, ".mermaid");
+    };
+    if (typeof mermaid == 'undefined') {
+        const src = 'https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js';
+        $.getScript(src, init);
+    }
+    // Set PJAX callback function
+    window.addEventListener('pjax:complete', reload);
+</script>
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
