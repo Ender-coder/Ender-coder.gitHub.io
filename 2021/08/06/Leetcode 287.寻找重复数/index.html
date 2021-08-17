@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
 <meta property="article:published_time" content="2021-08-05T16:37:00.000Z">
-<meta property="article:modified_time" content="2021-08-05T17:11:12.213Z">
+<meta property="article:modified_time" content="2021-08-16T15:14:46.619Z">
 <meta property="article:author" content="Ender">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="快慢指针">
@@ -150,7 +150,7 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1628183472213"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1629126886619"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
@@ -173,7 +173,7 @@
 </ul>
 <h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-the-duplicate-number">https://leetcode-cn.com/problems/find-the-duplicate-number</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;使用抽屉原理就可以证明进阶要求的第一问，不再赘述。<br>&emsp;&emsp;题目要求不能修改原数组，且只能用常量级的空间，那么排序做法、哈希做法都是不能用的。由于没有仔细看提示（只研究了一下 1 到 n 的和会不会超过 int 上限），并且给出的示例也不够好，以为重复的那个数出现了两次，那么其他数就刚好都出现一次，直接使用数组总和减去 1 到 n 的和，打码测试示例提交一气呵成，以为秒杀却非常悲惨地收到一个 WA。<br>&emsp;&emsp;这下明白了，重复的数字是可以出现多次的，也即是说，其他数字也可以不出现，这下就比较难用到 1 到 n 的一些性质了。我们通过一个萝卜一个坑的原理思考一下可行性，如果使用 <code>nums[i]</code> 与 <code>i</code> 之间的映射会出现什么情况呢？我们把它们的这种联系视为链表，则重复的那个数字下标，会出现多个指针指向它的情况。我们从下标 0 出发，则如果数字不重复，通过这个映射，我们会得到一条链，而直到重复数字出现，重新指向了之前指向的下标，也就是形成了环。<br>&emsp;&emsp;注意这里有个很重要的一点，不重复的数字之间通过映射也是可能形成一个首尾相连的环的，但是这些数字不含 0，因此从下标 0 出发一定不会得到首尾相连的环，那么成环的那个就一定是重复的数字了。而且这样的映射数组里的数字不会超过 n，这说明肯定不会形成一条链，那么我们从 0 出发肯定能找到答案。答案就是从 0 出发的链表中环的入口，这样这道题已经转化成了我们做过的一道题 <a href="https://ender-coder.github.io/2021/07/03/Leetcode%20142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/">Leetcode 142.环形链表II</a>。这道题的最佳算法是使用快慢指针，时间复杂度就是 $O(n)$，符合进阶要求。</p>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;使用抽屉原理就可以证明进阶要求的第一问，不再赘述。<br>&emsp;&emsp;题目要求不能修改原数组，且只能用常量级的空间，那么排序做法、哈希做法都是不能用的。由于没有仔细看提示（只研究了一下 1 到 n 的和会不会超过 int 上限），并且给出的示例也不够好，以为重复的那个数出现了两次，那么其他数就刚好都出现一次，直接使用数组总和减去 1 到 n 的和，打码测试示例提交一气呵成，以为秒杀却非常悲惨地收到一个 WA。<br>&emsp;&emsp;这下明白了，重复的数字是可以出现多次的，也即是说，其他数字也可以不出现，这下就比较难用到 1 到 n 的一些性质了。我们通过一个萝卜一个坑的原理思考一下可行性，如果使用 <code>nums[i]</code> 与 <code>i</code> 之间的映射会出现什么情况呢？我们把它们的这种联系视为链表，则重复的那个数字下标，会出现多个指针指向它的情况。我们从下标 0 出发，则如果数字不重复，通过这个映射，我们会得到一条链，而直到重复数字出现，重新指向了之前指向的下标，也就是形成了环。<br>&emsp;&emsp;注意这里有个很重要的一点，不重复的数字之间通过映射也是可能形成一个首尾相连的环的，但是这些数字不含 0，因此从下标 0 出发一定不会得到首尾相连的环，那么成环的那个就一定是重复的数字了。而且这样的映射数组里的数字不会超过 n，这说明肯定不会形成一条链，那么我们从 0 出发肯定能找到答案。答案就是从 0 出发的链表中环的入口，这样这道题已经转化成了我们做过的一道题 <a href="https://ender-coder.github.io/2021/07/03/Leetcode%20142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%20II/">Leetcode 142.环形链表 II</a>。这道题的最佳算法是使用快慢指针，时间复杂度就是 $O(n)$，符合进阶要求。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findDuplicate</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> fast = <span class="number">0</span>, slow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            fast = nums[nums[fast]];</span><br><span class="line">            slow = nums[slow];</span><br><span class="line">        &#125;<span class="keyword">while</span>(fast != slow);</span><br><span class="line">        fast = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(fast != slow)&#123;</span><br><span class="line">            fast = nums[fast];</span><br><span class="line">            slow = nums[slow];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 是数组的大小。形成的链表大小不会超过 $n$，而找到一条长度为 $n$ 的链表的环入口时间复杂度是 $O(n)$。<br>&emsp;&emsp;空间复杂度：$O(1)$。我们只是通过映射把原数组视为链表，实际上只需要通过两个变量充当指针的角色在数组中迭代，并没有真正建立链表，需要的空间是常数级的。</p>
 <p>&emsp;&emsp;PS：官方题解中还有两种 $O(n\log n)$ 的做法，都是通过 1 到 n 的性质寻找的，分别是记录小于等于 <code>i</code> 的数字个数和使用二进制求出重复数的每一位。成功解决了重复数为多个时带来的影响，还是有借鉴意义的。</p>
@@ -269,7 +269,7 @@
                         <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" rel="tag">快慢指针</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-08-06</span>
+                    <span>最后编辑：2021-08-16</span>
                     </div>
                 </div>
             </footer>
@@ -345,7 +345,7 @@
         
           <a class="list-group-item" href="/categories/Leetcode/">
             <i class="fas fa-folder"></i> Leetcode
-            <span>85</span>
+            <span>93</span>
           </a>
         
           <a class="list-group-item" href="/categories/Project/">
@@ -373,7 +373,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fas fa-tags"></i>标签云</h4>
       <div class="tag-clouds">
-        <a href="/tags/BFS/" style="font-size: 0.66em;">BFS</a> <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/DFS/" style="font-size: 0.72em;">DFS</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/set/" style="font-size: 0.6em;">set</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.64em;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 0.74em;">二叉树</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 0.6em;">位运算</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 0.62em;">分治</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.78em;">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 0.62em;">单调栈</a> <a href="/tags/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95/" style="font-size: 0.66em;">原地算法</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.68em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.7em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.7em;">回溯</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.62em;">图论</a> <a href="/tags/%E5%A0%86/" style="font-size: 0.62em;">堆</a> <a href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" style="font-size: 0.6em;">字典序</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">归并排序</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.68em;">快慢指针</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">快速排序</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.64em;">排序</a> <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/" style="font-size: 0.6em;">摩尔投票</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 0.66em;">数学方法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.64em;">数据结构</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.64em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.62em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 0.62em;">贪心</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 0.7em;">迭代</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.76em;">递归</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.66em;">队列</a>
+        <a href="/tags/BFS/" style="font-size: 0.65em;">BFS</a> <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/DFS/" style="font-size: 0.73em;">DFS</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/set/" style="font-size: 0.6em;">set</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.64em;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 0.76em;">二叉树</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 0.62em;">位运算</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 0.62em;">分治</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.78em;">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 0.62em;">单调栈</a> <a href="/tags/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95/" style="font-size: 0.67em;">原地算法</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.67em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.73em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.71em;">回溯</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.62em;">图论</a> <a href="/tags/%E5%A0%86/" style="font-size: 0.62em;">堆</a> <a href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" style="font-size: 0.6em;">字典序</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">归并排序</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.67em;">快慢指针</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">快速排序</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.64em;">排序</a> <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/" style="font-size: 0.6em;">摩尔投票</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 0.65em;">数学方法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.64em;">数据结构</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.64em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.64em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 0.62em;">贪心</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 0.69em;">迭代</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.75em;">递归</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.65em;">队列</a>
       </div>
   </aside>
 
@@ -387,34 +387,50 @@
         
           
           
-            <a class="list-group-item" href="/2021/08/14/Leetcode%20416.%E5%88%86%E5%89%B2%E7%AD%89%E5%92%8C%E5%AD%90%E9%9B%86/"><i class="fas fa-file-alt"></i> Leetcode 416.分割等和子集</a>
+            <a class="list-group-item" href="/2021/08/17/Leetcode%20560.%E5%92%8C%E4%B8%BAK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/"><i class="fas fa-file-alt"></i> Leetcode 560.和为K的子数组</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2021/08/14/Leetcode%20406.%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/"><i class="fas fa-file-alt"></i> Leetcode 406.根据身高重建队列</a>
+            <a class="list-group-item" href="/2021/08/17/Leetcode%20543.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/"><i class="fas fa-file-alt"></i> Leetcode 543.二叉树的直径</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2021/08/14/Leetcode%20399.%E9%99%A4%E6%B3%95%E6%B1%82%E5%80%BC/"><i class="fas fa-file-alt"></i> Leetcode 399.除法求值</a>
+            <a class="list-group-item" href="/2021/08/17/Leetcode%20538.%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/"><i class="fas fa-file-alt"></i> Leetcode 538.把二叉搜索树转换为累加树</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2021/08/14/Leetcode%20394.%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A7%A3%E7%A0%81/"><i class="fas fa-file-alt"></i> Leetcode 394.字符串解码</a>
+            <a class="list-group-item" href="/2021/08/17/Leetcode%20494.%E7%9B%AE%E6%A0%87%E5%92%8C/"><i class="fas fa-file-alt"></i> Leetcode 494.目标和</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2021/08/13/Leetcode%20347.%E5%89%8D%20K%20%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/"><i class="fas fa-file-alt"></i> Leetcode 347.前 K 个高频元素</a>
+            <a class="list-group-item" href="/2021/08/17/Leetcode%20461.%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/"><i class="fas fa-file-alt"></i> Leetcode 461.汉明距离</a>
             
           
         
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
             
           
