@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="../images/spider-man.webp">
+  <title>Leetcode 621.任务调度器 | 心之所向便是光</title>
+  <meta name="author" content="Ender" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="C++, 贪心" />
+  
+  <meta name="description" content="题目描述：给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间。你需要计算完成所有任务所需要的 最短时间 。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 621.任务调度器">
+<meta property="og:url" content="http://ender-coder.github.io/2021/08/18/Leetcode%20621.%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/index.html">
+<meta property="og:site_name" content="心之所向便是光">
+<meta property="og:description" content="题目描述：给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间。你需要计算完成所有任务所需要的 最短时间 。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ender-coder.github.io/images/spider-man.webp">
+<meta property="article:published_time" content="2021-08-18T14:38:00.000Z">
+<meta property="article:modified_time" content="2021-08-18T15:15:25.724Z">
+<meta property="article:author" content="Ender">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="贪心">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ender-coder.github.io/images/spider-man.webp">
+<meta name="twitter:site" content="@undefined">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  <script src="//cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fas fa-home fa-fw"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fas fa-folder fa-fw"></i>归档</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fas fa-comments fa-fw"></i>友链</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/about"><i class="fas fa-paper-plane fa-fw"></i>关于</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">心之所向便是光</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>心之所向便是光</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                
+                    <h1 class="kratos-entry-title text-center">Leetcode 621.任务调度器</h1>
+                
+                
+                <ul class="kratos-post-meta text-center">
+                    <li><i class="fas fa-calendar-alt"></i> 2021-08-18</li>
+                    <li><i class="fas fa-user"></i> 作者 Ender</li>
+                    <li>
+                        <i class="fas fa-edit"></i> 
+                        
+                        
+                            3.29K
+                        
+                        字
+                    </li>
+                    
+                        <li id="/2021/08/18/Leetcode%20621.%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/" class="leancloud_visitors" data-flag-title="Leetcode 621.任务调度器">
+                            <i class="fas fa-eye"></i>
+                            <span class="leancloud-visitors-count"> </span> 次阅读
+                        </li>
+                        
+                    
+                </ul>
+            </header>
+            <div class="kratos-post-content">
+                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                    本文最后编辑于 <time datetime="1629299725724"></time> 前，其中的内容可能需要更新。
+                </div>
+                
+                <hr />
+                <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给你一个用字符数组 <code>tasks</code> 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。在任何一个单位时间，CPU 可以完成一个任务，或者处于待命状态。</p>
+<p>然而，两个 <strong>相同种类</strong> 的任务之间必须有长度为整数 <code>n</code> 的冷却时间，因此至少有连续 <code>n</code> 个单位时间内 CPU 在执行不同的任务，或者在待命状态。</p>
+<p>你需要计算完成所有任务所需要的 <strong>最短时间</strong> 。</p>
+<h3 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;], n = 2</span><br><span class="line">输出：8</span><br><span class="line">解释：A -&gt; B -&gt; (待命) -&gt; A -&gt; B -&gt; (待命) -&gt; A -&gt; B</span><br><span class="line">     在本示例中，两个相同类型任务之间必须间隔长度为 n = 2 的冷却时间，而执行一个任务只需要一个单位时间，所以中间出现了（待命）状态。 </span><br></pre></td></tr></table></figure>
+<h3 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;], n = 0</span><br><span class="line">输出：6</span><br><span class="line">解释：在这种情况下，任何大小为 6 的排列都可以满足要求，因为 n = 0</span><br><span class="line">[&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;]</span><br><span class="line">[&quot;A&quot;,&quot;B&quot;,&quot;A&quot;,&quot;B&quot;,&quot;A&quot;,&quot;B&quot;]</span><br><span class="line">[&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;]</span><br><span class="line">...</span><br><span class="line">诸如此类</span><br></pre></td></tr></table></figure>
+<h3 id="示例-3："><a href="#示例-3：" class="headerlink" title="示例 3："></a>示例 3：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;,&quot;F&quot;,&quot;G&quot;], n = 2</span><br><span class="line">输出：16</span><br><span class="line">解释：一种可能的解决方案是：</span><br><span class="line">     A -&gt; B -&gt; C -&gt; A -&gt; D -&gt; E -&gt; A -&gt; F -&gt; G -&gt; A -&gt; (待命) -&gt; (待命) -&gt; A -&gt; (待命) -&gt; (待命) -&gt; A</span><br></pre></td></tr></table></figure>
+<h3 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h3><ul>
+<li>$1 &lt;= task.length &lt;= 10^4$ </li>
+<li><code>tasks[i]</code> 是大写英文字母</li>
+<li><code>n</code> 的取值范围为 <code>[0, 100]</code></li>
+</ul>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/task-scheduler">https://leetcode-cn.com/problems/task-scheduler</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>&emsp;&emsp;我们最先想到的应该是贪心的做法，也就是任务量最多的任务先完成。而执行一个任务之后都要等待 <code>n</code> 时间过后才能继续该任务，那么我们可以将 <code>n+1</code> 时间视为一个执行周期。假设任务量最多的任务次数是 <code>maxtimes</code>，那么我们至少就需要 <code>maxtimes</code> 个执行周期。假设任务数最多的任务是 A，需要执行 6 次，等待时间 <code>n=2</code>。那么我们的执行示意图就如下图所示。当然最后一个执行周期执行完 A 就可以结束了。总时间是 <code>(2+1)*(6-1)+1=16</code></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAADHCAIAAAD5+S2aAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAANEklEQVR4nO3df0xV5x3H8S/LEhtNBC8gIj9ExGuUYoKwClitWyFoI1ZrYKldZldsV9tIbLNuabIlJLZpGpPW3aZ/bJPGdtOmkk6rRCXQ1pbJD3eBRKaL1+uV8aOIIAqJZv2r++NOBpwL95yz56QHn/frv/ucQ/LNk/vJPef5Hs4T891338lkV6+Fli/LFFjEvNnDvNljdd5+4FwpANyDqANaIOqAFog6oAWiDmiBqANaIOqAFog6oAWiDmjhh1evhaYMebOWfS+lALAkELxm/uQY44OxMTEx+z4tVVqSFg7uqGfebGDe7Dm4o94Y3hlwAQ9ogagDWiDqgBaIOqAFog5ogagDWrAT9Tun2g7uqD/4evcd5eUAcIaNqN8NNd8Rb5wEBkMD6gsC4ATrUR8YCgTk4YrMh+VOwH/XgZIAqGc56nf8gzckNSs3Mf/ZuBuHu7sdqAmAclajPuQ/fGfRsxkZInH5SYukL9jpRFUAFLMY9c6b/5A4b/48EZHkRK9X/tE25ERZANSyFvXutj7xJmUmhz/NW1ORKg03u9VXBUAxK1Ef6G5tkIcrMuLGR3IXPix9radYnAPczkLU7y/ITRxLzCqRG81DNNgBlzMf9buh5jtSsjBj8mjG2lQa7ID7/dDsiQNDgYBIoONgQ4SDAf/dNWXzFJYFQC2zUe/+7MoNSd3w24Uew6GRto6vD3d3l2VnKK0MgEImoz4UbJBFz2asyY3w052xaEWg4UqwMzsj13gQgCuYu1ef2E43osEOuJ6pqE9upxvNyyyKo8EOuJmJqA90tzbIoqLEuOlPCT8kS4MdcK3oUb/jH7wxw9V7WHKi10uDHXCv6MtycWVr95VFPWvemrdK16goCIATeOEUoAWiDmiBqANaIOqAFmKMmzmyEyswKyjYibX41b8pLUkLje88yrzZwLzZ0/jOo+zECmAqog5ogagDWiDqgBaIOqAFog5owU7U77X/svGdRxs//uSe8nIAOMNG1PuGApckOVsGvhi6rb4gAE6wHvXb5wcHJKXgFylyaTDU50BJANSzHPV7oS/GZGvi0oIlj2WPfXV02ImiAKhmNeqt//rq0vzHdiaIzM38yXw5OXTdkbIAqGUx6te/7pfspMxUEZEF65KSpT/Y6kRZANSyFvXh4ElJ/knigvCn1CUFW6Xra67hAfezEvXbn4S6JKXgp3PHR5ZuSJGToXYW5wC3sxD1+wtyE8cKEnNkLHCeBjvgcuaj3jcUuCQ5GxImjyZkbaXBDrif6Z1Yb58fHBAZ+FVjV4SDg6G+JXmpCssCoJbZqA/73xuTrcu3bzDu/HA3+KurXx0dzvt1QoS/A+AKJqPeOtQl8x/buWRphJ/uhLi9g13vDV3/dcJS40EArmDuXn1iO92IBjvgeqaiPrmdbpSa6M2mwQ64mYmo3/4k1CXzvevmTn9K+CFZGuyAa0WP+r3QF2MzXL2HLViXlEyDHXCv6Mtyc/P+UJwX9azUJU//bYmKggA4gRdOAVog6oAWiDqgBaIOaIGdWIHZSsFOrN+dU1mQJmI2CvNmA/NmT8xGYSdWAFMRdUALRB3QAlEHtEDUAS0QdUALdqIerJWYjRLzkgSVlwPAGXaiXvelyCqRy1LXr7weAI6wHvV+OXZZXtglL4gca3agIgAOsBz1YLO0iGxbK6+9LC3vyxknigKgmuWoH3hfCl+WzSJZRVIocqLNiaoAKGYx6m3yR5GKIhERSZGKVfLHJgeKAqCataifaRJZJVtS/vtx3y6ROq7hgVnAStT7ZX+dvLBLssZH1soLIvtr1ZcFQC0LUR9fkJto2xZp+ZIGO+B2FqJe96XIFtk8eXDzehrswCxgeifWfjl2WeSyxNRFOHisWfaVK6wKgGJmo37mY2kRefdtWWE4dKVJXnlfzpRP/cEH4B5mo36iTgpfln1rIxzanCrH6uREm2yOdBSAG5i7V5/YTjeiwQ64nqmoT2mnG235MQ12wNVMRL1f9tdJ4Y8ntNMNwg/J0mAHXCt61MPt9Gmv3sNSpGIVDXbAvXgPvDK8z9we5s0e3gMPIAKiDmiBqANaIOqAFtiJFZitFOzE+syfLiktSQtHns9m3mxg3uw58nw2K/AApiLqgBaIOqAFog5ogagDWiDqgBbsRH2s4ekjz2cfeeujMeXlAHCGjaj39PsvSuZqCZ3pH1RfEAAnWI/64LmekGRteSlLLvZc7HGgJADqWY762MUzw1KelrN+ZcXq4WMffONEUQBUsxr1pn8eu5hQ8dxikfmrNydIbW+XI2UBUMti1Ls+D8rq9NXpIiJJG9MzJdjJm2KBWcBa1L/prJXMzSlJ4U/pK7eUS9PnXMMD7mcl6oMfdTVJ1pafzx8fyXk8S2q7GlicA9zOQtTvL8hNHFuftl6G/edosAMuZz7qPf3+i7L+8cWTRxfnltNgB9zP9E6sg+d6QiKhF49EWobrudizsiRdYVkA1DIb9W/q3x6W8jVVj8caDo12vthx7INvSqoXR/g7AK5gMupNvU2SUPHcypwIP92LF/6mp+nt3q7qxTnGgwBcwdy9+sR2uhENdsD1TEV9cjvdKD0lfzUNdsDNTER98KOuJknI3zh/+lPCD8nSYAdcK3rUxy6eGZ7h6j0saWN6Jg12wL2iL8vNL/n4mZKoZ6WvfP3SShUFAXACL5wCtEDUAS0QdUALRB3QAjuxArOVgp1Yb/0uV2lJWojf38m82cC82RO/v5OdWAFMRdQBLRB1QAtEHdACUQe0QNQBLdiJ+vXWK/H7O+M/uHldeTkAnGEj6t+evXxPUuZK/+2zI+oLAuAE61EfGT3RL7s2LNol904EvnWgJADqWY769cBtv8Q/kRW7t2Suv2Gw0YmiAKhmNeqj7zXcyy9JKhZZ6l2QL7dOBx0pC4BaFqMeHP1Q5m7zzhER8cRuS5EPr4w6URYAtaxFvfHKLUlZsMkT/jRnz4Z46RjlGh5wPytRH7l5oEN2bVi4dHwkK3aX3DrQyuIc4HYWon5/QW7iWOwTa8R/eZQGO+By5qP+7dnL92RNbPHk0eIV8TTYAfczvRPryOiJfpH+UHxHhIMnAt/uKZijsCwAapmNemNLv1/i33g6drnh0NUrod82DDYWpBdH+DsArmAy6qOnOyS/JGlPVoSf7mJPyomO/tPB9OIs40EArmDuXn1iO92IBjvgeqaiPrmdbjRn06q5NNgBNzMR9ZGbBzokf1Xs0ulPCT8kS4MdcK3oUb8euO2f4eo9zBO7LYUGO+Be0ZfllhasuFUQ9aw5e57L3aOiIABO4IVTgBaIOqAFog5ogagDWmAnVmC2UrAT67///qnSkrTw0I92VFdXf99VzD7V1dXMmw3V1dXsxApgKqIOaIGoA1og6oAWiDqgBaIOaMFO1K8dff2hH+146LlTFpp6AL5XNqI+cLoxIDle6Wo+3au+IABOsB71Xn9tl1TurqiUQG3TgAMlAVDPctSvNTVfkJKtRbmvvuK98O5n9U4U9YAZGZnmNfnTjUNEmDfFrEa98513A4+88mSpyLL1RY9Iw8lmR8p6gIxcPe/zHWoxfDtHWg75fKeu8q2dxkjwvM9X02qct9Yan+9UkHmzymLUm9tqxFu+PllEJC2/PEdqznU6UdYDxLO8rKpU6ienfaTlkK9eSqvKlk/7bk7debLKqjbJ2clpH2mt8Z2VTVVlWcybVdaiXn+uQXKKnkgLf0reu7tEjrdxDR+Np3D3xLTfz/nuQr6vM/IUVE5M+/2cVxYwbzaY3shJRHpPvXlcKn9f9r//cS1aWylvvHn0ydKdyepLe6B4CndXySGf79BwnrS3k3OzPAWVVVLj89UM5Ul7Ozn/P1j4Vb+/IDdxLHfrdrnQ6KfBboKncPczeX3t7X2ppU+Rc/M8BZU/y+ttb+9N27SdnNtnPuoDpxsDsn1t6eTR0o0lNNjNGWk5dKQ9NS8vta/+r8ZVOkxnpLXmL+1peXlpvWePG1fpYJbpC/hef22XSNcbDx2PcLC2aWAv1/AzmXh/vi7hkM93SLiGN2Hi/fm6xBqfr0a4hrfHbNTr/3z4gpQc+P1ar+FQ4Nwbr737Wf3OF0sj/B3EsA43ft9O2mc2ZR1u/L6dtNthMuqdJ4/LI688ubcowk93adqztccPn2x+sbTIeBAR19tJe1QR19tJu33mot7cViPeA+unuURPyy/POfzauc73i3IVVvag8BQ+VbXC4zF8Lz2Fu6tWjBjHEeYp2F7ljTRvBZVVXubNOlPLcpPb6UbJTxR7abBPK8L3NcoBiDBvipmIeu+pN4/LI8X5M7wyOvyQ7JtH+e8XwKWiR/1aU/OF8Ydhp5OWX55Dgx1wr+j36st2vvXvnVHPSt77wad7VRQEwAm8cArQAlEHtEDUAS0QdUAL7MQKzFb/706sV6+Fli/LVFqSFpg3e5g3e6zOGxfwgBaIOqAFog5ogagDWiDqgBaIOqAFog5o4T/jR0ODcY9o+gAAAABJRU5ErkJggg==" alt=""></p>
+<p>&emsp;&emsp;然后我们就可以对每个执行周期中的其他空位继续填入其他任务，我们先假设任务的总量可以安排到这些执行周期内。可以看到任务 B 执行次数跟 A 一样都是最大值，需要排到最后一个执行周期。而任务 C 是不会对结果有任何影响的。总时间是 <code>(2+1)*(6-1)+2=17</code>。这个时候即使将 C 下面的三个“等待”时间填满也可以。</p>
+<p><img src="data:image/png;base64,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" alt=""></p>
+<p>&emsp;&emsp;假设任务量最多的任务共有 <code>diff</code> 种，那么假设总的任务量没有超过 <code>(n+1)*(maxtimes-1)+diff</code> 时，我们肯定是能够按照这种方法将其安排进这些任务列表里的。<br>&emsp;&emsp;如果任务量超过了这个大小呢？比如下面所示，A、B、C、D 任务已经填满了这个表，而我们还有任务 F。这个时候其实我们直接将任务 F 加入到前面的执行周期就好了，为什么呢？执行周期的限制其实是对每列任务的限制，比如在这里，第一个周期的 A 执行过后，至少需要等待 2 个时间才能继续执行 A，那我们等到 3 个时间当然也是没有任何问题的。因此我们可以直接对每个执行周期任意延长。<br>&emsp;&emsp;注意这里“延长”执行周期并不是对所有的执行周期都延长，而是只延长需要的，比如这里，前两个执行周期延长到了 4，而下面的执行周期依然是 3。这个时候我们可以发现，其实我们需要的时间数就是所有的任务数，这个时候我们已经不需要任何的“待命”时间了。</p>
+<p><img src="data:image/png;base64,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" alt=""></p>
+<p>&emsp;&emsp;通过上面的分析，我们知道所需时间要么是 <code>(n+1)*(maxtimes-1)+diff</code>，要么是任务数，是两者中更大的那个。那么我们就只需要计算出任务量最多的任务，以及它们的种数。我们使用一个哈希表来记录每个任务的任务量，之后再遍历哈希表找出任务量最多的任务种类即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">leastInterval</span><span class="params">(vector&lt;<span class="keyword">char</span>&gt;&amp; tasks, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; times;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">char</span>&amp; ch : tasks)&#123;</span><br><span class="line">            times[ch]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> maxtimes = <span class="number">0</span>, diff;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; it : times)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it.second &gt; maxtimes)&#123;</span><br><span class="line">                maxtimes = it.second;</span><br><span class="line">                diff = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(it.second == maxtimes)&#123;</span><br><span class="line">                diff++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 这里注意 size() 的返回值是无符号数，需要进行强制类型转换</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>((n+<span class="number">1</span>)*(maxtimes<span class="number">-1</span>)+diff, <span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(tasks.<span class="built_in">size</span>()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;时间复杂度：$O(n)$，其中 $n$ 是任务数。我们只需要遍历一次任务进行记录，再遍历一次哈希表获取结果，哈希表的大小不会超过 $n$。<br>&emsp;&emsp;空间复杂度：$O(n)$，其中 $n$ 是任务数。也就是哈希表的开销。</p>
+<p>&emsp;&emsp;PS：上面的三个图来自 Leetcode 会员 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/u/popopop/">popopop</a> 发表的题解。由于我懒得画图，因此直接用同样的例子进行解释，然后就套用了 ta 的图，在这里表示感谢。</p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fas fa-coffee"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fas fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fas fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fab fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://ender-coder.github.io/2021/08/18/Leetcode%20621.%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://ender-coder.github.io/2021/08/18/Leetcode%20621.%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/";
+            const title         = "「Leetcode 621.任务调度器」";
+            const excerpt       = `题目描述：给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间。你需要计算完成所有任务所需要的 最短时间 。`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fas fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-08-18</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" Leetcode 617.合并二叉树" href="/2021/08/18/Leetcode 617.合并二叉树/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" Leetcode 647.回文子串" href="/2021/08/18/Leetcode 647.回文子串/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+            <div id="v-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Valine({
+                el: '#v-comments',
+                appId: 'xViI6ucIqBOwXsIxB7YGyFWu-gzGzoHsz',
+                appKey: 'nJvn3U27Xay2sVJ3rXtOj5yB',
+                visitor: true,
+                enableQQ: true,
+                path: '/2021/08/18/Leetcode%20621.%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/'
+            });
+        }
+        if (typeof Valine == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
+        
+    </article>
+</section>
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/spider-man.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=1498076242&auto=0&height=66"></iframe></p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fas fa-archive"></i>分类</h4>
+    <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/categories/Leetcode/">
+            <i class="fas fa-folder"></i> Leetcode
+            <span>98</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/Project/">
+            <i class="fas fa-folder"></i> Project
+            <span>1</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/Test/">
+            <i class="fas fa-folder"></i> Test
+            <span>1</span>
+          </a>
+        
+          <a class="list-group-item" href="/categories/%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/">
+            <i class="fas fa-folder"></i> 复习资料
+            <span>5</span>
+          </a>
+        
+      </ul>
+    </div>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fas fa-tags"></i>标签云</h4>
+      <div class="tag-clouds">
+        <a href="/tags/BFS/" style="font-size: 0.65em;">BFS</a> <a href="/tags/C/" style="font-size: 0.8em;">C++</a> <a href="/tags/DFS/" style="font-size: 0.72em;">DFS</a> <a href="/tags/Project/" style="font-size: 0.6em;">Project</a> <a href="/tags/set/" style="font-size: 0.6em;">set</a> <a href="/tags/test/" style="font-size: 0.6em;">test</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 0.63em;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 0.77em;">二叉树</a> <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 0.62em;">位运算</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 0.62em;">分治</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 0.78em;">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 0.63em;">单调栈</a> <a href="/tags/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95/" style="font-size: 0.67em;">原地算法</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.67em;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C/" style="font-size: 0.73em;">哈希</a> <a href="/tags/%E5%9B%9E%E6%BA%AF/" style="font-size: 0.7em;">回溯</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 0.62em;">图论</a> <a href="/tags/%E5%A0%86/" style="font-size: 0.62em;">堆</a> <a href="/tags/%E5%AD%97%E5%85%B8%E5%BA%8F/" style="font-size: 0.6em;">字典序</a> <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">归并排序</a> <a href="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" style="font-size: 0.67em;">快慢指针</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" style="font-size: 0.6em;">快速排序</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 0.63em;">排序</a> <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/" style="font-size: 0.6em;">摩尔投票</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 0.65em;">数学方法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.63em;">数据结构</a> <a href="/tags/%E6%A0%88/" style="font-size: 0.63em;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 0.63em;">滑动窗口</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">程序设计</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 0.63em;">贪心</a> <a href="/tags/%E8%BF%AD%E4%BB%A3/" style="font-size: 0.68em;">迭代</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.75em;">递归</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 0.65em;">队列</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+    <h4 class="widget-title"><i class="fas fa-folder"></i>最新文章</h4>
+    <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/19/Leetcode%20739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/"><i class="fas fa-file-alt"></i> Leetcode 739.每日温度</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/18/Leetcode%20647.%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/"><i class="fas fa-file-alt"></i> Leetcode 647.回文子串</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/18/Leetcode%20621.%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/"><i class="fas fa-file-alt"></i> Leetcode 621.任务调度器</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/18/Leetcode%20617.%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/"><i class="fas fa-file-alt"></i> Leetcode 617.合并二叉树</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/18/Leetcode%20581.%E6%9C%80%E7%9F%AD%E6%97%A0%E5%BA%8F%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84/"><i class="fas fa-file-alt"></i> Leetcode 581.最短无序连续子数组</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+    </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fas fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fas fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fas fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <li><a href="" title="1422112890"><i class="fab fa-qq fa-fw"></i></a></li>
+                        <li><a href="" title="Ender0u0"><i class="fab fa-weixin fa-fw"></i></a></li>
+                        
+                        <li><a href="mailto:1422112890@qq.com" title="1422112890@qq.com"><i class="fas fa-envelope fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://www.instagram.com/Ender0u0" title="Ender0u0"><i class="fab fa-instagram fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Ender-coder" title="Ender-coder"><i class="fab fa-github fa-fw"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://www.zhihu.com/people/ender-95-27" title="Ender"><i class="fab fa-zhihu fa-fw"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li><i class='fas fa-fan fa-spin fa-fw'></i> 努力运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos-Rebirth</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                        <div>
+                            <li>&copy; 2021 Ender 版权所有.</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.js"></script>
+    </div>
+
+<script async src="/js/candy.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.js"></script>
+<script defer src="/js/pjax.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+    <script>
+    // Initialize
+    const init = () => {
+        mermaid.initialize({theme: 'dark'});
+    };
+    const reload = () => {
+        mermaid.init(undefined, ".mermaid");
+    };
+    if (typeof mermaid == 'undefined') {
+        const src = 'https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js';
+        $.getScript(src, init);
+    }
+    // Set PJAX callback function
+    window.addEventListener('pjax:complete', reload);
+</script>
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
